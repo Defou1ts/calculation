@@ -19,6 +19,7 @@
 		"paths": {
 			"@/*": ["./src/*"],
 			"@assets": ["./assets"],
+			"@types": ["./types"],
 			"@components": ["./components"],
 			"@constants": ["./constants"],
 			"@pages": ["./pages"],

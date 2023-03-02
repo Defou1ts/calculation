@@ -1,5 +1,5 @@
 import { setBackgroundColor, setThemeType, setTextColor, useAppDispatch, useAppSelector } from '@store';
-import { ThemeColor, ThemeType } from 'types';
+import { ThemeColor, ThemeType } from '@types';
 
 export const useTheme = (): Record<string, () => void> => {
 	const theme = useAppSelector((state) => state.theme.theme);

@@ -1,1 +1,1 @@
-export * from './hooks/useTheme';
+export * from './routes/routes';

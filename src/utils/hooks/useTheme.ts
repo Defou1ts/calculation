@@ -28,5 +28,7 @@ export const useTheme = (): Record<string, () => void> => {
 
 	return {
 		toggleTheme,
+		setLightTheme,
+		setDarkTheme,
 	};
 };

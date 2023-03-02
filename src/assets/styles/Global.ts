@@ -1,7 +1,7 @@
+import { type ThemeState } from '@store';
 import { createGlobalStyle } from 'styled-components';
-import type { GlobalProps } from './Global.props';
 
-export const Global = createGlobalStyle<GlobalProps>`
+export const Global = createGlobalStyle<ThemeState>`
 	* {
 		margin: 0;
 		padding: 0;
@@ -13,8 +13,8 @@ export const Global = createGlobalStyle<GlobalProps>`
 		margin: 0;
 		padding: 0;
 		font-family: var(--font-family);
-		background: var(--white);
-		color: var(--black);
+		background: ${(props) => props.backgroundColor};
+		color: ${(props) => props.textColor};
 	}
 
 	a {

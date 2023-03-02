@@ -1,25 +1,33 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { ThemeType, ThemeColor } from 'types';
 
 export interface ThemeState {
-	theme: 'light' | 'dark';
+	theme: ThemeType;
+	backgroundColor: ThemeColor;
+	textColor: ThemeColor;
 }
 
 const initialState: ThemeState = {
-	theme: 'light',
+	theme: ThemeType.LIGHT,
+	backgroundColor: ThemeColor.WHITE,
+	textColor: ThemeColor.BLACK,
 };
 
 export const themeSlice = createSlice({
 	name: 'theme',
 	initialState,
 	reducers: {
-		setTheme: (
-			state,
-			action: PayloadAction<ThemeState[keyof ThemeState]>
-		) => {
+		setThemeType: (state, action: PayloadAction<ThemeType>) => {
 			state.theme = action.payload;
+		},
+		setBackgroundColor: (state, action: PayloadAction<ThemeColor>) => {
+			state.backgroundColor = action.payload;
+		},
+		setTextColor: (state, action: PayloadAction<ThemeColor>) => {
+			state.textColor = action.payload;
 		},
 	},
 });
 
-export const { setTheme } = themeSlice.actions;
+export const { setThemeType, setBackgroundColor, setTextColor } = themeSlice.actions;
 export default themeSlice.reducer;

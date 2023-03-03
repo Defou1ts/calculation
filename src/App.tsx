@@ -2,9 +2,10 @@ import React from 'react';
 import { Global } from '@styles';
 import { useAppSelector } from '@store';
 import { Route, Routes } from 'react-router-dom';
-import { ErrorBondary } from '@components';
+import { ErrorBondary, Layout } from '@components';
 import { type IRoute } from '@types';
 import { routes } from '@utils';
+import { HOME_ROUTE } from '@constants';
 
 export const App = (): JSX.Element => {
 	const theme = useAppSelector((state) => state.theme);
@@ -18,7 +19,11 @@ export const App = (): JSX.Element => {
 		<>
 			<Global {...theme} />
 			<ErrorBondary>
-				<Routes>{renderedRoutes}</Routes>
+				<Routes>
+					<Route path={HOME_ROUTE} element={<Layout />}>
+						{renderedRoutes}
+					</Route>
+				</Routes>
 			</ErrorBondary>
 		</>
 	);

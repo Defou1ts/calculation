@@ -25,8 +25,10 @@ export const Global = createGlobalStyle<ThemeState>`
 	:root {
 		--font-family: "Nunito", sans-serif;
 
-		--green: #6bc2bb;
-		--white: #ffffff;
-		--black: #000000;
+		--background: ${(props) => props.backgroundColor};
+		--content: ${(props) => props.contentColor};
+		--text: ${(props) => props.textColor};
+		--monitor: ${(props) => props.monitorColor};
+		--button: ${(props) => props.buttonColor};
 	}
 `;

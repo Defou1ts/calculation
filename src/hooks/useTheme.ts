@@ -1,5 +1,21 @@
-import { setBackgroundColor, setThemeType, setTextColor, useAppDispatch, useAppSelector } from '@store';
-import { ThemeColor, ThemeType } from '@types';
+import {
+	setBackgroundColor,
+	setThemeType,
+	setTextColor,
+	useAppDispatch,
+	useAppSelector,
+	setContentColor,
+	setMonitorColor,
+	setButtonColor,
+} from '@store';
+import {
+	ThemeBackgroundColor,
+	ThemeButtonColor,
+	ThemeContentColor,
+	ThemeMonitorColor,
+	ThemeTextColor,
+	ThemeType,
+} from '@types';
 
 export const useTheme = (): Record<string, () => void> => {
 	const theme = useAppSelector((state) => state.theme.theme);
@@ -8,14 +24,20 @@ export const useTheme = (): Record<string, () => void> => {
 
 	const setLightTheme = (): void => {
 		dispatch(setThemeType(ThemeType.LIGHT));
-		dispatch(setBackgroundColor(ThemeColor.WHITE));
-		dispatch(setTextColor(ThemeColor.BLACK));
+		dispatch(setBackgroundColor(ThemeBackgroundColor.LIGHT));
+		dispatch(setTextColor(ThemeTextColor.LIGHT));
+		dispatch(setContentColor(ThemeContentColor.LIGHT));
+		dispatch(setMonitorColor(ThemeMonitorColor.LIGHT));
+		dispatch(setButtonColor(ThemeButtonColor.LIGHT));
 	};
 
 	const setDarkTheme = (): void => {
 		dispatch(setThemeType(ThemeType.DARK));
-		dispatch(setBackgroundColor(ThemeColor.BLACK));
-		dispatch(setTextColor(ThemeColor.WHITE));
+		dispatch(setBackgroundColor(ThemeBackgroundColor.DARK));
+		dispatch(setTextColor(ThemeTextColor.DARK));
+		dispatch(setContentColor(ThemeContentColor.DARK));
+		dispatch(setMonitorColor(ThemeMonitorColor.DARK));
+		dispatch(setButtonColor(ThemeButtonColor.DARK));
 	};
 
 	const toggleTheme = (): void => {

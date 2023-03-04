@@ -22,6 +22,10 @@ export const Global = createGlobalStyle<ThemeState>`
 		color: inherit;
 	}
 
+	button {
+		border: none;
+	}
+
 	:root {
 		--font-family: "Nunito", sans-serif;
 

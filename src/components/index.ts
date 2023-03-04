@@ -1,4 +1,4 @@
-// FC
+// Functions
 export * from './Key/Key';
 export * from './Keyboard/Keyboard';
 

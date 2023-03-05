@@ -27,12 +27,12 @@ export const Global = createGlobalStyle<ThemeState>`
 	}
 
 	li {
-    	list-style-type: none; /* Убираем маркеры */
+    	list-style-type: none; 
 	}
 	
 	ul {
-    	margin-left: 0; /* Отступ слева в браузере IE и Opera */
-    	padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+    	margin-left: 0;
+    	padding-left: 0; 
 	}
 
 	:root {

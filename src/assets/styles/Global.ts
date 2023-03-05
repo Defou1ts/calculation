@@ -26,6 +26,15 @@ export const Global = createGlobalStyle<ThemeState>`
 		border: none;
 	}
 
+	li {
+    	list-style-type: none; /* Убираем маркеры */
+	}
+	
+	ul {
+    	margin-left: 0; /* Отступ слева в браузере IE и Opera */
+    	padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+	}
+
 	:root {
 		--font-family: "Nunito", sans-serif;
 

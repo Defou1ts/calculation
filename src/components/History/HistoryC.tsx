@@ -1,4 +1,5 @@
 import React from 'react';
+import { HistoryMonitorC } from '@components';
 import { HistoryWrapper, StyledHistoryTitle } from './styled';
 
 export class HistoryC extends React.Component {
@@ -6,6 +7,7 @@ export class HistoryC extends React.Component {
 		return (
 			<HistoryWrapper>
 				<StyledHistoryTitle>History</StyledHistoryTitle>
+				<HistoryMonitorC />
 			</HistoryWrapper>
 		);
 	}

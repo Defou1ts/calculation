@@ -1,5 +1,5 @@
-import { CalculatorC } from '@components';
 import React from 'react';
+import { CalculatorC, HistoryC } from '@components';
 import { Main } from './styled';
 
 export class HomeС extends React.Component {
@@ -7,7 +7,7 @@ export class HomeС extends React.Component {
 		return (
 			<Main>
 				<CalculatorC />
-				History
+				<HistoryC />
 			</Main>
 		);
 	}

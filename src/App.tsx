@@ -10,18 +10,15 @@ import { HOME_ROUTE } from '@constants';
 export const App = (): JSX.Element => {
 	const theme = useAppSelector((state) => state.theme);
 
-	const renderRoutes = (routes: IRoute[]): JSX.Element[] =>
-		routes.map(({ path, Component }: IRoute) => <Route key={path} path={path} element={Component} />);
-
-	const renderedRoutes = renderRoutes(routes);
-
 	return (
 		<>
 			<Global {...theme} />
 			<ErrorBondary>
 				<Routes>
 					<Route path={HOME_ROUTE} element={<Layout />}>
-						{renderedRoutes}
+						{routes.map(({ path, Component }: IRoute) => (
+							<Route key={path} path={path} element={Component} />
+						))}
 					</Route>
 				</Routes>
 			</ErrorBondary>

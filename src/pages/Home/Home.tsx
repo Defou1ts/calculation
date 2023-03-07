@@ -1,11 +1,11 @@
 import React from 'react';
-import { Calculator, History } from '@components';
+import { CalculatorFC, History } from '@components';
 import { Main } from './styled';
 
 export const Home = (): JSX.Element => {
 	return (
 		<Main>
-			<Calculator />
+			<CalculatorFC />
 			<History />
 		</Main>
 	);

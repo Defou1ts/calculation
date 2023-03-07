@@ -1,7 +1,7 @@
 // Functions
 export * from './Key/Key';
 export * from './Keypad/Keypad';
-export * from './Calculator/Calculator';
+export * from './Calculator/CalculatorFC';
 export * from './History/History';
 export * from './HistoryMonitor/HistoryMonitor';
 export * from './Display/Display';

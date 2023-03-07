@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const DisplayWrapper = styled.div`
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-content: space-between;
+
 	background-color: var(--monitor);
 	padding: 27px 22px;
 	border-radius: 10px;

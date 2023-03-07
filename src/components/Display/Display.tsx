@@ -1,8 +1,11 @@
+import { useAppSelector } from '@store';
 import React from 'react';
-import { type DisplayProps } from './Display.props';
 import { DisplayText, DisplayWrapper } from './styled';
 
-export const Display = ({ displayValue, result }: DisplayProps): JSX.Element => {
+export const Display = (): JSX.Element => {
+	const displayValue = useAppSelector((state) => state.calculator.displayValue);
+	const result = useAppSelector((state) => state.calculator.result);
+
 	const truncatedDisplayValue = displayValue.length > 18 ? displayValue.slice(0, 18) + '...' : displayValue;
 
 	return (

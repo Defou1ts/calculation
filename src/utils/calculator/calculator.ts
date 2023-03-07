@@ -3,7 +3,7 @@ import { Expression } from './expression';
 
 export class Calculator {
 	private readonly expression: Expression = new Expression('');
-	private readonly _history: string[] = [];
+	private _history: string[] = [];
 
 	executeCommand(command: Command): void {
 		this.expression.value = command.execute(this.expression.value);
@@ -29,11 +29,19 @@ export class Calculator {
 		return this.expression.value;
 	}
 
+	set currentExpression(expression: string) {
+		this.expression.value = expression;
+	}
+
 	private addToHistory(expression: string): void {
-		this._history.push(expression);
+		this._history = [...this._history, expression];
 	}
 
 	get history(): string[] {
 		return this._history;
+	}
+
+	set history(history: string[]) {
+		this._history = history;
 	}
 }

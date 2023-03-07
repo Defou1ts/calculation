@@ -1,14 +1,16 @@
+import { useAppSelector } from '@store';
 import React from 'react';
 import { MonitorItem, MonitorList, MonitorWrapper } from './styled';
 
 export const HistoryMonitor = (): JSX.Element => {
+	const history = useAppSelector((state) => state.calculator.history);
+
 	return (
 		<MonitorWrapper>
 			<MonitorList>
-				<MonitorItem>25+7=16</MonitorItem>
-				<MonitorItem>25+7=16</MonitorItem>
-				<MonitorItem>25+7=16</MonitorItem>
-				<MonitorItem>25+7=16</MonitorItem>
+				{history.map((value) => (
+					<MonitorItem key={value}>{value}</MonitorItem>
+				))}
 			</MonitorList>
 		</MonitorWrapper>
 	);

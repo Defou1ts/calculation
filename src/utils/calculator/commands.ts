@@ -38,6 +38,13 @@ export class AddMultiplier implements Command {
 	}
 }
 
+export class AddDot implements Command {
+	execute(expression: string): string {
+		if (expression.slice(-1) === '.') throw new Error(CalculatorExceptionType.DOUBLE_OPERATOR_ERROR);
+		return `${expression}.`;
+	}
+}
+
 export class AddOpenParent implements Command {
 	execute(expression: string): string {
 		return `${expression}(`;

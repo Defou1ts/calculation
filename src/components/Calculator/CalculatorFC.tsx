@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useAppDispatch, setResult, setHistory, setDisplayValue, useAppSelector } from '@store';
 import { Display, Keypad } from '@components';
+import { useAppDispatch, setResult, setHistory, setDisplayValue, useAppSelector } from '@store';
 import { CalculatorWrapper } from './styled';
 import {
 	AddCloseParent,
 	AddDivision,
+	AddDot,
 	AddMinus,
 	AddMultiplier,
 	AddNumber,
@@ -41,6 +42,9 @@ export const CalculatorFC = (): JSX.Element => {
 				break;
 			case ')':
 				calculator.executeCommand(new AddCloseParent());
+				break;
+			case '.':
+				calculator.executeCommand(new AddDot());
 				break;
 			case 'C':
 				calculator.clearExpression();

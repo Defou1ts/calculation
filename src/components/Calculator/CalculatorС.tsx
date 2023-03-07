@@ -4,6 +4,7 @@ import { CalculatorWrapper } from './styled';
 import {
 	AddCloseParent,
 	AddDivision,
+	AddDot,
 	AddMinus,
 	AddMultiplier,
 	AddNumber,
@@ -23,7 +24,9 @@ export class CalculatorC extends React.Component<Record<string, unknown>, Displa
 
 	constructor(props: any) {
 		super(props);
+
 		this.calculator = new Calculator();
+
 		this.state = {
 			displayValue: '',
 			history: [],
@@ -50,6 +53,9 @@ export class CalculatorC extends React.Component<Record<string, unknown>, Displa
 				break;
 			case ')':
 				this.calculator.executeCommand(new AddCloseParent());
+				break;
+			case '.':
+				this.calculator.executeCommand(new AddDot());
 				break;
 			case 'C':
 				this.calculator.clearExpression();

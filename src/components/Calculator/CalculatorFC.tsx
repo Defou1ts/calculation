@@ -51,7 +51,7 @@ export const CalculatorFC = (): JSX.Element => {
 				dispatch(setResult(null));
 				break;
 			case 'CE':
-				calculator.undo();
+				calculator.undoExpression();
 				break;
 			case '=':
 				dispatch(setResult(calculator.calcResult()));
@@ -60,11 +60,11 @@ export const CalculatorFC = (): JSX.Element => {
 			default:
 				calculator.executeCommand(new AddNumber(+value));
 		}
-		dispatch(setDisplayValue(calculator.currentExpression));
+		dispatch(setDisplayValue(calculator.expression));
 	}, []);
 
 	useEffect(() => {
-		calculator.currentExpression = displayValue;
+		calculator.expression = displayValue;
 		calculator.history = history;
 	}, []);
 

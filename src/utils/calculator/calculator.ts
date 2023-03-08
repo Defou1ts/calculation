@@ -2,35 +2,19 @@ import { type Command } from '@types';
 import { Expression } from './expression';
 
 export class Calculator {
-	private readonly expression: Expression = new Expression('');
+	private readonly _expression: Expression = new Expression('');
 	private _history: string[] = [];
 
 	executeCommand(command: Command): void {
-		this.expression.value = command.execute(this.expression.value);
+		this._expression.value = command.execute(this._expression.value);
 	}
 
 	calcResult(): number {
-		const result = this.expression.calculate();
+		const result = this._expression.calculate();
 
-		this.addToHistory(`${this.expression.value}=${result}`);
+		this.addToHistory(`${this._expression.value}=${result}`);
 
 		return result;
-	}
-
-	undo(): void {
-		this.expression.removeLastCharacter();
-	}
-
-	clearExpression(): void {
-		this.expression.clear();
-	}
-
-	get currentExpression(): string {
-		return this.expression.value;
-	}
-
-	set currentExpression(expression: string) {
-		this.expression.value = expression;
 	}
 
 	private addToHistory(expression: string): void {
@@ -43,5 +27,21 @@ export class Calculator {
 
 	set history(history: string[]) {
 		this._history = history;
+	}
+
+	get expression(): string {
+		return this._expression.value;
+	}
+
+	set expression(expression: string) {
+		this._expression.value = expression;
+	}
+
+	clearExpression(): void {
+		this._expression.clear();
+	}
+
+	undoExpression(): void {
+		this._expression.removeLastCharacter();
 	}
 }

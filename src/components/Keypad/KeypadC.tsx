@@ -4,7 +4,7 @@ import { keypadSchema } from '@constants';
 import { KeypadWrapper } from './styled';
 import { type KeypadProps } from './Keypad.props';
 
-export class KeypadC extends React.Component<KeypadProps> {
+export class KeypadC extends React.PureComponent<KeypadProps> {
 	onKeyClick = (key: string) => () => {
 		this.props.handleClick(key);
 	};

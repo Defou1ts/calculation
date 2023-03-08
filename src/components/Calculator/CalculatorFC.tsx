@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Display, Keypad } from '@components';
 import { useAppDispatch, setResult, setHistory, setDisplayValue, useAppSelector } from '@store';
 import { CalculatorWrapper } from './styled';
@@ -23,7 +23,7 @@ export const CalculatorFC = (): JSX.Element => {
 	const history = useAppSelector((state) => state.calculator.history);
 	const displayValue = useAppSelector((state) => state.calculator.displayValue);
 
-	const handleKeyboardClick = (value: string): void => {
+	const handleKeyboardClick = useCallback((value: string): void => {
 		switch (value) {
 			case '+':
 				calculator.executeCommand(new AddPlus());
@@ -60,9 +60,8 @@ export const CalculatorFC = (): JSX.Element => {
 			default:
 				calculator.executeCommand(new AddNumber(+value));
 		}
-
 		dispatch(setDisplayValue(calculator.currentExpression));
-	};
+	}, []);
 
 	useEffect(() => {
 		calculator.currentExpression = displayValue;

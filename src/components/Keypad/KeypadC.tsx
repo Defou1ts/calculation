@@ -5,19 +5,15 @@ import { KeypadWrapper } from './styled';
 import { type KeypadProps } from './Keypad.props';
 
 export class KeypadC extends React.Component<KeypadProps> {
-	render(): JSX.Element {
-		const { handleClick } = this.props;
+	onKeyClick = (key: string) => () => {
+		this.props.handleClick(key);
+	};
 
+	render(): JSX.Element {
 		return (
 			<KeypadWrapper>
 				{keypadSchema.map((key) => (
-					<KeyC
-						key={key}
-						keyName={key}
-						onClick={() => {
-							handleClick(key);
-						}}
-					/>
+					<KeyC key={key} keyName={key} onClick={this.onKeyClick(key)} />
 				))}
 			</KeypadWrapper>
 		);

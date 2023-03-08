@@ -5,16 +5,14 @@ import { KeypadWrapper } from './styled';
 import { type KeypadProps } from './Keypad.props';
 
 export const Keypad = ({ handleClick }: KeypadProps): JSX.Element => {
+	const onKeyClick = (key: string) => () => {
+		handleClick(key);
+	};
+
 	return (
 		<KeypadWrapper>
 			{keypadSchema.map((key) => (
-				<Key
-					key={key}
-					keyName={key}
-					onClick={() => {
-						handleClick(key);
-					}}
-				/>
+				<Key key={key} keyName={key} onClick={onKeyClick(key)} />
 			))}
 		</KeypadWrapper>
 	);

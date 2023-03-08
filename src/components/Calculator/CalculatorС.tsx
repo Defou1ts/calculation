@@ -12,29 +12,25 @@ import {
 	AddPlus,
 	Calculator,
 } from '@utils';
+import { type RootState, setDisplayValue, setHistory, setResult } from '@store';
+import { connect, type ConnectedProps } from 'react-redux';
 
-interface DisplayState {
-	displayValue: string;
-	result: number | null;
-	history: string[];
-}
-
-export class CalculatorC extends React.Component<Record<string, unknown>, DisplayState> {
+class CalculatorClass extends React.Component<CalculatorProps> {
 	calculator: Calculator;
 
 	constructor(props: any) {
 		super(props);
 
 		this.calculator = new Calculator();
+	}
 
-		this.state = {
-			displayValue: '',
-			history: [],
-			result: null,
-		};
+	componentDidMount(): void {
+		this.calculator.currentExpression = this.props.displayValue;
+		this.calculator.history = this.props.history;
 	}
 
 	handleKeyboardClick = (value: string): void => {
+		const { setResult, setHistory, setDisplayValue } = this.props;
 		switch (value) {
 			case '+':
 				this.calculator.executeCommand(new AddPlus());
@@ -59,39 +55,47 @@ export class CalculatorC extends React.Component<Record<string, unknown>, Displa
 				break;
 			case 'C':
 				this.calculator.clearExpression();
-				this.setState((state) => ({
-					...state,
-					result: null,
-				}));
+				setResult(null);
 				break;
 			case 'CE':
 				this.calculator.undo();
 				break;
 			case '=':
-				this.setState((state) => ({
-					...state,
-					result: this.calculator.calcResult(),
-					history: this.calculator.history,
-				}));
+				setResult(this.calculator.calcResult());
+				setHistory(this.calculator.history);
 				break;
 			default:
 				this.calculator.executeCommand(new AddNumber(+value));
 		}
 
-		this.setState((state) => ({
-			...state,
-			displayValue: this.calculator.currentExpression,
-		}));
+		setDisplayValue(this.calculator.currentExpression);
 	};
 
 	render(): JSX.Element {
-		const { result, displayValue } = this.state;
-
 		return (
 			<CalculatorWrapper>
-				<DisplayC displayValue={displayValue} result={result} />
+				<DisplayC />
 				<KeypadC handleClick={this.handleKeyboardClick} />
 			</CalculatorWrapper>
 		);
 	}
 }
+
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const mapState = (state: RootState) => ({
+	displayValue: state.calculator.displayValue,
+	history: state.calculator.history,
+	result: state.calculator.result,
+});
+
+const mapDispatch = {
+	setResult: (result: number | null) => setResult(result),
+	setHistory: (history: string[]) => setHistory(history),
+	setDisplayValue: (value: string) => setDisplayValue(value),
+};
+
+const connector = connect(mapState, mapDispatch);
+
+type CalculatorProps = ConnectedProps<typeof connector>;
+
+export const CalculatorC = connector(CalculatorClass);

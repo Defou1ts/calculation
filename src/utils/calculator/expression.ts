@@ -13,11 +13,11 @@ export type Operator = '+' | '-' | '*' | '/' | '(' | ')';
 export class Expression {
 	constructor(private _value: string) {}
 
-	public get value(): string {
+	get value(): string {
 		return this._value;
 	}
 
-	public set value(expression: string) {
+	set value(expression: string) {
 		this._value = expression;
 	}
 

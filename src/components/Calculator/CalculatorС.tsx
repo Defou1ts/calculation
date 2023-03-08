@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect, type ConnectedProps } from 'react-redux';
 import { DisplayC, KeypadC } from '@components';
+import { type RootState, setDisplayValue, setHistory, setResult } from '@store';
 import { CalculatorWrapper } from './styled';
 import {
 	AddCloseParent,
@@ -12,8 +14,6 @@ import {
 	AddPlus,
 	Calculator,
 } from '@utils';
-import { type RootState, setDisplayValue, setHistory, setResult } from '@store';
-import { connect, type ConnectedProps } from 'react-redux';
 
 class CalculatorClass extends React.Component<CalculatorProps> {
 	calculator: Calculator;
@@ -25,7 +25,7 @@ class CalculatorClass extends React.Component<CalculatorProps> {
 	}
 
 	componentDidMount(): void {
-		this.calculator.currentExpression = this.props.displayValue;
+		this.calculator.expression = this.props.displayValue;
 		this.calculator.history = this.props.history;
 	}
 
@@ -58,7 +58,7 @@ class CalculatorClass extends React.Component<CalculatorProps> {
 				setResult(null);
 				break;
 			case 'CE':
-				this.calculator.undo();
+				this.calculator.undoExpression();
 				break;
 			case '=':
 				setResult(this.calculator.calcResult());
@@ -68,7 +68,7 @@ class CalculatorClass extends React.Component<CalculatorProps> {
 				this.calculator.executeCommand(new AddNumber(+value));
 		}
 
-		setDisplayValue(this.calculator.currentExpression);
+		setDisplayValue(this.calculator.expression);
 	};
 
 	render(): JSX.Element {

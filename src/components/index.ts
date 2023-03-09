@@ -5,6 +5,7 @@ export * from './Calculator/CalculatorFC';
 export * from './History/History';
 export * from './HistoryMonitor/HistoryMonitor';
 export * from './Display/Display';
+export * from './Switch/Switch';
 
 export * from './layout/Layout';
 
@@ -16,3 +17,4 @@ export * from './Calculator/CalculatorС';
 export * from './History/HistoryC';
 export * from './HistoryMonitor/HistoryMonitorC';
 export * from './Display/DisplayC';
+export * from './Switch/SwitchC';

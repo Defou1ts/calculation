@@ -80,7 +80,7 @@ export class Expression {
 		};
 
 		let pos = 0;
-		let lastChar = '';
+		let lastChar: 'number' | 'operator' | ')' | '(' | '' = '';
 
 		while (pos < this._value.length) {
 			const char = this._value[pos];

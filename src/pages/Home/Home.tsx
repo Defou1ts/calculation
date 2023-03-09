@@ -1,12 +1,12 @@
 import React from 'react';
 import { CalculatorFC, History } from '@components';
-import { Main } from './styled';
+import { HomeWrapper } from './styled';
 
 export const Home = (): JSX.Element => {
 	return (
-		<Main>
+		<HomeWrapper>
 			<CalculatorFC />
 			<History />
-		</Main>
+		</HomeWrapper>
 	);
 };

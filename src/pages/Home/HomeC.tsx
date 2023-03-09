@@ -1,14 +1,14 @@
 import React from 'react';
 import { CalculatorC, HistoryC } from '@components';
-import { Main } from './styled';
+import { HomeWrapper } from './styled';
 
 export class HomeС extends React.Component {
 	render(): JSX.Element {
 		return (
-			<Main>
+			<HomeWrapper>
 				<CalculatorC />
 				<HistoryC />
-			</Main>
+			</HomeWrapper>
 		);
 	}
 }

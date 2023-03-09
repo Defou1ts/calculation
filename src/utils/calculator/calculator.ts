@@ -1,11 +1,11 @@
-import { type Command } from '@types';
+import { type ICalculator, type ExpressionCommand } from '@types';
 import { Expression } from './expression';
 
-export class Calculator {
+export class Calculator implements ICalculator {
 	private readonly _expression: Expression = new Expression('');
 	private _history: string[] = [];
 
-	executeCommand(command: Command): void {
+	executeCommand(command: ExpressionCommand): void {
 		this._expression.value = command.execute(this._expression.value);
 	}
 
@@ -17,7 +17,7 @@ export class Calculator {
 		return result;
 	}
 
-	private addToHistory(expression: string): void {
+	addToHistory(expression: string): void {
 		this._history = [...this._history, expression];
 	}
 

@@ -1,16 +1,13 @@
 /* eslint-disable no-unmodified-loop-condition */
 /* eslint-disable no-useless-escape */
 
+import { type OperatorCommand, type IExpression } from '@types';
 import { ExpressionExceptionType } from './exceptions';
-
-const sum = (num1: number, num2: number): number => num1 + num2;
-const sub = (num1: number, num2: number): number => num1 - num2;
-const multiply = (num1: number, num2: number): number => num1 * num2;
-const division = (num1: number, num2: number): number => num1 / num2;
+import { SumCommand, SubCommand, MultiplyCommand, DivideCommand } from './commands';
 
 export type Operator = '+' | '-' | '*' | '/' | '(' | ')';
 
-export class Expression {
+export class Expression implements IExpression {
 	constructor(private _value: string) {}
 
 	get value(): string {
@@ -21,14 +18,18 @@ export class Expression {
 		this._value = expression;
 	}
 
-	removeLastCharacter(): void {
-		if (this._value.length > 0) {
-			this._value = this._value.slice(0, -1);
-		}
+	executeCommand(command: OperatorCommand): number {
+		return command.execute();
 	}
 
 	clear(): void {
 		this._value = '';
+	}
+
+	removeLastCharacter(): void {
+		if (this._value.length > 0) {
+			this._value = this._value.slice(0, -1);
+		}
 	}
 
 	calculate(): number {
@@ -42,13 +43,13 @@ export class Expression {
 			if (typeof num1 === 'number' && typeof num2 === 'number') {
 				switch (operator) {
 					case '+':
-						return sum(num1, num2);
+						return this.executeCommand(new SumCommand(num1, num2));
 					case '-':
-						return sub(num1, num2);
+						return this.executeCommand(new SubCommand(num1, num2));
 					case '*':
-						return multiply(num1, num2);
+						return this.executeCommand(new MultiplyCommand(num1, num2));
 					case '/':
-						return division(num1, num2);
+						return this.executeCommand(new DivideCommand(num1, num2));
 				}
 			}
 

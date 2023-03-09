@@ -11,5 +11,3 @@ export const LayoutWrapper = styled.div`
 
 	min-height: 100vh;
 `;
-
-

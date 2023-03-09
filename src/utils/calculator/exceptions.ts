@@ -5,5 +5,5 @@ export const enum CalculatorExceptionType {
 
 export const enum ExpressionExceptionType {
 	INVALID_EXPRESSION = 'Invalid expression',
-	INVALID_CHARACTER = 'Invalid character'
+	INVALID_CHARACTER = 'Invalid character',
 }

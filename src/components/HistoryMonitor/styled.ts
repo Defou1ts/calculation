@@ -17,5 +17,4 @@ export const MonitorItem = styled.li`
 	font-size: 16px;
 	line-height: 22px;
 	color: var(--text);
-
 `;

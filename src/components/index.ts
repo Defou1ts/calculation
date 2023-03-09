@@ -7,7 +7,7 @@ export * from './HistoryMonitor/HistoryMonitor';
 export * from './Display/Display';
 export * from './Switch/Switch';
 
-export * from './layout/Layout';
+export * from './Layout/Layout';
 
 // Classes
 export * from './ErrorBoundary/ErrorBoundary';

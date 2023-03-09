@@ -81,8 +81,13 @@ class CalculatorClass extends React.Component<CalculatorProps> {
 	}
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const mapState = (state: RootState) => ({
+interface MapStateProps {
+	displayValue: string;
+	history: string[];
+	result: number | null;
+}
+
+const mapState = (state: RootState): MapStateProps => ({
 	displayValue: state.calculator.displayValue,
 	history: state.calculator.history,
 	result: state.calculator.result,

@@ -38,6 +38,9 @@ export const Global = createGlobalStyle<ThemeState>`
 	:root {
 		--font-family: "Nunito", sans-serif;
 
+		--red: #FF6060;
+		--light-red: #FF7070;
+
 		--background: ${(props) => props.backgroundColor};
 		--content: ${(props) => props.contentColor};
 		--text: ${(props) => props.textColor};

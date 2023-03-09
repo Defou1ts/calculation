@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect, type ConnectedProps } from 'react-redux';
-import { SwitchC } from '@components';
+import { ButtonC, SwitchC } from '@components';
 import { SettingsWrapper } from './styled';
 import {
 	type AppDispatch,
@@ -11,6 +11,7 @@ import {
 	setTextColor,
 	setThemeType,
 	type RootState,
+	setHistory,
 } from '@store';
 import {
 	ThemeBackgroundColor,
@@ -33,12 +34,12 @@ export class SettingsClass extends React.Component<SettingsProps> {
 	};
 
 	render(): JSX.Element {
-		const { theme } = this.props;
+		const { theme, clearHistory } = this.props;
 
 		return (
 			<SettingsWrapper>
 				<SwitchC onClick={this.handleToggleTheme} active={theme === ThemeType.DARK} />
-				<span>clearHistory</span>
+				<ButtonC onClick={clearHistory}>Clear all history</ButtonC>
 			</SettingsWrapper>
 		);
 	}
@@ -55,6 +56,7 @@ const mapState = (state: RootState): MapStateProps => ({
 interface MapDispatchProps {
 	setLightTheme: () => void;
 	setDarkTheme: () => void;
+	clearHistory: () => void;
 }
 
 const mapDispatch = (dispatch: AppDispatch): MapDispatchProps => ({
@@ -73,6 +75,9 @@ const mapDispatch = (dispatch: AppDispatch): MapDispatchProps => ({
 		dispatch(setContentColor(ThemeContentColor.DARK));
 		dispatch(setMonitorColor(ThemeMonitorColor.DARK));
 		dispatch(setButtonColor(ThemeButtonColor.DARK));
+	},
+	clearHistory: (): void => {
+		dispatch(setHistory([]));
 	},
 });
 

@@ -1,7 +1,7 @@
-import { type Command } from '@types';
+import { type ExpressionCommand, type OperatorCommand } from '@types';
 import { CalculatorExceptionType } from './exceptions';
 
-export class AddNumber implements Command {
+export class AddNumber implements ExpressionCommand {
 	constructor(private readonly value: number) {}
 
 	execute(expression: string): string {
@@ -10,49 +10,81 @@ export class AddNumber implements Command {
 	}
 }
 
-export class AddPlus implements Command {
+export class AddPlus implements ExpressionCommand {
 	execute(expression: string): string {
 		if (expression.slice(-1) === '+') throw new Error(CalculatorExceptionType.DOUBLE_OPERATOR_ERROR);
 		return `${expression}+`;
 	}
 }
 
-export class AddMinus implements Command {
+export class AddMinus implements ExpressionCommand {
 	execute(expression: string): string {
 		if (expression.slice(-1) === '-') throw new Error(CalculatorExceptionType.DOUBLE_OPERATOR_ERROR);
 		return `${expression}-`;
 	}
 }
 
-export class AddDivision implements Command {
+export class AddDivision implements ExpressionCommand {
 	execute(expression: string): string {
 		if (expression.slice(-1) === '/') throw new Error(CalculatorExceptionType.DOUBLE_OPERATOR_ERROR);
 		return `${expression}/`;
 	}
 }
 
-export class AddMultiplier implements Command {
+export class AddMultiplier implements ExpressionCommand {
 	execute(expression: string): string {
 		if (expression.slice(-1) === '*') throw new Error(CalculatorExceptionType.DOUBLE_OPERATOR_ERROR);
 		return `${expression}*`;
 	}
 }
 
-export class AddDot implements Command {
+export class AddDot implements ExpressionCommand {
 	execute(expression: string): string {
 		if (expression.slice(-1) === '.') throw new Error(CalculatorExceptionType.DOUBLE_OPERATOR_ERROR);
 		return `${expression}.`;
 	}
 }
 
-export class AddOpenParent implements Command {
+export class AddOpenParent implements ExpressionCommand {
 	execute(expression: string): string {
 		return `${expression}(`;
 	}
 }
 
-export class AddCloseParent implements Command {
+export class AddCloseParent implements ExpressionCommand {
 	execute(expression: string): string {
 		return `${expression})`;
+	}
+}
+
+export class SumCommand implements OperatorCommand {
+	constructor(private readonly firstValue: number, private readonly secondValue: number) {}
+
+	execute(): number {
+		return this.firstValue + this.secondValue;
+	}
+}
+
+export class SubCommand implements OperatorCommand {
+	constructor(private readonly firstValue: number, private readonly secondValue: number) {}
+
+	execute(): number {
+		return this.firstValue - this.secondValue;
+	}
+}
+
+export class MultiplyCommand implements OperatorCommand {
+	constructor(private readonly firstValue: number, private readonly secondValue: number) {}
+
+	execute(): number {
+		return this.firstValue * this.secondValue;
+	}
+}
+
+export class DivideCommand implements OperatorCommand {
+	constructor(private readonly firstValue: number, private readonly secondValue: number) {}
+
+	execute(): number {
+		return this.firstValue / this.secondValue;
 	}
 }

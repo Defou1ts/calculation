@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SettingsWrapper = styled.main`
+export const ControlPanel = styled.main`
 	display: grid;
 	grid-template-columns: 110px 142px;
 	grid-template-rows: 54px;

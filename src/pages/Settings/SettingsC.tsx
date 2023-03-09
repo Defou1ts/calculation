@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, type ConnectedProps } from 'react-redux';
 import { ButtonC, SwitchC } from '@components';
-import { SettingsWrapper } from './styled';
+import { ControlPanel } from './styled';
 import {
 	type AppDispatch,
 	setBackgroundColor,
@@ -37,10 +37,10 @@ export class SettingsClass extends React.Component<SettingsProps> {
 		const { theme, clearHistory } = this.props;
 
 		return (
-			<SettingsWrapper>
+			<ControlPanel>
 				<SwitchC onClick={this.handleToggleTheme} active={theme === ThemeType.DARK} />
 				<ButtonC onClick={clearHistory}>Clear all history</ButtonC>
-			</SettingsWrapper>
+			</ControlPanel>
 		);
 	}
 }

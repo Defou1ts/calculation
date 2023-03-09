@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Switch } from '@components';
 import { useTheme } from '@hooks';
-import { SettingsWrapper } from './styled';
+import { ControlPanel } from './styled';
 import { setHistory, useAppDispatch, useAppSelector } from '@store';
 import { ThemeType } from '@types';
 
@@ -20,9 +20,9 @@ export const Settings = (): JSX.Element => {
 	};
 
 	return (
-		<SettingsWrapper>
+		<ControlPanel>
 			<Switch onClick={handleClick} active={theme === ThemeType.DARK} />
 			<Button onClick={handleClearHistory}>Clear all history</Button>
-		</SettingsWrapper>
+		</ControlPanel>
 	);
 };

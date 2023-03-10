@@ -9,6 +9,7 @@ import {
 	checkDivision,
 	checkKeypadButtons,
 	checkMultiply,
+	checkNavigationLinks,
 	checkRemoveLastCharacter,
 	checkSubstract,
 	checkSum,
@@ -70,37 +71,7 @@ describe('Clear history class fomponent', () => {
 });
 
 describe('Check navigation', () => {
-	it('check navigation links', () => {
-		cy.visit(SETTINGS_CC_ROUTE);
-		cy.get('[data-test-id=nav-link]')
-			.contains('Home FC')
-			.click()
-			.location()
-			.should((location) => {
-				expect(location.pathname).to.equal(HOME_FC_ROUTE);
-			})
-			.get('[data-test-id=nav-link]')
-			.contains('Home CC')
-			.click()
-			.location()
-			.should((location) => {
-				expect(location.pathname).to.equal(HOME_CC_ROUTE);
-			})
-			.get('[data-test-id=nav-link]')
-			.contains('Settings FC')
-			.click()
-			.location()
-			.should((location) => {
-				expect(location.pathname).to.equal(SETTINGS_FC_ROUTE);
-			})
-			.get('[data-test-id=nav-link]')
-			.contains('Settings CC')
-			.click()
-			.location()
-			.should((location) => {
-				expect(location.pathname).to.equal(SETTINGS_CC_ROUTE);
-			});
-	});
+	checkNavigationLinks();
 });
 
 export {};

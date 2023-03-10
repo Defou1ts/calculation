@@ -1,5 +1,6 @@
 {
 	"name": "calculation",
+	"homepage": "https://Defou1ts.github.io/calculation/",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
@@ -16,7 +17,8 @@
 		"test": "craco test",
 		"eject": "craco eject",
 		"format": "pretter --write src/",
-		"test:e2e": "cypress run"
+		"test:e2e": "cypress run",
+		"deploy": "yarn build && gh-pages -d build"
 	},
 	"eslintConfig": {
 		"extends": [

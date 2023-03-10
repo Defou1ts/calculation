@@ -6,5 +6,5 @@ export const KeypadWrapper = styled.div`
 	grid-template-rows: repeat(5, 70px);
 	grid-template-columns: repeat(4, auto);
 	justify-content: space-between;
-	gap: 21px 0px;
+	gap: 21px 10px;
 `;

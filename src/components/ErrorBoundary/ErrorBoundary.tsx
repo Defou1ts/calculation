@@ -1,5 +1,6 @@
 import React, { type ReactNode } from 'react';
 import { type ErrorBoundaryProps } from './ErrorBoundary.props';
+import { ErrorWrapper } from './styled';
 
 interface ErrorState {
 	error: boolean;
@@ -25,7 +26,11 @@ export class ErrorBondary extends React.Component<ErrorBoundaryProps, ErrorState
 
 	render(): ReactNode {
 		if (this.state.error) {
-			return <h1>Something went wrong....</h1>;
+			return (
+				<ErrorWrapper>
+					<h1>Произошла ошибка</h1>
+				</ErrorWrapper>
+			);
 		}
 
 		return this.props.children;

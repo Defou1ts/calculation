@@ -1,3 +1,8 @@
+## Environment
+
+-   **REACT_APP_HOST=**
+-   **REACT_APP_PORT=**
+
 # Tестовое задание калькулятор
 
 ## Содержание

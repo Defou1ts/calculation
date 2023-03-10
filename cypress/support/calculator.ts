@@ -1,3 +1,5 @@
+import { SETTINGS_CC_ROUTE, HOME_FC_ROUTE, HOME_CC_ROUTE, SETTINGS_FC_ROUTE } from '@constants';
+
 export function checkKeypadButtons(): void {
 	it('Check keypad buttons', () => {
 		cy.get('[data-test-id=key]')
@@ -271,6 +273,40 @@ export function checkClearHistory(homeRoute: string, settingsRoute: string): voi
 			.visit(homeRoute)
 			.get('[data-test-id=history-monitor]')
 			.should('not.exist');
+	});
+}
+
+export function checkNavigationLinks(): void {
+	it('check navigation links', () => {
+		cy.visit(SETTINGS_CC_ROUTE);
+		cy.get('[data-test-id=nav-link]')
+			.contains('Home FC')
+			.click()
+			.location()
+			.should((location) => {
+				expect(location.pathname).to.equal(HOME_FC_ROUTE);
+			})
+			.get('[data-test-id=nav-link]')
+			.contains('Home CC')
+			.click()
+			.location()
+			.should((location) => {
+				expect(location.pathname).to.equal(HOME_CC_ROUTE);
+			})
+			.get('[data-test-id=nav-link]')
+			.contains('Settings FC')
+			.click()
+			.location()
+			.should((location) => {
+				expect(location.pathname).to.equal(SETTINGS_FC_ROUTE);
+			})
+			.get('[data-test-id=nav-link]')
+			.contains('Settings CC')
+			.click()
+			.location()
+			.should((location) => {
+				expect(location.pathname).to.equal(SETTINGS_CC_ROUTE);
+			});
 	});
 }
 

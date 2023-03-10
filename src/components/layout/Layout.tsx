@@ -1,6 +1,5 @@
 import React from 'react';
-import { ErrorBondary } from '@components';
-import { Header } from './Header/Header';
+import { ErrorBondary, Header } from '@components';
 import { LayoutWrapper } from './styled';
 import { Outlet } from 'react-router-dom';
 

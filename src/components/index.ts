@@ -8,6 +8,7 @@ export * from './Display/Display';
 export * from './Switch/Switch';
 export * from './Button/Button';
 
+export * from './Header/Header';
 export * from './Layout/Layout';
 
 // Classes

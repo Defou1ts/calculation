@@ -6,6 +6,10 @@ export class KeyC extends Component<KeyProps> {
 	render(): JSX.Element {
 		const { keyName, ...props } = this.props;
 
-		return <StyledKeyButton {...props}>{keyName}</StyledKeyButton>;
+		return (
+			<StyledKeyButton data-test-id="key" {...props}>
+				{keyName}
+			</StyledKeyButton>
+		);
 	}
 }

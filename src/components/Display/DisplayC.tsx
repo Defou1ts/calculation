@@ -10,8 +10,8 @@ export class DisplayClass extends React.Component<DisplayProps> {
 
 		return (
 			<DisplayWrapper>
-				<DisplayText>{truncatedDisplayValue}</DisplayText>
-				<DisplayText>{result}</DisplayText>
+				<DisplayText data-test-id="display-value">{truncatedDisplayValue}</DisplayText>
+				<DisplayText data-test-id="display-result-value">{result}</DisplayText>
 			</DisplayWrapper>
 		);
 	}

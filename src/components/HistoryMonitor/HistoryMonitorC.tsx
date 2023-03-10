@@ -11,7 +11,9 @@ export class HistoryMonitorClass extends React.Component<HistoryMonitorProps> {
 			<MonitorWrapper>
 				<MonitorList>
 					{history.map((value) => (
-						<MonitorItem key={value}>{value}</MonitorItem>
+						<MonitorItem data-test-id="history-monitor" key={value}>
+							{value}
+						</MonitorItem>
 					))}
 				</MonitorList>
 			</MonitorWrapper>

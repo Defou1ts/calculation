@@ -21,8 +21,10 @@ export const Settings = (): JSX.Element => {
 
 	return (
 		<ControlPanel>
-			<Switch onClick={handleClick} active={theme === ThemeType.DARK} />
-			<Button onClick={handleClearHistory}>Clear all history</Button>
+			<Switch data-test-id="theme-switch" onClick={handleClick} active={theme === ThemeType.DARK} />
+			<Button data-test-id="clear-history" onClick={handleClearHistory}>
+				Clear all history
+			</Button>
 		</ControlPanel>
 	);
 };

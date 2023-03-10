@@ -1,23 +1,23 @@
 name: Build and deploy
 on:
-  pull_request:
-    branches:
-    - main
+    pull_request:
+        branches:
+            - develop
 jobs:
-  build:
-    name: Tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: kingscooty/actions-yarn-cy@master
-      - name: Install dependencies
-        with:
-          args: install
-      - name: Build
-      - uses: kingscooty/actions-yarn-cy@master
-        with:
-          args: build
-      - name: Build
-      - uses: kingscooty/actions-yarn-cy@master
-        with:
-          args: test:e2e
+    build:
+        name: Tests
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+            - uses: kingscooty/actions-yarn-cy@master
+            - name: Install dependencies
+              with:
+                  args: install
+            - name: Build
+            - uses: kingscooty/actions-yarn-cy@master
+              with:
+                  args: build
+            - name: Build
+            - uses: kingscooty/actions-yarn-cy@master
+              with:
+                  args: test:e2e

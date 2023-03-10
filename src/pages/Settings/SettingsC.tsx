@@ -38,8 +38,14 @@ export class SettingsClass extends React.Component<SettingsProps> {
 
 		return (
 			<ControlPanel>
-				<SwitchC onClick={this.handleToggleTheme} active={theme === ThemeType.DARK} />
-				<ButtonC onClick={clearHistory}>Clear all history</ButtonC>
+				<SwitchC
+					data-test-id="theme-switch"
+					onClick={this.handleToggleTheme}
+					active={theme === ThemeType.DARK}
+				/>
+				<ButtonC data-test-id="clear-history" onClick={clearHistory}>
+					Clear all history
+				</ButtonC>
 			</ControlPanel>
 		);
 	}

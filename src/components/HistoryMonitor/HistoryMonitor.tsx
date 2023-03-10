@@ -9,7 +9,9 @@ export const HistoryMonitor = (): JSX.Element => {
 		<MonitorWrapper>
 			<MonitorList>
 				{history.map((value) => (
-					<MonitorItem key={value}>{value}</MonitorItem>
+					<MonitorItem data-test-id="history-monitor" key={value}>
+						{value}
+					</MonitorItem>
 				))}
 			</MonitorList>
 		</MonitorWrapper>

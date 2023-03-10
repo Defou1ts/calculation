@@ -1,3 +1,5 @@
+export const HOME_ROUTE = '/';
+
 export const HOME_FC_ROUTE = '/fc';
 export const HOME_CC_ROUTE = '/cc';
 export const SETTINGS_FC_ROUTE = '/settings-fc';

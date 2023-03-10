@@ -1,16 +1,29 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { ThemeType, ThemeColor } from 'types';
+import {
+	ThemeType,
+	ThemeBackgroundColor,
+	ThemeTextColor,
+	ThemeContentColor,
+	ThemeMonitorColor,
+	ThemeButtonColor,
+} from 'types';
 
 export interface ThemeState {
 	theme: ThemeType;
-	backgroundColor: ThemeColor;
-	textColor: ThemeColor;
+	backgroundColor: ThemeBackgroundColor;
+	contentColor: ThemeContentColor;
+	textColor: ThemeTextColor;
+	monitorColor: ThemeMonitorColor;
+	buttonColor: ThemeButtonColor;
 }
 
 const initialState: ThemeState = {
 	theme: ThemeType.LIGHT,
-	backgroundColor: ThemeColor.WHITE,
-	textColor: ThemeColor.BLACK,
+	backgroundColor: ThemeBackgroundColor.LIGHT,
+	contentColor: ThemeContentColor.LIGHT,
+	textColor: ThemeTextColor.LIGHT,
+	monitorColor: ThemeMonitorColor.LIGHT,
+	buttonColor: ThemeButtonColor.LIGHT,
 };
 
 export const themeSlice = createSlice({
@@ -20,14 +33,24 @@ export const themeSlice = createSlice({
 		setThemeType: (state, action: PayloadAction<ThemeType>) => {
 			state.theme = action.payload;
 		},
-		setBackgroundColor: (state, action: PayloadAction<ThemeColor>) => {
+		setBackgroundColor: (state, action: PayloadAction<ThemeBackgroundColor>) => {
 			state.backgroundColor = action.payload;
 		},
-		setTextColor: (state, action: PayloadAction<ThemeColor>) => {
+		setContentColor: (state, action: PayloadAction<ThemeContentColor>) => {
+			state.contentColor = action.payload;
+		},
+		setTextColor: (state, action: PayloadAction<ThemeTextColor>) => {
 			state.textColor = action.payload;
+		},
+		setMonitorColor: (state, action: PayloadAction<ThemeMonitorColor>) => {
+			state.monitorColor = action.payload;
+		},
+		setButtonColor: (state, action: PayloadAction<ThemeButtonColor>) => {
+			state.buttonColor = action.payload;
 		},
 	},
 });
 
-export const { setThemeType, setBackgroundColor, setTextColor } = themeSlice.actions;
+export const { setThemeType, setBackgroundColor, setContentColor, setTextColor, setMonitorColor, setButtonColor } =
+	themeSlice.actions;
 export default themeSlice.reducer;

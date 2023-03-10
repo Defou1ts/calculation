@@ -1,9 +1,11 @@
 import { configureStore, type ThunkAction, type Action } from '@reduxjs/toolkit';
 import themeReducer from './slices/theme.slice';
+import calculatorReducer from './slices/calculator.slice';
 
 export const store = configureStore({
 	reducer: {
 		theme: themeReducer,
+		calculator: calculatorReducer,
 	},
 });
 

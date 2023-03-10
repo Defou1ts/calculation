@@ -22,11 +22,29 @@ export const Global = createGlobalStyle<ThemeState>`
 		color: inherit;
 	}
 
+	button {
+		border: none;
+	}
+
+	li {
+    	list-style-type: none; 
+	}
+	
+	ul {
+    	margin-left: 0;
+    	padding-left: 0; 
+	}
+
 	:root {
 		--font-family: "Nunito", sans-serif;
 
-		--green: #6bc2bb;
-		--white: #ffffff;
-		--black: #000000;
+		--red: #FF6060;
+		--light-red: #FF7070;
+
+		--background: ${(props) => props.backgroundColor};
+		--content: ${(props) => props.contentColor};
+		--text: ${(props) => props.textColor};
+		--monitor: ${(props) => props.monitorColor};
+		--button: ${(props) => props.buttonColor};
 	}
 `;

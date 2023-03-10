@@ -30,5 +30,5 @@
 			"@images": ["./assets/images"]
 		}
 	},
-	"include": ["src"]
+	"include": ["src", "cypress", "cypress.config.ts"]
 }

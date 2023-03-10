@@ -8,7 +8,7 @@ export * from './Display/Display';
 export * from './Switch/Switch';
 export * from './Button/Button';
 
-export * from './Layout/Layout';
+export * from './layout/Layout';
 
 // Classes
 export * from './ErrorBoundary/ErrorBoundary';

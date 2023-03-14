@@ -4,7 +4,7 @@ import { connect, type ConnectedProps } from 'react-redux';
 
 import { type RootState } from '@store';
 
-import { DisplayText, DisplayWrapper } from './styled';
+import { DisplayText, DisplayWrapper } from '../styled';
 
 export class DisplayClass extends React.Component<DisplayProps> {
 	render(): JSX.Element {
@@ -30,4 +30,4 @@ const connector = connect(mapState);
 
 type DisplayProps = ConnectedProps<typeof connector>;
 
-export const DisplayC = connector(DisplayClass);
+export const DisplayCC = connector(DisplayClass);

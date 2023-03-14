@@ -4,7 +4,7 @@ import { connect, type ConnectedProps } from 'react-redux';
 
 import { type RootState } from '@store';
 
-import { MonitorItem, MonitorList, MonitorWrapper } from './styled';
+import { MonitorItem, MonitorList, MonitorWrapper } from '../styled';
 
 export class HistoryMonitorClass extends React.Component<HistoryMonitorProps> {
 	render(): JSX.Element {
@@ -33,4 +33,4 @@ const connector = connect(mapState);
 
 type HistoryMonitorProps = ConnectedProps<typeof connector>;
 
-export const HistoryMonitorC = connector(HistoryMonitorClass);
+export const HistoryMonitorCC = connector(HistoryMonitorClass);

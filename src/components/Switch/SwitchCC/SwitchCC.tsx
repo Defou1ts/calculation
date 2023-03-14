@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Round, SwitchWrapper } from './styled';
-import { type SwitchProps } from './interfaces';
+import { Round, SwitchWrapper } from '../styled';
+import { type SwitchProps } from '../interfaces';
 
-export class SwitchC extends React.PureComponent<SwitchProps> {
+export class SwitchCC extends React.PureComponent<SwitchProps> {
 	render(): JSX.Element {
 		const { onClick, active, ...props } = this.props;
 

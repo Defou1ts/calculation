@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { KeyC } from '@components';
+import { KeyCC } from '@components';
 import { keypadSchema } from '@constants';
 
-import { KeypadWrapper } from './styled';
-import { type KeypadProps } from './interfaces';
+import { KeypadWrapper } from '../styled';
+import { type KeypadProps } from '../interfaces';
 
-export class KeypadC extends React.PureComponent<KeypadProps> {
+export class KeypadCC extends React.PureComponent<KeypadProps> {
 	onKeyClick = (key: string) => () => {
 		this.props.handleClick(key);
 	};
@@ -15,7 +15,7 @@ export class KeypadC extends React.PureComponent<KeypadProps> {
 		return (
 			<KeypadWrapper>
 				{keypadSchema.map((key) => (
-					<KeyC key={key} keyName={key} onClick={this.onKeyClick(key)} />
+					<KeyCC key={key} keyName={key} onClick={this.onKeyClick(key)} />
 				))}
 			</KeypadWrapper>
 		);

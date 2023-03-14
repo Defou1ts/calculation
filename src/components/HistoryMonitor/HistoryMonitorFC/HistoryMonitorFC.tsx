@@ -2,9 +2,9 @@ import React from 'react';
 
 import { useAppSelector } from '@store';
 
-import { MonitorItem, MonitorList, MonitorWrapper } from './styled';
+import { MonitorItem, MonitorList, MonitorWrapper } from '../styled';
 
-export const HistoryMonitor = (): JSX.Element => {
+export const HistoryMonitorFC = (): JSX.Element => {
 	const history = useAppSelector((state) => state.calculator.history);
 
 	return (

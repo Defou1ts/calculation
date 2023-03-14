@@ -4,24 +4,24 @@ import { Navigate } from 'react-router-dom';
 
 import { HOME_CC_ROUTE, HOME_FC_ROUTE, HOME_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } from '@constants';
 import { type IRoute } from '@interfaces';
-import { Home, HomeС, Settings, SettingsC } from '@pages';
+import { HomeFC, HomeСC, SettingsFC, SettingsCC } from '@pages';
 
 export const routes: IRoute[] = [
 	{
 		path: HOME_FC_ROUTE,
-		Component: <Home />,
+		Component: <HomeFC />,
 	},
 	{
 		path: HOME_CC_ROUTE,
-		Component: <HomeС />,
+		Component: <HomeСC />,
 	},
 	{
 		path: SETTINGS_FC_ROUTE,
-		Component: <Settings />,
+		Component: <SettingsFC />,
 	},
 	{
 		path: SETTINGS_CC_ROUTE,
-		Component: <SettingsC />,
+		Component: <SettingsCC />,
 	},
 	{
 		path: HOME_ROUTE,

@@ -1,11 +1,11 @@
 import React, { type ContextType } from 'react';
 
-import { DisplayC, KeypadC } from '@components';
+import { DisplayCC, KeypadCC } from '@components';
 import { CalculatorContext } from '@interfaces';
 
-import { CalculatorWrapper } from './styled';
+import { CalculatorWrapper } from '../styled';
 
-export class CalculatorC extends React.Component {
+export class CalculatorCC extends React.Component {
 	static contextType = CalculatorContext;
 	context!: ContextType<typeof CalculatorContext>;
 
@@ -14,8 +14,8 @@ export class CalculatorC extends React.Component {
 
 		return (
 			<CalculatorWrapper>
-				<DisplayC />
-				<KeypadC handleClick={handleKeyboardClick} />
+				<DisplayCC />
+				<KeypadCC handleClick={handleKeyboardClick} />
 			</CalculatorWrapper>
 		);
 	}

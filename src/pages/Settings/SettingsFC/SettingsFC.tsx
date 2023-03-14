@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Button, Switch } from '@components';
+import { ButtonFC, SwitchFC } from '@components';
 import { useTheme } from '@hooks';
 import { setHistory, toggleIsOpenedHistory, useAppDispatch, useAppSelector } from '@store';
 import { ThemeType } from '@types';
 
-import { ControlPanel } from './styled';
+import { ControlPanel } from '../styled';
 
-export const Settings = (): JSX.Element => {
+export const SettingsFC = (): JSX.Element => {
 	const { toggleTheme } = useTheme();
 	const dispatch = useAppDispatch();
 
@@ -28,11 +28,13 @@ export const Settings = (): JSX.Element => {
 
 	return (
 		<ControlPanel>
-			<Switch data-test-id="theme-switch" onClick={handleClick} active={theme === ThemeType.DARK} />
-			<Button data-test-id="clear-history" onClick={handleClearHistory}>
+			<SwitchFC data-test-id="theme-switch" onClick={handleClick} active={theme === ThemeType.DARK} />
+			<ButtonFC data-test-id="clear-history" onClick={handleClearHistory}>
 				Clear all history
-			</Button>
-			<Button onClick={handleToggleIsOpenedHistory}>{isOpenedHistory ? 'Close history' : 'Open history'}</Button>
+			</ButtonFC>
+			<ButtonFC onClick={handleToggleIsOpenedHistory}>
+				{isOpenedHistory ? 'Close history' : 'Open history'}
+			</ButtonFC>
 		</ControlPanel>
 	);
 };

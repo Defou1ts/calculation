@@ -2,12 +2,12 @@ import React from 'react';
 
 import { connect, type ConnectedProps } from 'react-redux';
 
-import { ButtonC, SwitchC } from '@components';
+import { ButtonCC, SwitchCC } from '@components';
 import { type AppDispatch, type RootState, setHistory, toggleIsOpenedHistory, setTheme } from '@store';
 import { ThemeType } from '@types';
 import { darkTheme, lightTheme } from '@constants';
 
-import { ControlPanel } from './styled';
+import { ControlPanel } from '../styled';
 
 export class SettingsClass extends React.Component<SettingsProps> {
 	handleToggleTheme = (): void => {
@@ -31,17 +31,17 @@ export class SettingsClass extends React.Component<SettingsProps> {
 
 		return (
 			<ControlPanel>
-				<SwitchC
+				<SwitchCC
 					data-test-id="theme-switch"
 					onClick={this.handleToggleTheme}
 					active={theme === ThemeType.DARK}
 				/>
-				<ButtonC data-test-id="clear-history" onClick={clearHistory}>
+				<ButtonCC data-test-id="clear-history" onClick={clearHistory}>
 					Clear all history
-				</ButtonC>
-				<ButtonC onClick={this.handleToggleIsOpenedHistory}>
+				</ButtonCC>
+				<ButtonCC onClick={this.handleToggleIsOpenedHistory}>
 					{isOpenedHistory ? 'Close history' : 'Open history'}
-				</ButtonC>
+				</ButtonCC>
 			</ControlPanel>
 		);
 	}
@@ -83,4 +83,4 @@ const connector = connect(mapState, mapDispatch);
 
 type SettingsProps = ConnectedProps<typeof connector>;
 
-export const SettingsC = connector(SettingsClass);
+export const SettingsCC = connector(SettingsClass);

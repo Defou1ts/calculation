@@ -1,32 +1,48 @@
 import { type ICalculator, type ExpressionCommand } from '@types';
+import { AddNumber } from './commands';
 import { Expression } from './expression';
+import { History } from './history';
 
 export class Calculator implements ICalculator {
 	private readonly _expression: Expression = new Expression('');
-	private _history: string[] = [];
+	private readonly _history: History = new History([]);
 
 	executeCommand(command: ExpressionCommand): void {
+		const lastHistoryResult = this._history.getLastHistoryResult();
+
+		if (lastHistoryResult === this._expression.calculate() && !(command instanceof AddNumber)) {
+			this._expression.value = String(lastHistoryResult);
+		}
+
+		if (lastHistoryResult === this._expression.calculate() && command instanceof AddNumber) {
+			this._expression.value = '';
+		}
+
 		this._expression.value = command.execute(this._expression.value);
 	}
 
 	calcResult(): number {
-		const result = this._expression.calculate();
+		const lastHistoryExpression = this._history.getLastHistoryExpression();
+		const lastHistoryResult = this._history.getLastHistoryResult() ?? '';
 
-		this.addToHistory(`${this._expression.value}=${result}`);
+		if (this._expression.value === lastHistoryExpression) {
+			return +lastHistoryResult;
+		}
+		const result = +this._expression.calculate().toFixed(3);
+
+		if (result !== 0) {
+			this._history.add(`${this._expression.value}=${result}`);
+		}
 
 		return result;
 	}
 
-	addToHistory(expression: string): void {
-		this._history = [...this._history, expression];
-	}
-
 	get history(): string[] {
-		return this._history;
+		return this._history.history;
 	}
 
 	set history(history: string[]) {
-		this._history = history;
+		this._history.history = history;
 	}
 
 	get expression(): string {

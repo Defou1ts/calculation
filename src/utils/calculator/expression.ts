@@ -33,6 +33,8 @@ export class Expression implements IExpression {
 	}
 
 	calculate(): number {
+		if (this._value === '') return 0;
+
 		const numbers: number[] = [];
 		const operators: Operator[] = [];
 

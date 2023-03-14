@@ -15,8 +15,7 @@ import {
 } from '@utils';
 
 export const CalculatorFC = (): JSX.Element => {
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const [calculator, _] = useState<Calculator>(new Calculator());
+	const [calculator] = useState<Calculator>(new Calculator());
 
 	const dispatch = useAppDispatch();
 

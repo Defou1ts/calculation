@@ -10,4 +10,8 @@ export const LayoutWrapper = styled.div`
 	padding: 150px;
 
 	min-height: 100vh;
+
+	@media screen and (max-width: 1100px) {
+		padding: 25px;
+	}
 `;

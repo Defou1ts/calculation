@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const DisplayWrapper = styled.div`
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: auto;
+	grid-template-rows: 1fr 1fr;
 	justify-content: space-between;
 
 	background-color: var(--monitor);

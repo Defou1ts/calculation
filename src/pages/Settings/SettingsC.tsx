@@ -12,6 +12,7 @@ import {
 	setThemeType,
 	type RootState,
 	setHistory,
+	toggleIsOpenedHistory,
 } from '@store';
 import {
 	ThemeBackgroundColor,
@@ -33,8 +34,14 @@ export class SettingsClass extends React.Component<SettingsProps> {
 		}
 	};
 
+	handleToggleIsOpenedHistory = (): void => {
+		const { toggleIsOpenedHistory } = this.props;
+
+		toggleIsOpenedHistory();
+	};
+
 	render(): JSX.Element {
-		const { theme, clearHistory } = this.props;
+		const { theme, clearHistory, isOpenedHistory } = this.props;
 
 		return (
 			<ControlPanel>
@@ -46,6 +53,9 @@ export class SettingsClass extends React.Component<SettingsProps> {
 				<ButtonC data-test-id="clear-history" onClick={clearHistory}>
 					Clear all history
 				</ButtonC>
+				<ButtonC onClick={this.handleToggleIsOpenedHistory}>
+					{isOpenedHistory ? 'Close history' : 'Open history'}
+				</ButtonC>
 			</ControlPanel>
 		);
 	}
@@ -53,16 +63,19 @@ export class SettingsClass extends React.Component<SettingsProps> {
 
 interface MapStateProps {
 	theme: ThemeType;
+	isOpenedHistory: boolean;
 }
 
 const mapState = (state: RootState): MapStateProps => ({
 	theme: state.theme.theme,
+	isOpenedHistory: state.global.isOpenedHistory,
 });
 
 interface MapDispatchProps {
 	setLightTheme: () => void;
 	setDarkTheme: () => void;
 	clearHistory: () => void;
+	toggleIsOpenedHistory: () => void;
 }
 
 const mapDispatch = (dispatch: AppDispatch): MapDispatchProps => ({
@@ -84,6 +97,9 @@ const mapDispatch = (dispatch: AppDispatch): MapDispatchProps => ({
 	},
 	clearHistory: (): void => {
 		dispatch(setHistory([]));
+	},
+	toggleIsOpenedHistory: (): void => {
+		dispatch(toggleIsOpenedHistory());
 	},
 });
 

@@ -9,7 +9,6 @@ export interface OperatorCommand {
 export interface ICalculator {
 	executeCommand: (command: ExpressionCommand) => void;
 	calcResult: () => number;
-	addToHistory: (expression: string) => void;
 
 	get history(): string[];
 	set history(history: string[]);

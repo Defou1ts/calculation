@@ -18,7 +18,8 @@
 		"eject": "craco eject",
 		"format": "pretter --write src/",
 		"test:e2e": "cypress run",
-		"deploy": "craco build && gh-pages -d build"
+		"deploy": "craco build && gh-pages -d build",
+		"list" : "eslint --fix"
 	},
 	"eslintConfig": {
 		"extends": [

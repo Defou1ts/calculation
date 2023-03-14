@@ -7,7 +7,7 @@ export const HistoryWrapper = styled.div`
 	gap: 14px;
 	padding: 30px 27px;
 
-	background-color: var(--content);
+	background-color: ${({ theme }) => theme.contentColor};
 	border-radius: 20px;
 
 	@media screen and (max-width: 1100px) {
@@ -19,5 +19,5 @@ export const StyledHistoryTitle = styled.h2`
 	font-weight: 400;
 	font-size: 24px;
 	line-height: 33px;
-	color: var(--text);
+	color: ${({ theme }) => theme.textColor};
 `;

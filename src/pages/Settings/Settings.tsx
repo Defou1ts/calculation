@@ -11,7 +11,7 @@ export const Settings = (): JSX.Element => {
 	const { toggleTheme } = useTheme();
 	const dispatch = useAppDispatch();
 
-	const theme = useAppSelector((state) => state.theme.theme);
+	const theme = useAppSelector((state) => state.theme.theme.themeType);
 	const isOpenedHistory = useAppSelector((state) => state.global.isOpenedHistory);
 
 	const handleClick = (): void => {

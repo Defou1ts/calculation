@@ -3,26 +3,9 @@ import React from 'react';
 import { connect, type ConnectedProps } from 'react-redux';
 
 import { ButtonC, SwitchC } from '@components';
-import {
-	type AppDispatch,
-	setBackgroundColor,
-	setButtonColor,
-	setContentColor,
-	setMonitorColor,
-	setTextColor,
-	setThemeType,
-	type RootState,
-	setHistory,
-	toggleIsOpenedHistory,
-} from '@store';
-import {
-	ThemeBackgroundColor,
-	ThemeButtonColor,
-	ThemeContentColor,
-	ThemeMonitorColor,
-	ThemeTextColor,
-	ThemeType,
-} from '@types';
+import { type AppDispatch, type RootState, setHistory, toggleIsOpenedHistory, setTheme } from '@store';
+import { ThemeType } from '@types';
+import { darkTheme, lightTheme } from '@constants';
 
 import { ControlPanel } from './styled';
 
@@ -70,7 +53,7 @@ interface MapStateProps {
 }
 
 const mapState = (state: RootState): MapStateProps => ({
-	theme: state.theme.theme,
+	theme: state.theme.theme.themeType,
 	isOpenedHistory: state.global.isOpenedHistory,
 });
 
@@ -83,20 +66,10 @@ interface MapDispatchProps {
 
 const mapDispatch = (dispatch: AppDispatch): MapDispatchProps => ({
 	setLightTheme: (): void => {
-		dispatch(setThemeType(ThemeType.LIGHT));
-		dispatch(setBackgroundColor(ThemeBackgroundColor.LIGHT));
-		dispatch(setTextColor(ThemeTextColor.LIGHT));
-		dispatch(setContentColor(ThemeContentColor.LIGHT));
-		dispatch(setMonitorColor(ThemeMonitorColor.LIGHT));
-		dispatch(setButtonColor(ThemeButtonColor.LIGHT));
+		dispatch(setTheme(lightTheme));
 	},
 	setDarkTheme: (): void => {
-		dispatch(setThemeType(ThemeType.DARK));
-		dispatch(setBackgroundColor(ThemeBackgroundColor.DARK));
-		dispatch(setTextColor(ThemeTextColor.DARK));
-		dispatch(setContentColor(ThemeContentColor.DARK));
-		dispatch(setMonitorColor(ThemeMonitorColor.DARK));
-		dispatch(setButtonColor(ThemeButtonColor.DARK));
+		dispatch(setTheme(darkTheme));
 	},
 	clearHistory: (): void => {
 		dispatch(setHistory([]));

@@ -9,5 +9,5 @@ export const CalculatorWrapper = styled.div`
 	padding: 30px 26px;
 
 	border-radius: 20px;
-	background: var(--content);
+	background: ${({ theme }) => theme.contentColor};
 `;

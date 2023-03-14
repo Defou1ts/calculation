@@ -14,8 +14,8 @@ export const Global = createGlobalStyle<ThemeState>`
 		margin: 0;
 		padding: 0;
 		font-family: var(--font-family);
-		background: ${(props) => props.backgroundColor};
-		color: ${(props) => props.textColor};
+		background: ${({ theme }) => theme.backgroundColor};
+		color: ${({ theme }) => theme.textColor};
 	}
 
 	a {
@@ -28,12 +28,12 @@ export const Global = createGlobalStyle<ThemeState>`
 	}
 
 	li {
-    	list-style-type: none; 
+		list-style-type: none; 
 	}
 	
 	ul {
-    	margin-left: 0;
-    	padding-left: 0; 
+		margin-left: 0;
+		padding-left: 0; 
 	}
 
 	:root {
@@ -41,11 +41,5 @@ export const Global = createGlobalStyle<ThemeState>`
 
 		--red: #FF6060;
 		--light-red: #FF7070;
-
-		--background: ${(props) => props.backgroundColor};
-		--content: ${(props) => props.contentColor};
-		--text: ${(props) => props.textColor};
-		--monitor: ${(props) => props.monitorColor};
-		--button: ${(props) => props.buttonColor};
 	}
 `;

@@ -4,7 +4,7 @@ export const LayoutWrapper = styled.div`
 	display: grid;
 	grid-template-rows: 107px auto;
 	grid-template-columns: 1fr;
-	background-color: var(--background);
+	background-color: ${({ theme }) => theme.backgroundColor};
 	gap: 17px;
 
 	padding: 150px;

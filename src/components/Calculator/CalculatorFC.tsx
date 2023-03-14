@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { Display, Keypad } from '@components';
-import { useCalculator } from '@hooks';
+import { useCalculatorContext } from '@hooks';
 
 import { CalculatorWrapper } from './styled';
 
 export const CalculatorFC = (): JSX.Element => {
-	const { handleKeyboardClick } = useCalculator();
+	const { handleKeyboardClick } = useCalculatorContext();
 
 	return (
 		<CalculatorWrapper>

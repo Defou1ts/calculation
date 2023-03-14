@@ -1,6 +1,7 @@
 import React, { type ContextType } from 'react';
 
-import { CalculatorContext, DisplayC, KeypadC } from '@components';
+import { DisplayC, KeypadC } from '@components';
+import { CalculatorContext } from '@interfaces';
 
 import { CalculatorWrapper } from './styled';
 

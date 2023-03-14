@@ -1,3 +1,3 @@
 export * from './useCalculator';
-export * from './useKeyboardClick';
+export * from './useCalculatorContext';
 export * from './useTheme';

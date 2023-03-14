@@ -2,11 +2,13 @@ import React from 'react';
 
 import { Navigate } from 'react-router-dom';
 
-import { HOME_CC_ROUTE, HOME_FC_ROUTE, HOME_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } from '@constants';
-import { type IRoute } from '@interfaces';
+import { ROUTES } from '@types';
+import { type RouteElement } from '@interfaces';
 import { HomeFC, HomeСC, SettingsFC, SettingsCC } from '@pages';
 
-export const routes: IRoute[] = [
+const { HOME_CC_ROUTE, HOME_FC_ROUTE, HOME_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } = ROUTES;
+
+export const routes: RouteElement[] = [
 	{
 		path: HOME_FC_ROUTE,
 		Component: <HomeFC />,

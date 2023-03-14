@@ -16,5 +16,5 @@ export const Round = styled.div<Pick<SwitchProps, 'active'>>`
 	border-radius: 50%;
 	background-color: ${({ theme }) => theme.buttonColor};
 	transition: all 0.2s ease;
-	transform: translateX(${(props) => (props.active ? '55px' : '0px')});
+	transform: translateX(${({ active }) => (active ? 55 : 0)}px);
 `;

@@ -3,7 +3,7 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 import { HOME_CC_ROUTE, HOME_FC_ROUTE, HOME_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } from '@constants';
-import { type IRoute } from '@types';
+import { type IRoute } from '@interfaces';
 import { Home, HomeС, Settings, SettingsC } from '@pages';
 
 export const routes: IRoute[] = [

@@ -7,7 +7,7 @@ import { Global } from 'theme';
 import { type IRoute } from '@interfaces';
 import { useAppSelector } from '@store';
 import { routes } from '@utils';
-import { Layout, ErrorBoundary } from '@components';
+import { Layout, ErrorBoundary, CalculatorProvider } from '@components';
 
 import { HOME_ROUTE } from 'constants/routes';
 
@@ -16,16 +16,18 @@ export const App = (): JSX.Element => {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<ErrorBoundary>
-				<Global />
-				<Routes>
-					<Route path={HOME_ROUTE} element={<Layout />}>
-						{routes.map(({ path, Component }: IRoute) => (
-							<Route key={path} path={path} element={Component} />
-						))}
-					</Route>
-				</Routes>
-			</ErrorBoundary>
+			<CalculatorProvider>
+				<ErrorBoundary>
+					<Global />
+					<Routes>
+						<Route path={HOME_ROUTE} element={<Layout />}>
+							{routes.map(({ path, Component }: IRoute) => (
+								<Route key={path} path={path} element={Component} />
+							))}
+						</Route>
+					</Routes>
+				</ErrorBoundary>
+			</CalculatorProvider>
 		</ThemeProvider>
 	);
 };

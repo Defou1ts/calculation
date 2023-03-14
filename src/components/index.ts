@@ -1,6 +1,7 @@
 // Functions
 export * from './Button/Button';
 export * from './Calculator/CalculatorFC';
+export * from './CalculatorProvider/CalculatorProvider';
 export * from './Display/Display';
 export * from './History/History';
 export * from './HistoryMonitor/HistoryMonitor';

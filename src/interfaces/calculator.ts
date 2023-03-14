@@ -31,3 +31,17 @@ export interface IExpression {
 
 	calculate: () => number;
 }
+
+export interface IHistory {
+	get history(): string[];
+
+	set history(history: string[]);
+
+	add: (expression: string) => void;
+
+	getLasHistoryItem: () => string;
+
+	getLastHistoryExpression: () => string | null;
+
+	getLastHistoryResult: () => number | null;
+}

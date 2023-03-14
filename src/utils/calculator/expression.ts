@@ -1,7 +1,7 @@
 /* eslint-disable no-unmodified-loop-condition */
 /* eslint-disable no-useless-escape */
 
-import { type OperatorCommand, type IExpression } from '@types';
+import { type IExpression, type OperatorCommand } from '@interfaces';
 
 import { ExpressionExceptionType } from './exceptions';
 import { SumCommand, SubCommand, MultiplyCommand, DivideCommand } from './commands';

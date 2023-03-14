@@ -1,4 +1,4 @@
-import { type ICalculator, type ExpressionCommand } from '@types';
+import { type ExpressionCommand, type ICalculator } from 'interfaces/calculator';
 
 import { AddNumber } from './commands';
 import { Expression } from './expression';

@@ -1,3 +1,5 @@
+import { type Theme } from 'interfaces/theme';
+
 import {
 	ThemeBackgroundColor,
 	ThemeButtonColor,
@@ -6,15 +8,6 @@ import {
 	ThemeTextColor,
 	ThemeType,
 } from '@types';
-
-export interface Theme {
-	themeType: ThemeType;
-	backgroundColor: ThemeBackgroundColor;
-	contentColor: ThemeContentColor;
-	textColor: ThemeTextColor;
-	monitorColor: ThemeMonitorColor;
-	buttonColor: ThemeButtonColor;
-}
 
 export const lightTheme: Theme = {
 	themeType: ThemeType.LIGHT,

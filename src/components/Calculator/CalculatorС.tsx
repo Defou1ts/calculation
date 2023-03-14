@@ -2,8 +2,6 @@ import React from 'react';
 
 import { connect, type ConnectedProps } from 'react-redux';
 
-import { DisplayC, KeypadC } from '@components';
-import { type RootState, setDisplayValue, setHistory, setResult } from '@store';
 import {
 	AddCloseParent,
 	AddDivision,
@@ -15,6 +13,8 @@ import {
 	AddPlus,
 	Calculator,
 } from '@utils';
+import { DisplayC, KeypadC } from '@components';
+import { type RootState, setDisplayValue, setHistory, setResult } from '@store';
 
 import { CalculatorWrapper } from './styled';
 

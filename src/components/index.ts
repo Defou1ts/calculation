@@ -7,7 +7,7 @@ export * from './History/History';
 export * from './HistoryMonitor/HistoryMonitor';
 export * from './Key/Key';
 export * from './Keypad/Keypad';
-export * from './layout/Layout';
+export * from './Layout/Layout';
 export * from './Switch/Switch';
 
 // Classes

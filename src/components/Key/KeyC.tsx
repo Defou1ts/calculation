@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { type KeyProps } from './Key.props';
+import { type KeyProps } from './interfaces';
 import { StyledKeyButton } from './styled';
 
 export class KeyC extends Component<KeyProps> {

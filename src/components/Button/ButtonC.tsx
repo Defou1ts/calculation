@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import { type ButtonProps } from './Button.props';
+import { type ButtonProps } from './interfaces';
 import { StyledButton } from './styled';
 
 export class ButtonC extends PureComponent<ButtonProps> {

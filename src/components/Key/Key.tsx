@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { type KeyProps } from './Key.props';
+import { type KeyProps } from './interfaces';
 import { StyledKeyButton } from './styled';
 
 export const Key = ({ keyName, ...props }: KeyProps): JSX.Element => {

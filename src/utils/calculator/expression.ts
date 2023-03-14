@@ -1,14 +1,14 @@
 /* eslint-disable no-unmodified-loop-condition */
 /* eslint-disable no-useless-escape */
 
-import { type IExpression, type OperatorCommand } from '@interfaces';
+import { type Expression, type OperatorCommand } from '@interfaces';
 
 import { ExpressionExceptionType } from './exceptions';
 import { SumCommand, SubCommand, MultiplyCommand, DivideCommand } from './commands';
 
 export type Operator = '+' | '-' | '*' | '/' | '(' | ')';
 
-export class Expression implements IExpression {
+export class ExpressionService implements Expression {
 	constructor(private _value: string) {}
 
 	get value(): string {

@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { connect, type ConnectedProps } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { type RootState } from '@store';
+
+import { type HistoryMonitorProps, type MapStateToProps } from './interfaces';
 
 import { MonitorItem, MonitorList, MonitorWrapper } from '../styled';
 
@@ -24,13 +26,10 @@ export class HistoryMonitorClass extends React.Component<HistoryMonitorProps> {
 	}
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const mapState = (state: RootState) => ({
+const mapState = (state: RootState): MapStateToProps => ({
 	history: state.calculator.history,
 });
 
-const connector = connect(mapState);
+export const historyMonitorConnector = connect(mapState);
 
-type HistoryMonitorProps = ConnectedProps<typeof connector>;
-
-export const HistoryMonitorCC = connector(HistoryMonitorClass);
+export const HistoryMonitorCC = historyMonitorConnector(HistoryMonitorClass);

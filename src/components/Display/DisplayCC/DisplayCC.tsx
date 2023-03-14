@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { connect, type ConnectedProps } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { type RootState } from '@store';
+
+import { type DisplayProps, type MapStateToProps } from './interfaces';
 
 import { DisplayText, DisplayWrapper } from '../styled';
 
@@ -20,14 +22,11 @@ export class DisplayClass extends React.Component<DisplayProps> {
 	}
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const mapState = (state: RootState) => ({
+const mapStateToProps = (state: RootState): MapStateToProps => ({
 	displayValue: state.calculator.displayValue,
 	result: state.calculator.result,
 });
 
-const connector = connect(mapState);
+export const displayConnector = connect(mapStateToProps);
 
-type DisplayProps = ConnectedProps<typeof connector>;
-
-export const DisplayCC = connector(DisplayClass);
+export const DisplayCC = displayConnector(DisplayClass);

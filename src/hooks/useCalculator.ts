@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 
 import { useAppDispatch, setResult, setHistory, setDisplayValue } from '@store';
 import {
-	Calculator,
+	CalculatorService,
 	AddPlus,
 	AddMinus,
 	AddMultiplier,
@@ -15,7 +15,7 @@ import {
 import { type ICalculatorContext } from '@interfaces';
 
 export const useCalculator = (): ICalculatorContext => {
-	const [calculator] = useState<Calculator>(new Calculator());
+	const [calculator] = useState<CalculatorService>(new CalculatorService());
 
 	const dispatch = useAppDispatch();
 

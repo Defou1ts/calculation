@@ -2,11 +2,7 @@ export interface ExpressionCommand {
 	execute: (expression: string) => string;
 }
 
-export interface OperatorCommand {
-	execute: () => number;
-}
-
-export interface ICalculator {
+export interface Calculator {
 	executeCommand: (command: ExpressionCommand) => void;
 	calcResult: () => number;
 
@@ -18,30 +14,4 @@ export interface ICalculator {
 
 	clearExpression: () => void;
 	undoExpression: () => void;
-}
-
-export interface IExpression {
-	get value(): string;
-	set value(expression: string);
-
-	executeCommand: (command: OperatorCommand) => number;
-
-	removeLastCharacter: () => void;
-	clear: () => void;
-
-	calculate: () => number;
-}
-
-export interface IHistory {
-	get history(): string[];
-
-	set history(history: string[]);
-
-	add: (expression: string) => void;
-
-	getLasHistoryItem: () => string;
-
-	getLastHistoryExpression: () => string | null;
-
-	getLastHistoryResult: () => number | null;
 }

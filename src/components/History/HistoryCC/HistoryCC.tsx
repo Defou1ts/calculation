@@ -1,9 +1,11 @@
 import React from 'react';
 
-import { connect, type ConnectedProps } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { HistoryMonitorCC } from '@components';
 import { type RootState } from '@store';
+
+import { type HistoryProps, type MapStateToProps } from './interfaces';
 
 import { HistoryWrapper, StyledHistoryTitle } from '../styled';
 
@@ -24,16 +26,10 @@ export class HistoryClass extends React.Component<HistoryProps> {
 	}
 }
 
-interface MapStateProps {
-	isOpenedHistory: boolean;
-}
-
-const mapState = (state: RootState): MapStateProps => ({
+const mapState = (state: RootState): MapStateToProps => ({
 	isOpenedHistory: state.global.isOpenedHistory,
 });
 
-const connector = connect(mapState);
+export const historyConnector = connect(mapState);
 
-type HistoryProps = ConnectedProps<typeof connector>;
-
-export const HistoryCC = connector(HistoryClass);
+export const HistoryCC = historyConnector(HistoryClass);

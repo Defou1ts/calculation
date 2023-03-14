@@ -1,12 +1,12 @@
-import { type ExpressionCommand, type ICalculator } from 'interfaces/calculator';
+import { type ExpressionCommand, type Calculator } from 'interfaces/calculator';
 
 import { AddNumber } from './commands';
-import { Expression } from './expression';
-import { History } from './history';
+import { ExpressionService } from './expression';
+import { HistoryService } from './history';
 
-export class Calculator implements ICalculator {
-	private readonly _expression: Expression = new Expression('');
-	private readonly _history: History = new History([]);
+export class CalculatorService implements Calculator {
+	private readonly _expression: ExpressionService = new ExpressionService('');
+	private readonly _history: HistoryService = new HistoryService([]);
 
 	executeCommand(command: ExpressionCommand): void {
 		const lastHistoryResult = this._history.getLastHistoryResult();

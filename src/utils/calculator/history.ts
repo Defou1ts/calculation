@@ -1,6 +1,6 @@
-import { type IHistory } from '@interfaces';
+import { type History } from '@interfaces';
 
-export class History implements IHistory {
+export class HistoryService implements History {
 	constructor(private _history: string[]) {}
 
 	get history(): string[] {

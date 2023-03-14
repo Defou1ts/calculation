@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { type KeyProps } from './Key.props';
 import { StyledKeyButton } from './styled';
 

@@ -1,22 +1,21 @@
 // Functions
-export * from './Key/Key';
-export * from './Keypad/Keypad';
+export * from './Button/Button';
 export * from './Calculator/CalculatorFC';
+export * from './Display/Display';
 export * from './History/History';
 export * from './HistoryMonitor/HistoryMonitor';
-export * from './Display/Display';
-export * from './Switch/Switch';
-export * from './Button/Button';
-
+export * from './Key/Key';
+export * from './Keypad/Keypad';
 export * from './layout/Layout';
+export * from './Switch/Switch';
 
 // Classes
-export * from './ErrorBoundary/ErrorBoundary';
-export * from './Key/KeyC';
-export * from './Keypad/KeypadC';
+export * from './Button/ButtonC';
 export * from './Calculator/CalculatorС';
+export * from './Display/DisplayC';
+export * from './ErrorBoundary/ErrorBoundary';
 export * from './History/HistoryC';
 export * from './HistoryMonitor/HistoryMonitorC';
-export * from './Display/DisplayC';
+export * from './Key/KeyC';
+export * from './Keypad/KeypadC';
 export * from './Switch/SwitchC';
-export * from './Button/ButtonC';

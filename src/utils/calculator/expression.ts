@@ -2,6 +2,7 @@
 /* eslint-disable no-useless-escape */
 
 import { type OperatorCommand, type IExpression } from '@types';
+
 import { ExpressionExceptionType } from './exceptions';
 import { SumCommand, SubCommand, MultiplyCommand, DivideCommand } from './commands';
 

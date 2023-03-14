@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
+
 import { Display, Keypad } from '@components';
-import { useAppDispatch, setResult, setHistory, setDisplayValue, useAppSelector } from '@store';
-import { CalculatorWrapper } from './styled';
+import { setDisplayValue, setHistory, setResult, useAppDispatch, useAppSelector } from '@store';
 import {
 	AddCloseParent,
 	AddDivision,
@@ -13,6 +13,8 @@ import {
 	AddPlus,
 	Calculator,
 } from '@utils';
+
+import { CalculatorWrapper } from './styled';
 
 export const CalculatorFC = (): JSX.Element => {
 	const [calculator] = useState<Calculator>(new Calculator());

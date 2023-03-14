@@ -4,12 +4,12 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@reduxjs/toolkit": "^1.9.3",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-redux": "^8.0.5",
 		"react-router-dom": "^6.8.2",
-		"react-scripts": "5.0.1",
-		"@reduxjs/toolkit": "^1.9.3"
+		"react-scripts": "5.0.1"
 	},
 	"scripts": {
 		"start": "craco start",
@@ -17,9 +17,9 @@
 		"test": "craco test",
 		"eject": "craco eject",
 		"format": "pretter --write src/",
+		"lint": "eslint --fix src",
 		"test:e2e": "cypress run",
-		"deploy": "craco build && gh-pages -d build",
-		"list" : "eslint --fix"
+		"deploy": "craco build && gh-pages -d build"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -40,20 +40,17 @@
 		]
 	},
 	"devDependencies": {
-		"styled-components": "^5.3.8",
-		"typescript": "*",
+		"@craco/craco": "^7.0.0",
+		"@testing-library/jest-dom": "^5.16.5",
+		"@testing-library/react": "^13.4.0",
+		"@testing-library/user-event": "^14.4.3",
 		"@types/jest": "^27.5.2",
 		"@types/node": "^17.0.45",
 		"@types/react": "^18.0.28",
 		"@types/react-dom": "^18.0.11",
 		"@types/styled-components": "^5.1.26",
+		"@typescript-eslint/eslint-plugin": "^5.0.0",
 		"cypress": "^12.7.0",
-		"mochawesome": "^7.1.3",
-		"@craco/craco": "^7.0.0",
-		"@testing-library/jest-dom": "^5.16.5",
-		"@testing-library/react": "^13.4.0",
-		"@testing-library/user-event": "^14.4.3",
-		"prettier": "^2.8.4",
 		"eslint": "^8.0.1",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-config-standard-with-typescript": "^34.0.0",
@@ -61,6 +58,10 @@
 		"eslint-plugin-n": "^15.0.0",
 		"eslint-plugin-promise": "^6.0.0",
 		"eslint-plugin-react": "^7.32.2",
-		"@typescript-eslint/eslint-plugin": "^5.0.0"
+		"eslint-plugin-simple-import-sort": "^10.0.0",
+		"mochawesome": "^7.1.3",
+		"prettier": "^2.8.4",
+		"styled-components": "^5.3.8",
+		"typescript": "*"
 	}
 }

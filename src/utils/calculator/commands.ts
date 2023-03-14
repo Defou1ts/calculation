@@ -1,4 +1,5 @@
 import { type ExpressionCommand, type OperatorCommand } from '@types';
+
 import { CalculatorExceptionType } from './exceptions';
 
 export class AddNumber implements ExpressionCommand {

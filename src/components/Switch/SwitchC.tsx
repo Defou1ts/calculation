@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Round, SwitchWrapper } from './styled';
 import { type SwitchProps } from './Switch.props';
 

@@ -1,8 +1,11 @@
 import React from 'react';
-import { HistoryMonitorC } from '@components';
-import { HistoryWrapper, StyledHistoryTitle } from './styled';
-import { type RootState } from '@store';
+
 import { connect, type ConnectedProps } from 'react-redux';
+
+import { HistoryMonitorC } from '@components';
+import { type RootState } from '@store';
+
+import { HistoryWrapper, StyledHistoryTitle } from './styled';
 
 export class HistoryClass extends React.Component<HistoryProps> {
 	render(): JSX.Element | null {

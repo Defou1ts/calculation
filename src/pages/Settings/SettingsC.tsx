@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { connect, type ConnectedProps } from 'react-redux';
+
 import { ButtonC, SwitchC } from '@components';
-import { ControlPanel } from './styled';
 import {
 	type AppDispatch,
 	setBackgroundColor,
@@ -22,6 +23,8 @@ import {
 	ThemeTextColor,
 	ThemeType,
 } from '@types';
+
+import { ControlPanel } from './styled';
 
 export class SettingsClass extends React.Component<SettingsProps> {
 	handleToggleTheme = (): void => {

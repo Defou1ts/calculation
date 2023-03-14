@@ -1,6 +1,9 @@
-import { type RootState } from '@store';
 import React from 'react';
+
 import { connect, type ConnectedProps } from 'react-redux';
+
+import { type RootState } from '@store';
+
 import { MonitorItem, MonitorList, MonitorWrapper } from './styled';
 
 export class HistoryMonitorClass extends React.Component<HistoryMonitorProps> {

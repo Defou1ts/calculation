@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { KeyC } from '@components';
 import { keypadSchema } from '@constants';
+
 import { KeypadWrapper } from './styled';
 import { type KeypadProps } from './Keypad.props';
 

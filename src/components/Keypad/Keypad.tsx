@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
+
 import { Key } from '@components';
 import { keypadSchema } from '@constants';
+
 import { KeypadWrapper } from './styled';
 import { type KeypadProps } from './Keypad.props';
 

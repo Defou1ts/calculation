@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { connect, type ConnectedProps } from 'react-redux';
+
 import { DisplayC, KeypadC } from '@components';
 import { type RootState, setDisplayValue, setHistory, setResult } from '@store';
-import { CalculatorWrapper } from './styled';
 import {
 	AddCloseParent,
 	AddDivision,
@@ -14,6 +15,8 @@ import {
 	AddPlus,
 	Calculator,
 } from '@utils';
+
+import { CalculatorWrapper } from './styled';
 
 class CalculatorClass extends React.Component<CalculatorProps> {
 	calculator: Calculator;

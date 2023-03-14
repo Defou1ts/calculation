@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { useAppSelector } from '@store';
+
 import { DisplayText, DisplayWrapper } from './styled';
 
 export const Display = (): JSX.Element => {

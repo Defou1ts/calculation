@@ -1,7 +1,9 @@
 import React from 'react';
+
+import { Route, Routes } from 'react-router-dom';
+
 import { Global } from '@styles';
 import { useAppSelector } from '@store';
-import { Route, Routes } from 'react-router-dom';
 import { Layout } from '@components';
 import { type IRoute } from '@types';
 import { routes } from '@utils';

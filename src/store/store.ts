@@ -1,4 +1,5 @@
 import { configureStore, type ThunkAction, type Action } from '@reduxjs/toolkit';
+
 import themeReducer from './slices/theme.slice';
 import calculatorReducer from './slices/calculator.slice';
 import globalReducer from './slices/global.slice';

@@ -8,6 +8,5 @@ export const HomeWrapper = styled.main`
 	@media screen and (max-width: 1100px) {
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr 1fr;
-		
 	}
 `;

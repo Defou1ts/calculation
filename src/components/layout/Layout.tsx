@@ -1,8 +1,11 @@
 import React from 'react';
+
+import { Outlet } from 'react-router-dom';
+
 import { ErrorBondary } from '@components';
+
 import { Header } from './Header/Header';
 import { LayoutWrapper } from './styled';
-import { Outlet } from 'react-router-dom';
 
 export const Layout = (): JSX.Element => {
 	return (

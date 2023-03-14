@@ -1,5 +1,7 @@
-import { useAppSelector } from '@store';
 import React from 'react';
+
+import { useAppSelector } from '@store';
+
 import { MonitorItem, MonitorList, MonitorWrapper } from './styled';
 
 export const HistoryMonitor = (): JSX.Element => {

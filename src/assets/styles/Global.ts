@@ -1,5 +1,6 @@
-import { type ThemeState } from '@store';
 import { createGlobalStyle } from 'styled-components';
+
+import { type ThemeState } from '@store';
 
 export const Global = createGlobalStyle<ThemeState>`
 	* {

@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { Button, Switch } from '@components';
 import { useTheme } from '@hooks';
-import { ControlPanel } from './styled';
 import { setHistory, toggleIsOpenedHistory, useAppDispatch, useAppSelector } from '@store';
 import { ThemeType } from '@types';
+
+import { ControlPanel } from './styled';
 
 export const Settings = (): JSX.Element => {
 	const { toggleTheme } = useTheme();

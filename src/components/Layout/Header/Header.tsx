@@ -1,28 +1,18 @@
 import React from 'react';
 
-import { ROUTES } from '@types';
+import { navigationElements } from '@utils';
 
 import { HeaderWrapper, Navigation, StyledNavLink } from './styled';
-
-const { HOME_CC_ROUTE, HOME_FC_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } = ROUTES;
 
 export const Header = (): JSX.Element => {
 	return (
 		<HeaderWrapper>
 			<Navigation>
-				<StyledNavLink data-test-id="nav-link" to={HOME_FC_ROUTE}>
-					Home FC
-				</StyledNavLink>
-				<StyledNavLink data-test-id="nav-link" to={HOME_CC_ROUTE}>
-					Home CC
-				</StyledNavLink>
-				<span></span>
-				<StyledNavLink data-test-id="nav-link" to={SETTINGS_FC_ROUTE}>
-					Settings FC
-				</StyledNavLink>
-				<StyledNavLink data-test-id="nav-link" to={SETTINGS_CC_ROUTE}>
-					Settings CC
-				</StyledNavLink>
+				{navigationElements.map(({ name, path }) => (
+					<StyledNavLink key={name} to={path}>
+						{name}
+					</StyledNavLink>
+				))}
 			</Navigation>
 		</HeaderWrapper>
 	);

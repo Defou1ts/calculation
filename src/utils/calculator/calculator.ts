@@ -1,6 +1,6 @@
 import { type ExpressionCommand, type Calculator } from 'interfaces/calculator';
 
-import { AddNumber } from './commands';
+import { AddNumber, OperatorExpressionCommand } from './commands';
 import { ExpressionService } from './expression';
 import { HistoryService } from './history';
 
@@ -11,12 +11,18 @@ export class CalculatorService implements Calculator {
 	executeCommand(command: ExpressionCommand): void {
 		const lastHistoryResult = this._history.getLastHistoryResult();
 
-		if (lastHistoryResult === this._expression.calculate() && !(command instanceof AddNumber)) {
-			this._expression.value = String(lastHistoryResult);
-		}
+		try {
+			if (lastHistoryResult === this._expression.calculate() && command instanceof OperatorExpressionCommand) {
+				this._expression.value = String(lastHistoryResult);
+			}
 
-		if (lastHistoryResult === this._expression.calculate() && command instanceof AddNumber) {
-			this._expression.value = '';
+			if (lastHistoryResult === this._expression.calculate() && command instanceof AddNumber) {
+				this._expression.value = '';
+			}
+		} catch (error: unknown) {
+			if (error instanceof Error) {
+				console.log(error.message);
+			}
 		}
 
 		this._expression.value = command.execute(this._expression.value);

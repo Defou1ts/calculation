@@ -13,7 +13,8 @@ export const HeaderWrapper = styled.header`
 export const Navigation = styled.nav`
 	display: grid;
 	grid-template-rows: 1fr;
-	grid-template-columns: auto auto 1fr auto auto;
+	grid-template-columns: auto auto auto auto;
+	justify-content: left;
 	gap: 17px;
 `;
 

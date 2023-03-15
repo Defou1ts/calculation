@@ -6,7 +6,7 @@ import { ROUTES } from '@types';
 import { type RouteElement } from '@interfaces';
 import { HomeFC, HomeСC, SettingsFC, SettingsCC } from '@pages';
 
-const { HOME_CC_ROUTE, HOME_FC_ROUTE, HOME_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } = ROUTES;
+const { HOME_CC_ROUTE, HOME_FC_ROUTE, HOME_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE, ALL } = ROUTES;
 
 export const routes: RouteElement[] = [
 	{
@@ -30,7 +30,7 @@ export const routes: RouteElement[] = [
 		Component: <Navigate to={HOME_FC_ROUTE} replace />,
 	},
 	{
-		path: '*',
+		path: ALL,
 		Component: <Navigate to={HOME_FC_ROUTE} replace />,
 	},
 ];

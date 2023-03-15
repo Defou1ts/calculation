@@ -17,11 +17,18 @@ import {
 	checkThemeSwitch,
 } from '../support/calculator';
 
-const { HOME_CC_ROUTE, HOME_FC_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } = ROUTES;
+const { HOME_CC_ROUTE, HOME_FC_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE, HOME_ROUTE } = ROUTES;
 
 describe('Home Page Function Components', () => {
 	beforeEach(() => {
-		cy.visit(HOME_FC_ROUTE);
+		cy.visit(HOME_ROUTE)
+			.get('[data-test-id=nav-link]')
+			.contains('Home FC')
+			.click()
+			.location()
+			.should((location) => {
+				expect(location.pathname).to.equal(HOME_FC_ROUTE);
+			});
 	});
 
 	checkKeypadButtons();
@@ -36,7 +43,14 @@ describe('Home Page Function Components', () => {
 
 describe('Home Page Class Components', () => {
 	beforeEach(() => {
-		cy.visit(HOME_CC_ROUTE);
+		cy.visit(HOME_ROUTE)
+			.get('[data-test-id=nav-link]')
+			.contains('Home CC')
+			.click()
+			.location()
+			.should((location) => {
+				expect(location.pathname).to.equal(HOME_CC_ROUTE);
+			});
 	});
 
 	checkKeypadButtons();
@@ -51,7 +65,14 @@ describe('Home Page Class Components', () => {
 
 describe('Settings Page Function Components', () => {
 	beforeEach(() => {
-		cy.visit(SETTINGS_FC_ROUTE);
+		cy.visit(HOME_ROUTE)
+			.get('[data-test-id=nav-link]')
+			.contains('Settings FC')
+			.click()
+			.location()
+			.should((location) => {
+				expect(location.pathname).to.equal(SETTINGS_FC_ROUTE);
+			});
 	});
 
 	checkThemeSwitch();
@@ -59,7 +80,14 @@ describe('Settings Page Function Components', () => {
 
 describe('Settings Page Class Components', () => {
 	beforeEach(() => {
-		cy.visit(SETTINGS_CC_ROUTE);
+		cy.visit(HOME_ROUTE)
+			.get('[data-test-id=nav-link]')
+			.contains('Settings CC')
+			.click()
+			.location()
+			.should((location) => {
+				expect(location.pathname).to.equal(SETTINGS_CC_ROUTE);
+			});
 	});
 
 	checkThemeSwitch();

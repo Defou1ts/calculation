@@ -18,11 +18,10 @@
 		"test": "craco test",
 		"eject": "craco eject",
 		"lint": "eslint --fix src",
-		"test:e2e": "cypress run",
+		"cypress": "cypress run",
 		"prepare": "husky install",
 		"deploy": "craco build && gh-pages -d build"
 	},
-
 	"eslintConfig": {
 		"extends": [
 			"react-app",

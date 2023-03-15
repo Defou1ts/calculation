@@ -17,11 +17,12 @@
 		"build": "craco build",
 		"test": "craco test",
 		"eject": "craco eject",
-		"format": "pretter --write src/",
 		"lint": "eslint --fix src",
 		"test:e2e": "cypress run",
+		"prepare": "husky install",
 		"deploy": "craco build && gh-pages -d build"
 	},
+
 	"eslintConfig": {
 		"extends": [
 			"react-app",
@@ -60,6 +61,7 @@
 		"eslint-plugin-promise": "^6.0.0",
 		"eslint-plugin-react": "^7.32.2",
 		"eslint-plugin-simple-import-sort": "^10.0.0",
+		"husky": "^8.0.3",
 		"mochawesome": "^7.1.3",
 		"prettier": "^2.8.4",
 		"styled-components": "^5.3.8",

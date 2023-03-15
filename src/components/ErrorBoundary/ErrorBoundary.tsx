@@ -1,12 +1,13 @@
 import React, { type ReactNode } from 'react';
-import { type ErrorBoundaryProps } from './ErrorBoundary.props';
+
+import { type ErrorBoundaryProps } from './interfaces';
 import { ErrorWrapper } from './styled';
 
 interface ErrorState {
 	error: boolean;
 }
 
-export class ErrorBondary extends React.Component<ErrorBoundaryProps, ErrorState> {
+export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorState> {
 	constructor(props: ErrorBoundaryProps) {
 		super(props);
 

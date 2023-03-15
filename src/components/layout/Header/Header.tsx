@@ -1,6 +1,10 @@
 import React from 'react';
-import { HOME_CC_ROUTE, HOME_FC_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } from '@constants';
+
+import { ROUTES } from '@types';
+
 import { HeaderWrapper, Navigation, StyledNavLink } from './styled';
+
+const { HOME_CC_ROUTE, HOME_FC_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } = ROUTES;
 
 export const Header = (): JSX.Element => {
 	return (

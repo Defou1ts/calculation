@@ -1,7 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference types="cypress" />
 
-import { HOME_CC_ROUTE, HOME_FC_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } from '@constants';
+import { ROUTES } from '@types';
+
 import {
 	checkCalculate,
 	checkClearExpression,
@@ -15,6 +16,8 @@ import {
 	checkSum,
 	checkThemeSwitch,
 } from '../support/calculator';
+
+const { HOME_CC_ROUTE, HOME_FC_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } = ROUTES;
 
 describe('Home Page Function Components', () => {
 	beforeEach(() => {

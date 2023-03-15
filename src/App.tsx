@@ -1,25 +1,35 @@
 import React from 'react';
-import { Global } from '@styles';
-import { useAppSelector } from '@store';
+
 import { Route, Routes } from 'react-router-dom';
-import { Layout } from '@components';
-import { type IRoute } from '@types';
+import { ThemeProvider } from 'styled-components';
+import { Global } from 'theme';
+import { PersistGate } from 'redux-persist/integration/react';
+
+import { type RouteElement } from '@interfaces';
+import { persistor, useAppSelector } from '@store';
 import { routes } from '@utils';
-import { HOME_ROUTE } from '@constants';
+import { Layout, ErrorBoundary, CalculatorProvider } from '@components';
+import { ROUTES } from '@types';
 
 export const App = (): JSX.Element => {
-	const theme = useAppSelector((state) => state.theme);
+	const theme = useAppSelector((state) => state.theme.theme);
 
 	return (
-		<>
-			<Global {...theme} />
-			<Routes>
-				<Route path={HOME_ROUTE} element={<Layout />}>
-					{routes.map(({ path, Component }: IRoute) => (
-						<Route key={path} path={path} element={Component} />
-					))}
-				</Route>
-			</Routes>
-		</>
+		<ThemeProvider theme={theme}>
+			<PersistGate loading={null} persistor={persistor}>
+				<CalculatorProvider>
+					<ErrorBoundary>
+						<Global />
+						<Routes>
+							<Route path={ROUTES.HOME_ROUTE} element={<Layout />}>
+								{routes.map(({ path, Component }: RouteElement) => (
+									<Route key={path} path={path} element={Component} />
+								))}
+							</Route>
+						</Routes>
+					</ErrorBoundary>
+				</CalculatorProvider>
+			</PersistGate>
+		</ThemeProvider>
 	);
 };

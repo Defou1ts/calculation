@@ -13,6 +13,7 @@ module.exports = {
 			'@hooks': path.resolve(__dirname, 'src/hooks'),
 			'@styles': path.resolve(__dirname, 'src/assets/styles'),
 			'@images': path.resolve(__dirname, 'src/assets/images'),
+			'@interfaces': path.resolve(__dirname, 'src/interfaces'),
 		},
 	},
 };

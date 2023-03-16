@@ -39,6 +39,7 @@ export class CalculatorService implements Calculator {
 
 		if (this._expression.value === lastHistoryExpression) {
 			this.result = +lastHistoryResult;
+			return
 		}
 		const result = +this._expression.calculate().toFixed(3);
 

@@ -1,6 +1,6 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
-import { useAppDispatch, setResult, setHistory, setDisplayValue } from '@store';
+import { useAppDispatch, setResult, setHistory, setDisplayValue, useAppSelector } from '@store';
 import {
 	CalculatorService,
 	AddPlus,
@@ -16,6 +16,10 @@ import { type ICalculatorContext } from '@interfaces';
 
 export const useCalculator = (): ICalculatorContext => {
 	const [calculator] = useState<CalculatorService>(new CalculatorService());
+
+	const history = useAppSelector((state) => state.calculator.history);
+	const displayValue = useAppSelector((state) => state.calculator.displayValue);
+	const result = useAppSelector((state) => state.calculator.result);
 
 	const dispatch = useAppDispatch();
 
@@ -59,5 +63,15 @@ export const useCalculator = (): ICalculatorContext => {
 		dispatch(setDisplayValue(calculator.expression));
 	}, []);
 
+	useEffect(() => {
+		calculator.expression = displayValue;
+	}, [displayValue]);
+
+	useEffect(() => {
+		calculator.result = result;
+	}, [result]);
+	useEffect(() => {
+		calculator.history = history;
+	}, [history]);
 	return { calculator, handleKeyboardClick };
 };

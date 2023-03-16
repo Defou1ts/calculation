@@ -17,8 +17,8 @@ export const HistoryFC = (): JSX.Element | null => {
 			<StyledHistoryTitle>History</StyledHistoryTitle>
 			<MonitorWrapper>
 				<MonitorList>
-					{history.map((value) => (
-						<MonitorItem data-test-id="history-monitor" key={value}>
+					{history.map((value, index) => (
+						<MonitorItem data-test-id="history-monitor" key={index}>
 							{value}
 						</MonitorItem>
 					))}

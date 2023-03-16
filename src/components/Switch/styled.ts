@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { type SwitchProps } from './interfaces';
+import { type SwitchWrapperProps, type SwitchProps } from './interfaces';
 
-export const SwitchWrapper = styled.button<Pick<SwitchProps, 'onClick'>>`
+export const SwitchWrapper = styled.button<SwitchWrapperProps>`
 	cursor: pointer;
 	width: 110px;
 	border-radius: 50px;

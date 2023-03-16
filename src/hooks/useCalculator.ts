@@ -43,19 +43,19 @@ export const useCalculator = (): ICalculatorContext => {
 				calculator.executeCommand(new AddDot());
 				break;
 			case 'C':
-				calculator.clearExpression();
-				dispatch(setResult(null));
+				calculator.clear();
 				break;
 			case 'CE':
 				calculator.undoExpression();
 				break;
 			case '=':
-				dispatch(setResult(calculator.calcResult()));
+				calculator.calcResult();
 				dispatch(setHistory(calculator.history));
 				break;
 			default:
 				calculator.executeCommand(new AddNumber(+value));
 		}
+		dispatch(setResult(calculator.result));
 		dispatch(setDisplayValue(calculator.expression));
 	}, []);
 

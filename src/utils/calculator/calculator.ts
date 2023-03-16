@@ -7,6 +7,7 @@ import { HistoryService } from './history';
 export class CalculatorService implements Calculator {
 	private readonly _expression: ExpressionService = new ExpressionService('');
 	private readonly _history: HistoryService = new HistoryService([]);
+	result: number | '' = '';
 
 	executeCommand(command: ExpressionCommand): void {
 		const lastHistoryResult = this._history.getLastHistoryResult();
@@ -25,15 +26,19 @@ export class CalculatorService implements Calculator {
 			}
 		}
 
+		if (command instanceof AddNumber && this.result !== '') {
+			this.result = '';
+		}
+
 		this._expression.value = command.execute(this._expression.value);
 	}
 
-	calcResult(): number {
+	calcResult(): void {
 		const lastHistoryExpression = this._history.getLastHistoryExpression();
 		const lastHistoryResult = this._history.getLastHistoryResult() ?? '';
 
 		if (this._expression.value === lastHistoryExpression) {
-			return +lastHistoryResult;
+			this.result = +lastHistoryResult;
 		}
 		const result = +this._expression.calculate().toFixed(3);
 
@@ -41,7 +46,7 @@ export class CalculatorService implements Calculator {
 			this._history.add(`${this._expression.value}=${result}`);
 		}
 
-		return result;
+		this.result = result;
 	}
 
 	get history(): string[] {
@@ -58,6 +63,15 @@ export class CalculatorService implements Calculator {
 
 	set expression(expression: string) {
 		this._expression.value = expression;
+	}
+
+	clear(): void {
+		this.clearExpression();
+		this.clearResult();
+	}
+
+	clearResult(): void {
+		this.result = '';
 	}
 
 	clearExpression(): void {

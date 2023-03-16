@@ -4,7 +4,7 @@ export interface ExpressionCommand {
 
 export interface Calculator {
 	executeCommand: (command: ExpressionCommand) => void;
-	calcResult: () => number;
+	calcResult: () => void;
 
 	get history(): string[];
 	set history(history: string[]);

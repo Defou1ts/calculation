@@ -2,14 +2,14 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 interface CalculatorState {
 	displayValue: string;
-	result: number | null;
+	result: number | '';
 	history: string[];
 }
 
 const initialState: CalculatorState = {
 	displayValue: '',
 	history: [],
-	result: null,
+	result: '',
 };
 
 export const calculatorSlice = createSlice({
@@ -22,7 +22,7 @@ export const calculatorSlice = createSlice({
 		setHistory: (state, action: PayloadAction<string[]>) => {
 			state.history = action.payload;
 		},
-		setResult: (state, action: PayloadAction<number | null>) => {
+		setResult: (state, action: PayloadAction<number | ''>) => {
 			state.result = action.payload;
 		},
 	},

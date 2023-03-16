@@ -27,7 +27,8 @@
 			"@utils": ["./utils"],
 			"@hooks": ["./hooks"],
 			"@styles": ["./assets/styles"],
-			"@images": ["./assets/images"]
+			"@images": ["./assets/images"],
+			"@interfaces": ["./interfaces"]
 		}
 	},
 	"include": ["src", "cypress", "cypress.config.ts"]

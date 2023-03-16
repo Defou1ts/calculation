@@ -1,4 +1,6 @@
-import { SETTINGS_CC_ROUTE, HOME_FC_ROUTE, HOME_CC_ROUTE, SETTINGS_FC_ROUTE } from '@constants';
+import { ROUTES } from '@types';
+
+const { SETTINGS_CC_ROUTE, HOME_FC_ROUTE, HOME_CC_ROUTE, SETTINGS_FC_ROUTE } = ROUTES;
 
 export function checkKeypadButtons(): void {
 	it('Check keypad buttons', () => {

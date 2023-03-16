@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 export const ControlPanel = styled.main`
 	display: grid;
-	grid-template-columns: 110px 142px;
-	grid-template-rows: 54px;
+	grid-template-columns: repeat(auto-fill, 150px);
+	grid-template-rows: 54px 54px;
+	grid-auto-rows: 54px;
 	border-radius: 20px;
-	background-color: var(--content);
+	background-color: ${({ theme }) => theme.themeType.contentColor};
 	padding: 27px 16px;
 	align-items: center;
-	gap: 0px 35px;
+	justify-items: center;
+	gap: 35px 35px;
 `;

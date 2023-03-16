@@ -1,4 +1,5 @@
-import { type ExpressionCommand, type OperatorCommand } from '@types';
+import { type ExpressionCommand, type OperatorCommand } from '@interfaces';
+
 import { CalculatorExceptionType } from './exceptions';
 
 export class AddNumber implements ExpressionCommand {
@@ -10,31 +11,36 @@ export class AddNumber implements ExpressionCommand {
 	}
 }
 
-export class AddPlus implements ExpressionCommand {
+export class OperatorExpressionCommand implements ExpressionCommand {
+	constructor(private readonly operator: string) {}
+
 	execute(expression: string): string {
-		if (expression.slice(-1) === '+') throw new Error(CalculatorExceptionType.DOUBLE_OPERATOR_ERROR);
-		return `${expression}+`;
+		if (expression.slice(-1) === this.operator) throw new Error(CalculatorExceptionType.DOUBLE_OPERATOR_ERROR);
+		return `${expression}${this.operator}`;
 	}
 }
 
-export class AddMinus implements ExpressionCommand {
-	execute(expression: string): string {
-		if (expression.slice(-1) === '-') throw new Error(CalculatorExceptionType.DOUBLE_OPERATOR_ERROR);
-		return `${expression}-`;
+export class AddPlus extends OperatorExpressionCommand {
+	constructor() {
+		super('+');
 	}
 }
 
-export class AddDivision implements ExpressionCommand {
-	execute(expression: string): string {
-		if (expression.slice(-1) === '/') throw new Error(CalculatorExceptionType.DOUBLE_OPERATOR_ERROR);
-		return `${expression}/`;
+export class AddMinus extends OperatorExpressionCommand {
+	constructor() {
+		super('-');
 	}
 }
 
-export class AddMultiplier implements ExpressionCommand {
-	execute(expression: string): string {
-		if (expression.slice(-1) === '*') throw new Error(CalculatorExceptionType.DOUBLE_OPERATOR_ERROR);
-		return `${expression}*`;
+export class AddDivision extends OperatorExpressionCommand {
+	constructor() {
+		super('/');
+	}
+}
+
+export class AddMultiplier extends OperatorExpressionCommand {
+	constructor() {
+		super('*');
 	}
 }
 

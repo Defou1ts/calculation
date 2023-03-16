@@ -1,5 +1,6 @@
-import { APP_HOST, APP_PORT } from '@constants';
 import { defineConfig } from 'cypress';
+
+import { APP_HOST, APP_PORT } from '@constants';
 
 export default defineConfig({
 	e2e: {

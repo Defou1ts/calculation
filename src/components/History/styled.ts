@@ -7,13 +7,36 @@ export const HistoryWrapper = styled.div`
 	gap: 14px;
 	padding: 30px 27px;
 
-	background-color: var(--content);
+	background-color: ${({ theme }) => theme.themeType.contentColor};
 	border-radius: 20px;
+
+	@media screen and (max-width: ${({ theme }) => theme.breakPoints.mobile}px) {
+		grid-template-columns: 1fr;
+	}
 `;
 
 export const StyledHistoryTitle = styled.h2`
 	font-weight: 400;
-	font-size: 24px;
+	font-size: ${({ theme }) => theme.fontSize[1]}px;
 	line-height: 33px;
-	color: var(--text);
+	color: ${({ theme }) => theme.themeType.textColor};
+`;
+
+export const MonitorWrapper = styled.div`
+	padding: 20px;
+	background-color: ${({ theme }) => theme.themeType.monitorColor};
+	border-radius: 20px;
+`;
+
+export const MonitorList = styled.ul`
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 11px;
+`;
+
+export const MonitorItem = styled.li`
+	font-weight: ${({ theme }) => theme.fontWeight[0]};
+	font-size: ${({ theme }) => theme.fontSize[0]}px;
+	line-height: 22px;
+	color: ${({ theme }) => theme.themeType.textColor};
 `;

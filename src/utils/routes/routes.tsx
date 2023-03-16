@@ -1,32 +1,36 @@
 import React from 'react';
-import { HOME_CC_ROUTE, HOME_FC_ROUTE, HOME_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } from '@constants';
-import { type IRoute } from '@types';
-import { Navigate } from 'react-router-dom';
-import { Home, HomeС, Settings, SettingsC } from '@pages';
 
-export const routes: IRoute[] = [
+import { Navigate } from 'react-router-dom';
+
+import { ROUTES } from '@types';
+import { type RouteElement } from '@interfaces';
+import { HomeFC, HomeСC, SettingsFC, SettingsCC } from '@pages';
+
+const { HOME_CC_ROUTE, HOME_FC_ROUTE, HOME_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE, ALL } = ROUTES;
+
+export const routes: RouteElement[] = [
 	{
 		path: HOME_FC_ROUTE,
-		Component: <Home />,
+		Component: <HomeFC />,
 	},
 	{
 		path: HOME_CC_ROUTE,
-		Component: <HomeС />,
+		Component: <HomeСC />,
 	},
 	{
 		path: SETTINGS_FC_ROUTE,
-		Component: <Settings />,
+		Component: <SettingsFC />,
 	},
 	{
 		path: SETTINGS_CC_ROUTE,
-		Component: <SettingsC />,
+		Component: <SettingsCC />,
 	},
 	{
 		path: HOME_ROUTE,
 		Component: <Navigate to={HOME_FC_ROUTE} replace />,
 	},
 	{
-		path: '*',
+		path: ALL,
 		Component: <Navigate to={HOME_FC_ROUTE} replace />,
 	},
 ];

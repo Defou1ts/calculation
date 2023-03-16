@@ -16,7 +16,6 @@ jobs:
               uses: actions/setup-node@v2.4.0
               with:
                   node-version: '14.21.2'
-                  cache: 'npm'
 
             - name: Cache node modules
               id: cache-npm
@@ -24,7 +23,7 @@ jobs:
               env:
                   cache-name: cache-node-modules
               with:
-                  path: ~/.npm
+                  path: ~/.yarn
                   key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
                   restore-keys: |
                       ${{ runner.os }}-build-${{ env.cache-name }}-

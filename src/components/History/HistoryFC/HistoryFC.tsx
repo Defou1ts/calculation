@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { HistoryMonitorFC } from '@components';
 import { useAppSelector } from '@store';
 
-import { HistoryWrapper, StyledHistoryTitle } from '../styled';
+import { HistoryWrapper, MonitorItem, MonitorList, MonitorWrapper, StyledHistoryTitle } from '../styled';
 
 export const HistoryFC = (): JSX.Element | null => {
 	const isOpenedHistory = useAppSelector((state) => state.global.isOpenedHistory);
+	const history = useAppSelector((state) => state.calculator.history);
 
 	if (!isOpenedHistory) {
 		return null;
@@ -15,7 +15,15 @@ export const HistoryFC = (): JSX.Element | null => {
 	return (
 		<HistoryWrapper>
 			<StyledHistoryTitle>History</StyledHistoryTitle>
-			<HistoryMonitorFC />
+			<MonitorWrapper>
+				<MonitorList>
+					{history.map((value) => (
+						<MonitorItem data-test-id="history-monitor" key={value}>
+							{value}
+						</MonitorItem>
+					))}
+				</MonitorList>
+			</MonitorWrapper>
 		</HistoryWrapper>
 	);
 };

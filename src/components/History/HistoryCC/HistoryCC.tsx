@@ -2,16 +2,15 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { HistoryMonitorCC } from '@components';
 import { type RootState } from '@store';
 
 import { type HistoryProps, type MapStateToProps } from './interfaces';
 
-import { HistoryWrapper, StyledHistoryTitle } from '../styled';
+import { HistoryWrapper, MonitorItem, MonitorList, MonitorWrapper, StyledHistoryTitle } from '../styled';
 
 export class HistoryClass extends React.Component<HistoryProps> {
 	render(): JSX.Element | null {
-		const { isOpenedHistory } = this.props;
+		const { isOpenedHistory, history } = this.props;
 
 		if (!isOpenedHistory) {
 			return null;
@@ -20,7 +19,15 @@ export class HistoryClass extends React.Component<HistoryProps> {
 		return (
 			<HistoryWrapper>
 				<StyledHistoryTitle>History</StyledHistoryTitle>
-				<HistoryMonitorCC />
+				<MonitorWrapper>
+					<MonitorList>
+						{history.map((value) => (
+							<MonitorItem data-test-id="history-monitor" key={value}>
+								{value}
+							</MonitorItem>
+						))}
+					</MonitorList>
+				</MonitorWrapper>
 			</HistoryWrapper>
 		);
 	}
@@ -28,6 +35,7 @@ export class HistoryClass extends React.Component<HistoryProps> {
 
 const mapState = (state: RootState): MapStateToProps => ({
 	isOpenedHistory: state.global.isOpenedHistory,
+	history: state.calculator.history,
 });
 
 export const historyConnector = connect(mapState);

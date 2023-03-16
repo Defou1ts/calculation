@@ -6,7 +6,7 @@ export const HeaderWrapper = styled.header`
 	align-items: center;
 
 	padding: 37px 24px;
-	background: ${({ theme }) => theme.contentColor};
+	background: ${({ theme }) => theme.themeType.contentColor};
 	border-radius: 20px;
 `;
 
@@ -19,7 +19,7 @@ export const Navigation = styled.nav`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-	color: ${({ theme }) => theme.textColor};
+	color: ${({ theme }) => theme.themeType.textColor};
 	&.active {
 		text-shadow: 1px 1px 1px black;
 	}

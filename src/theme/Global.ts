@@ -12,8 +12,8 @@ export const Global = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 		font-family: var(--font-family);
-		background: ${({ theme }) => theme.backgroundColor};
-		color: ${({ theme }) => theme.textColor};
+		background: ${({ theme }) => theme.themeType.backgroundColor};
+		color: ${({ theme }) => theme.themeType.textColor};
 	}
 
 	a {
@@ -36,8 +36,5 @@ export const Global = createGlobalStyle`
 
 	:root {
 		--font-family: "Nunito", sans-serif;
-
-		--red: #FF6060;
-		--light-red: #FF7070;
 	}
 `;

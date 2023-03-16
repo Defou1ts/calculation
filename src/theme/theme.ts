@@ -1,13 +1,25 @@
-import { type ThemeType } from 'interfaces/theme';
-
+import { type BreakPoints, type Colors, type Theme, type ThemeType } from '@interfaces';
 import {
-	ThemeBackgroundColor,
-	ThemeButtonColor,
-	ThemeContentColor,
-	ThemeMonitorColor,
-	ThemeTextColor,
 	ThemeName,
+	ThemeBackgroundColor,
+	ThemeContentColor,
+	ThemeTextColor,
+	ThemeMonitorColor,
+	ThemeButtonColor,
 } from '@types';
+
+const colors: Colors = {
+	red: '#FF6060',
+	lightRed: '#FF7070',
+	white: '#F9F9F9',
+};
+
+const fontSize = [16, 24, 36];
+const fontWeight = [400];
+
+const breakPoints: BreakPoints = {
+	mobile: 1100,
+};
 
 export const lightTheme: ThemeType = {
 	themeName: ThemeName.LIGHT,
@@ -25,4 +37,12 @@ export const darkTheme: ThemeType = {
 	textColor: ThemeTextColor.DARK,
 	monitorColor: ThemeMonitorColor.DARK,
 	buttonColor: ThemeButtonColor.DARK,
+};
+
+export const theme: Theme = {
+	breakPoints,
+	fontSize,
+	fontWeight,
+	colors,
+	themeType: lightTheme,
 };

@@ -4,7 +4,7 @@ import { connect, type ConnectedProps } from 'react-redux';
 
 import { ButtonCC, SwitchCC } from '@components';
 import { type AppDispatch, type RootState, setHistory, toggleIsOpenedHistory, setTheme } from '@store';
-import { ThemeType } from '@types';
+import { ThemeName } from '@types';
 import { darkTheme, lightTheme } from '@constants';
 
 import { ControlPanel } from '../styled';
@@ -13,7 +13,7 @@ export class SettingsClass extends React.Component<SettingsProps> {
 	handleToggleTheme = (): void => {
 		const { theme, setLightTheme, setDarkTheme } = this.props;
 
-		if (theme === ThemeType.DARK) {
+		if (theme === ThemeName.DARK) {
 			setLightTheme();
 		} else {
 			setDarkTheme();
@@ -34,7 +34,7 @@ export class SettingsClass extends React.Component<SettingsProps> {
 				<SwitchCC
 					data-test-id="theme-switch"
 					onClick={this.handleToggleTheme}
-					active={theme === ThemeType.DARK}
+					active={theme === ThemeName.DARK}
 				/>
 				<ButtonCC data-test-id="clear-history" onClick={clearHistory}>
 					Clear all history
@@ -48,12 +48,12 @@ export class SettingsClass extends React.Component<SettingsProps> {
 }
 
 interface MapStateProps {
-	theme: ThemeType;
+	theme: ThemeName;
 	isOpenedHistory: boolean;
 }
 
 const mapState = (state: RootState): MapStateProps => ({
-	theme: state.theme.theme.themeType,
+	theme: state.theme.theme.themeName,
 	isOpenedHistory: state.global.isOpenedHistory,
 });
 

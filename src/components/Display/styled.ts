@@ -6,7 +6,7 @@ export const DisplayWrapper = styled.div`
 	grid-template-rows: 1fr 1fr;
 	justify-content: space-between;
 
-	background-color: ${({ theme }) => theme.monitorColor};
+	background-color: ${({ theme }) => theme.themeType.monitorColor};
 	padding: 27px 22px;
 	border-radius: 10px;
 	width: 100%;
@@ -14,7 +14,7 @@ export const DisplayWrapper = styled.div`
 
 export const DisplayText = styled.p`
 	font-weight: 400;
-	font-size: 36px;
+	font-size: ${({ theme }) => theme.fontSize[2]}px;
 	line-height: 49px;
-	color: ${({ theme }) => theme.textColor};
+	color: ${({ theme }) => theme.themeType.textColor};
 `;

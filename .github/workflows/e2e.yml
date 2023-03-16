@@ -8,6 +8,15 @@ jobs:
         runs-on: ubuntu-22.04
         steps:
             - uses: actions/checkout@master
+
+            - name: Cache dependencies
+              uses: actions/cache@v2
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-npm-
+
             - name: Install root dependencies
               uses: bahmutov/npm-install@v1
 

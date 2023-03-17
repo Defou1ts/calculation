@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import { useAppDispatch, setResult, setHistory, setDisplayValue, useAppSelector } from '@store';
 import {
@@ -14,9 +14,9 @@ import {
 } from '@utils';
 import { type ICalculatorContext } from '@interfaces';
 
-export const useCalculator = (): ICalculatorContext => {
-	const [calculator] = useState<CalculatorService>(new CalculatorService());
+const calculator = new CalculatorService();
 
+export const useCalculator = (): ICalculatorContext => {
 	const history = useAppSelector((state) => state.calculator.history);
 	const displayValue = useAppSelector((state) => state.calculator.displayValue);
 	const result = useAppSelector((state) => state.calculator.result);

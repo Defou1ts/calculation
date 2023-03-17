@@ -19,11 +19,11 @@ export interface BreakPoints {
 
 export interface ThemeType {
 	themeName: ThemeName;
-	backgroundColor: ThemeBackgroundColor;
-	contentColor: ThemeContentColor;
-	textColor: ThemeTextColor;
-	monitorColor: ThemeMonitorColor;
-	buttonColor: ThemeButtonColor;
+	themeBackgroundColor: ThemeBackgroundColor;
+	themeContentColor: ThemeContentColor;
+	themeTextColor: ThemeTextColor;
+	themeMonitorColor: ThemeMonitorColor;
+	themeButtonColor: ThemeButtonColor;
 }
 
 export interface Theme {

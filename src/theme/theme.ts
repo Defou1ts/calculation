@@ -23,20 +23,20 @@ const breakPoints: BreakPoints = {
 
 export const lightTheme: ThemeType = {
 	themeName: ThemeName.LIGHT,
-	backgroundColor: ThemeBackgroundColor.LIGHT,
-	contentColor: ThemeContentColor.LIGHT,
-	textColor: ThemeTextColor.LIGHT,
-	monitorColor: ThemeMonitorColor.LIGHT,
-	buttonColor: ThemeButtonColor.LIGHT,
+	themeBackgroundColor: ThemeBackgroundColor.LIGHT,
+	themeContentColor: ThemeContentColor.LIGHT,
+	themeTextColor: ThemeTextColor.LIGHT,
+	themeMonitorColor: ThemeMonitorColor.LIGHT,
+	themeButtonColor: ThemeButtonColor.LIGHT,
 };
 
 export const darkTheme: ThemeType = {
 	themeName: ThemeName.DARK,
-	backgroundColor: ThemeBackgroundColor.DARK,
-	contentColor: ThemeContentColor.DARK,
-	textColor: ThemeTextColor.DARK,
-	monitorColor: ThemeMonitorColor.DARK,
-	buttonColor: ThemeButtonColor.DARK,
+	themeBackgroundColor: ThemeBackgroundColor.DARK,
+	themeContentColor: ThemeContentColor.DARK,
+	themeTextColor: ThemeTextColor.DARK,
+	themeMonitorColor: ThemeMonitorColor.DARK,
+	themeButtonColor: ThemeButtonColor.DARK,
 };
 
 export const theme: Theme = {

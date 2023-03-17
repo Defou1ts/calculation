@@ -7,14 +7,14 @@ export const SwitchWrapper = styled.button<SwitchWrapperProps>`
 	width: 110px;
 	border-radius: 50px;
 	padding: 8px;
-	border: 1px solid ${({ theme }) => theme.themeType.buttonColor};
+	border: 1px solid ${({ theme }) => theme.themeType.themeButtonColor};
 `;
 
 export const Round = styled.div<Pick<SwitchProps, 'active'>>`
 	width: 38px;
 	height: 38px;
 	border-radius: 50%;
-	background-color: ${({ theme }) => theme.themeType.buttonColor};
+	background-color: ${({ theme }) => theme.themeType.themeButtonColor};
 	transition: all 0.2s ease;
 	transform: translateX(${({ active }) => (active ? 55 : 0)}px);
 `;

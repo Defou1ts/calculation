@@ -3,8 +3,10 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import { store } from '@store';
+import { persistor, store } from '@store';
+import { CalculatorProvider, ErrorBoundary } from '@components';
 
 import { App } from './App';
 
@@ -19,7 +21,13 @@ const root = createRoot(container);
 root.render(
 	<BrowserRouter>
 		<Provider store={store}>
-			<App />
+			<PersistGate loading={null} persistor={persistor}>
+				<ErrorBoundary>
+					<CalculatorProvider>
+						<App />
+					</CalculatorProvider>
+				</ErrorBoundary>
+			</PersistGate>
 		</Provider>
 	</BrowserRouter>
 );

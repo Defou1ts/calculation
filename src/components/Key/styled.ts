@@ -9,7 +9,7 @@ export const StyledKeyButton = styled.button`
 	height: 70px;
 	border-radius: 50%;
 
-	background: ${({ theme }) => theme.themeType.buttonColor};
+	background: ${({ theme }) => theme.themeType.themeButtonColor};
 	transition: 0.2 all ease;
 
 	cursor: pointer;

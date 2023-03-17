@@ -52,6 +52,10 @@ export class CalculatorService implements Calculator {
 				throw new Error(ExpressionExceptionType.INVALID_EXPRESSION);
 			}
 
+			if (result === this._expression.value) {
+				throw new Error(ExpressionExceptionType.INVALID_EXPRESSION);
+			}
+
 			if (+result !== 0) {
 				this._history.add(`${this._expression.value}=${result}`);
 			}
@@ -97,3 +101,5 @@ export class CalculatorService implements Calculator {
 		this._expression.removeLastCharacter();
 	}
 }
+
+export const calculator = new CalculatorService();

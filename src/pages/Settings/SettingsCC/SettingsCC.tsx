@@ -5,7 +5,7 @@ import { connect, type ConnectedProps } from 'react-redux';
 import { ButtonCC, SwitchCC } from '@components';
 import { type AppDispatch, type RootState, setHistory, toggleIsOpenedHistory, setTheme } from '@store';
 import { ThemeName } from '@types';
-import { darkTheme, lightTheme } from '@constants';
+import { darkTheme, lightTheme } from '@theme';
 
 import { ControlPanel } from '../styled';
 

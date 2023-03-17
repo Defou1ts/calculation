@@ -1,4 +1,4 @@
-import { darkTheme, lightTheme } from '@constants';
+import { darkTheme, lightTheme } from '@theme';
 import { setTheme, useAppDispatch, useAppSelector } from '@store';
 import { ThemeName } from '@types';
 

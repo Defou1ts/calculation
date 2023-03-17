@@ -5,16 +5,16 @@ export const StyledKeyButton = styled.button`
 	justify-content: center;
 	align-items: center;
 
-	width: 70px;
-	height: 70px;
-	border-radius: 50%;
+	width: ${({ theme }) => theme.width[1]}px;
+	height: ${({ theme }) => theme.height[1]}px;
+	border-radius: ${({ theme }) => theme.borderRadius[2]}%;
 
 	background: ${({ theme }) => theme.themeType.themeButtonColor};
 	transition: 0.2 all ease;
 
 	cursor: pointer;
 
-	font-size: 24px;
+	font-size: ${({ theme }) => theme.fontSize[1]}px;
 
 	&:hover {
 		transform: scale(1.01);

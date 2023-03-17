@@ -5,9 +5,9 @@ export const HeaderWrapper = styled.header`
 	display: grid;
 	align-items: center;
 
-	padding: 37px 24px;
+	padding: ${({ theme }) => theme.padding[10]}px ${({ theme }) => theme.padding[5]}px;
 	background: ${({ theme }) => theme.themeType.themeContentColor};
-	border-radius: 20px;
+	border-radius: ${({ theme }) => theme.borderRadius[1]}px;
 `;
 
 export const Navigation = styled.nav`
@@ -15,12 +15,12 @@ export const Navigation = styled.nav`
 	grid-template-rows: 1fr;
 	grid-template-columns: auto auto auto auto;
 	justify-content: left;
-	gap: 17px;
+	gap: ${({ theme }) => theme.gap[3]}px;
 `;
 
 export const StyledNavLink = styled(NavLink)`
 	color: ${({ theme }) => theme.themeType.themeTextColor};
 	&.active {
-		text-shadow: 1px 1px 1px black;
+		text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.black};
 	}
 `;

@@ -1,4 +1,15 @@
 import {
+	type fontWeight,
+	type fontSize,
+	type padding,
+	type borderRadius,
+	type gap,
+	type height,
+	type lineHeight,
+	type width,
+	type colors,
+} from '@theme';
+import {
 	type ThemeName,
 	type ThemeBackgroundColor,
 	type ThemeContentColor,
@@ -6,12 +17,6 @@ import {
 	type ThemeMonitorColor,
 	type ThemeButtonColor,
 } from '@types';
-
-export interface Colors {
-	red: string;
-	lightRed: string;
-	white: string;
-}
 
 export interface BreakPoints {
 	mobile: number;
@@ -27,9 +32,15 @@ export interface ThemeType {
 }
 
 export interface Theme {
+	fontSize: typeof fontSize;
+	fontWeight: typeof fontWeight;
+	padding: typeof padding;
+	height: typeof height;
+	width: typeof width;
+	gap: typeof gap;
+	borderRadius: typeof borderRadius;
+	lineHeight: typeof lineHeight;
+	colors: typeof colors;
 	breakPoints: BreakPoints;
-	fontSize: number[];
-	fontWeight: number[];
-	colors: Colors;
 	themeType: ThemeType;
 }

@@ -1,13 +1,14 @@
 import { type ExpressionCommand, type Calculator } from 'interfaces/calculator';
 
 import { AddNumber, OperatorExpressionCommand } from './commands';
+import { ExpressionExceptionType } from './exceptions';
 import { ExpressionService } from './expression';
 import { HistoryService } from './history';
 
 export class CalculatorService implements Calculator {
 	private readonly _expression: ExpressionService = new ExpressionService('');
 	private readonly _history: HistoryService = new HistoryService([]);
-	result: number | '' = '';
+	result: string = '';
 
 	executeCommand(command: ExpressionCommand): void {
 		const lastHistoryResult = this._history.getLastHistoryResult();
@@ -20,17 +21,15 @@ export class CalculatorService implements Calculator {
 			if (lastHistoryResult === this._expression.calculate() && command instanceof AddNumber) {
 				this._expression.value = '';
 			}
-		} catch (error: unknown) {
-			if (error instanceof Error) {
-				console.log(error.message);
-			}
-		}
+		} catch (error: unknown) {}
 
 		if (command instanceof AddNumber && this.result !== '') {
 			this.result = '';
 		}
 
-		this._expression.value = command.execute(this._expression.value);
+		try {
+			this._expression.value = command.execute(this._expression.value);
+		} catch (e) {}
 	}
 
 	calcResult(): void {
@@ -38,16 +37,35 @@ export class CalculatorService implements Calculator {
 		const lastHistoryResult = this._history.getLastHistoryResult() ?? '';
 
 		if (this._expression.value === lastHistoryExpression) {
-			this.result = +lastHistoryResult;
-			return
-		}
-		const result = +this._expression.calculate().toFixed(3);
-
-		if (result !== 0) {
-			this._history.add(`${this._expression.value}=${result}`);
+			this.result = String(lastHistoryResult);
+			return;
 		}
 
-		this.result = result;
+		try {
+			const result = String(+this._expression.calculate().toFixed(3));
+
+			if (result === 'NaN') {
+				throw new Error(ExpressionExceptionType.INVALID_EXPRESSION);
+			}
+
+			if (result === 'Infinity') {
+				throw new Error(ExpressionExceptionType.INVALID_EXPRESSION);
+			}
+
+			if (result === this._expression.value) {
+				throw new Error(ExpressionExceptionType.INVALID_EXPRESSION);
+			}
+
+			if (+result !== 0) {
+				this._history.add(`${this._expression.value}=${result}`);
+			}
+
+			this.result = result;
+		} catch (e) {
+			if (e instanceof Error) {
+				this.result = e.message;
+			}
+		}
 	}
 
 	get history(): string[] {
@@ -83,3 +101,5 @@ export class CalculatorService implements Calculator {
 		this._expression.removeLastCharacter();
 	}
 }
+
+export const calculator = new CalculatorService();

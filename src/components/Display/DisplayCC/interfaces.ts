@@ -4,7 +4,7 @@ import { type displayConnector } from './DisplayCC';
 
 export interface MapStateToProps {
 	displayValue: string;
-	result: number | '';
+	result: string;
 }
 
 export type DisplayProps = ConnectedProps<typeof displayConnector>;

@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 
-import { type SwitchWrapperProps, type SwitchProps } from './interfaces';
+import { type SwitchWrapperProps, type SwitchRoundProps } from './interfaces';
 
 export const SwitchWrapper = styled.button<SwitchWrapperProps>`
 	cursor: pointer;
-	width: 110px;
-	border-radius: 50px;
-	padding: 8px;
-	border: 1px solid ${({ theme }) => theme.themeType.buttonColor};
+	width: ${({ theme }) => theme.width[6]}px;
+	border-radius: ${({ theme }) => theme.borderRadius[2]}px;
+	padding: ${({ theme }) => theme.padding[0]}px;
+	border: 1px solid ${({ theme }) => theme.themeType.themeButtonColor};
 `;
 
-export const Round = styled.div<Pick<SwitchProps, 'active'>>`
-	width: 38px;
-	height: 38px;
-	border-radius: 50%;
-	background-color: ${({ theme }) => theme.themeType.buttonColor};
+export const Round = styled.div<SwitchRoundProps>`
+	width: ${({ theme }) => theme.width[5]}px;
+	height: ${({ theme }) => theme.height[2]}px;
+	border-radius: ${({ theme }) => theme.borderRadius[2]}%;
+	background-color: ${({ theme }) => theme.themeType.themeButtonColor};
 	transition: all 0.2s ease;
 	transform: translateX(${({ active }) => (active ? 55 : 0)}px);
 `;

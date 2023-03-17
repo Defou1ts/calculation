@@ -6,3 +6,4 @@ export interface SwitchProps extends HTMLAttributes<HTMLButtonElement> {
 }
 
 export type SwitchWrapperProps = Pick<SwitchProps, 'onClick'>;
+export type SwitchRoundProps = Pick<SwitchProps, 'active'>;

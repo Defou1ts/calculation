@@ -3,7 +3,7 @@ export interface ExpressionCommand {
 }
 
 export interface Calculator {
-	result: number | '';
+	result: string;
 	executeCommand: (command: ExpressionCommand) => void;
 	calcResult: () => void;
 

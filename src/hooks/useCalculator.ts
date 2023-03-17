@@ -1,22 +1,20 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import { useAppDispatch, setResult, setHistory, setDisplayValue, useAppSelector } from '@store';
 import {
-	CalculatorService,
-	AddPlus,
-	AddMinus,
-	AddMultiplier,
-	AddDivision,
-	AddOpenParent,
-	AddCloseParent,
-	AddDot,
-	AddNumber,
+	addPlus,
+	addMinus,
+	addMultiplier,
+	addDivision,
+	addOpenParent,
+	addCloseParent,
+	addDot,
+	addNumber,
+	calculator,
 } from '@utils';
 import { type ICalculatorContext } from '@interfaces';
 
 export const useCalculator = (): ICalculatorContext => {
-	const [calculator] = useState<CalculatorService>(new CalculatorService());
-
 	const history = useAppSelector((state) => state.calculator.history);
 	const displayValue = useAppSelector((state) => state.calculator.displayValue);
 	const result = useAppSelector((state) => state.calculator.result);
@@ -26,25 +24,25 @@ export const useCalculator = (): ICalculatorContext => {
 	const handleKeyboardClick = useCallback((value: string): void => {
 		switch (value) {
 			case '+':
-				calculator.executeCommand(new AddPlus());
+				calculator.executeCommand(addPlus());
 				break;
 			case '-':
-				calculator.executeCommand(new AddMinus());
+				calculator.executeCommand(addMinus());
 				break;
 			case '*':
-				calculator.executeCommand(new AddMultiplier());
+				calculator.executeCommand(addMultiplier());
 				break;
 			case '/':
-				calculator.executeCommand(new AddDivision());
+				calculator.executeCommand(addDivision());
 				break;
 			case '(':
-				calculator.executeCommand(new AddOpenParent());
+				calculator.executeCommand(addOpenParent());
 				break;
 			case ')':
-				calculator.executeCommand(new AddCloseParent());
+				calculator.executeCommand(addCloseParent());
 				break;
 			case '.':
-				calculator.executeCommand(new AddDot());
+				calculator.executeCommand(addDot());
 				break;
 			case 'C':
 				calculator.clear();
@@ -57,7 +55,7 @@ export const useCalculator = (): ICalculatorContext => {
 				dispatch(setHistory(calculator.history));
 				break;
 			default:
-				calculator.executeCommand(new AddNumber(+value));
+				calculator.executeCommand(addNumber(+value));
 		}
 		dispatch(setResult(calculator.result));
 		dispatch(setDisplayValue(calculator.expression));

@@ -1,6 +1,6 @@
 import { type ConnectedProps } from 'react-redux';
 
-import { type historyConnector } from './HistoryCC';
+import { type historyConnector } from './historycc.component';
 
 export interface MapStateToProps {
 	isOpenedHistory: boolean;

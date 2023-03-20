@@ -3,6 +3,7 @@ export * from './Button/ButtonFC/buttonfc.component';
 export * from './Calculator/CalculatorFC/calculatorfc.component';
 export * from './CalculatorProvider/calculator.provider';
 export * from './Display/DisplayFC/displayfc.component';
+export * from './Header/header.component';
 export * from './History/HistoryFC/historyfc.component';
 export * from './Keypad/KeypadFC/keypadfc.component';
 export * from './Layout/layout.component';

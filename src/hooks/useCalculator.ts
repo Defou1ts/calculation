@@ -63,13 +63,9 @@ export const useCalculator = (): ICalculatorContext => {
 
 	useEffect(() => {
 		calculator.expression = displayValue;
-	}, [displayValue]);
-
-	useEffect(() => {
 		calculator.result = result;
-	}, [result]);
-	useEffect(() => {
 		calculator.history = history;
-	}, [history]);
+	}, [displayValue, result, history]);
+
 	return { calculator, handleKeyboardClick };
 };

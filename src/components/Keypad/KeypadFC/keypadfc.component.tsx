@@ -14,7 +14,7 @@ export const KeypadFC = memo(function Keypad({ handleClick }: KeypadProps): JSX.
 	return (
 		<KeypadWrapper>
 			{keypadSchema.map((key) => (
-				<StyledKeyButton key={key} onClick={onKeyClick(key)}>
+				<StyledKeyButton data-test-id="key" key={key} onClick={onKeyClick(key)}>
 					{key}
 				</StyledKeyButton>
 			))}

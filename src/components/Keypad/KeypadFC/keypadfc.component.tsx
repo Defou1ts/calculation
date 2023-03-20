@@ -1,9 +1,8 @@
 import React, { memo } from 'react';
 
-import { KeyFC } from '@components';
 import { keypadSchema } from '@constants';
 
-import { KeypadWrapper } from '../styled';
+import { KeypadWrapper, StyledKeyButton } from '../styled';
 
 import type { KeypadProps } from '../interfaces';
 
@@ -15,7 +14,9 @@ export const KeypadFC = memo(function Keypad({ handleClick }: KeypadProps): JSX.
 	return (
 		<KeypadWrapper>
 			{keypadSchema.map((key) => (
-				<KeyFC key={key} keyName={key} onClick={onKeyClick(key)} />
+				<StyledKeyButton key={key} onClick={onKeyClick(key)}>
+					{key}
+				</StyledKeyButton>
 			))}
 		</KeypadWrapper>
 	);

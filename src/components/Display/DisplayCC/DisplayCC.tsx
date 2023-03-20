@@ -11,11 +11,10 @@ import { DisplayText, DisplayWrapper } from '../styled';
 export class DisplayClass extends React.Component<DisplayProps> {
 	render(): JSX.Element {
 		const { displayValue, result } = this.props;
-		const truncatedDisplayValue = displayValue.length > 18 ? displayValue.slice(0, 18) + '...' : displayValue;
 
 		return (
 			<DisplayWrapper>
-				<DisplayText data-test-id="display-value">{truncatedDisplayValue}</DisplayText>
+				<DisplayText data-test-id="display-value">{displayValue}</DisplayText>
 				<DisplayText data-test-id="display-result-value">{result}</DisplayText>
 			</DisplayWrapper>
 		);

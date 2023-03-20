@@ -17,4 +17,8 @@ export const DisplayText = styled.p`
 	font-size: ${({ theme }) => theme.fontSize[2]}px;
 	line-height: ${({ theme }) => theme.lineHeight[2]}px;
 	color: ${({ theme }) => theme.themeType.themeTextColor};
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 `;

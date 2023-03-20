@@ -1,4 +1,4 @@
-import { type History } from '@interfaces';
+import type { History } from '@interfaces';
 
 export class HistoryService implements History {
 	constructor(private _history: string[]) {}

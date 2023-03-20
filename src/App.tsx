@@ -3,8 +3,8 @@ import React, { useMemo } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import { theme } from '@theme';
-import { type Theme, type RouteElement } from '@interfaces';
+import type { Theme, RouteElement } from '@interfaces';
+import { Global, theme } from '@theme';
 import { useAppSelector } from '@store';
 import { routes } from '@utils';
 import { Layout } from '@components';
@@ -17,6 +17,7 @@ export const App = (): JSX.Element => {
 
 	return (
 		<ThemeProvider theme={evaluatedTheme}>
+			<Global />
 			<Routes>
 				<Route path={ROUTES.HOME_ROUTE} element={<Layout />}>
 					{routes.map(({ path, Component }: RouteElement) => (

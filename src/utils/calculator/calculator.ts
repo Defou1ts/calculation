@@ -1,9 +1,9 @@
-import { type ExpressionCommand, type Calculator } from 'interfaces/calculator';
-
 import { AddNumber, OperatorExpressionCommand } from './commands';
 import { ExpressionExceptionType } from './exceptions';
 import { ExpressionService } from './expression';
 import { HistoryService } from './history';
+
+import type { ExpressionCommand, Calculator } from 'interfaces/calculator';
 
 export class CalculatorService implements Calculator {
 	private readonly _expression: ExpressionService = new ExpressionService('');

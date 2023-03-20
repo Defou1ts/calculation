@@ -2,11 +2,11 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { type RootState } from '@store';
-
-import { type DisplayProps, type MapStateToProps } from './interfaces';
+import type { RootState } from '@store';
 
 import { DisplayText, DisplayWrapper } from '../styled';
+
+import type { DisplayProps, MapStateToProps } from './interfaces';
 
 export class DisplayClass extends React.Component<DisplayProps> {
 	render(): JSX.Element {

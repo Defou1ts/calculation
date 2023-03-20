@@ -12,7 +12,7 @@ import {
 	addNumber,
 	calculator,
 } from '@utils';
-import { type ICalculatorContext } from '@interfaces';
+import type { ICalculatorContext } from '@interfaces';
 
 export const useCalculator = (): ICalculatorContext => {
 	const history = useAppSelector((state) => state.calculator.history);

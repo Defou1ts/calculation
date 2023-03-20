@@ -1,13 +1,16 @@
 import React from 'react';
 
-import { connect, type ConnectedProps } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { ButtonCC, SwitchCC } from '@components';
-import { type AppDispatch, type RootState, setHistory, toggleIsOpenedHistory, setTheme } from '@store';
+import { setHistory, toggleIsOpenedHistory, setTheme } from '@store';
+import type { AppDispatch, RootState } from '@store';
 import { ThemeName } from '@types';
 import { darkTheme, lightTheme } from '@theme';
 
 import { ControlPanel } from '../styled';
+
+import type { ConnectedProps } from 'react-redux';
 
 export class SettingsClass extends React.Component<SettingsProps> {
 	handleToggleTheme = (): void => {

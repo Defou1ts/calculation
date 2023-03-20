@@ -1,6 +1,6 @@
-import { type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import { type ROUTES } from '@types';
+import type { ROUTES } from '@types';
 
 export interface RouteElement {
 	path: ROUTES;

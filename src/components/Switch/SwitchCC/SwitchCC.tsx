@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Round, SwitchWrapper } from '../styled';
-import { type SwitchProps } from '../interfaces';
+
+import type { SwitchProps } from '../interfaces';
 
 export class SwitchCC extends React.PureComponent<SwitchProps> {
 	render(): JSX.Element {

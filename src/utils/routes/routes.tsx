@@ -3,7 +3,7 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 import { ROUTES } from '@types';
-import { type RouteElement } from '@interfaces';
+import type { RouteElement } from '@interfaces';
 import { HomeFC, HomeСC, SettingsFC, SettingsCC } from '@pages';
 
 const { HOME_CC_ROUTE, HOME_FC_ROUTE, HOME_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE, ALL } = ROUTES;

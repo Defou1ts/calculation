@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 
-import { CalculatorContext, type ICalculatorContext } from '@interfaces';
+import { CalculatorContext } from '@interfaces';
+import type { ICalculatorContext } from '@interfaces';
 
 export const useCalculatorContext = (): ICalculatorContext => useContext(CalculatorContext);

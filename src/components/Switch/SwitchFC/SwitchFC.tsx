@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Round, SwitchWrapper } from '../styled';
-import { type SwitchProps } from '../interfaces';
+
+import type { SwitchProps } from '../interfaces';
 
 export const SwitchFC = ({ onClick, active, ...props }: SwitchProps): JSX.Element => {
 	return (

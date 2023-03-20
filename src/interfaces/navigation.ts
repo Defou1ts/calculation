@@ -1,4 +1,4 @@
-import { type ROUTES } from '@types';
+import type { ROUTES } from '@types';
 
 export interface NavigationElement {
 	name: string;

@@ -1,4 +1,4 @@
-import { type ExpressionCommand, type OperatorCommand } from '@interfaces';
+import type { ExpressionCommand, OperatorCommand } from '@interfaces';
 
 import { CalculatorExceptionType } from './exceptions';
 

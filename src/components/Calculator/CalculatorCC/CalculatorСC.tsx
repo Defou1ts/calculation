@@ -1,4 +1,5 @@
-import React, { type ContextType } from 'react';
+import React from 'react';
+import type { ContextType } from 'react';
 
 import { DisplayCC, KeypadCC } from '@components';
 import { CalculatorContext } from '@interfaces';

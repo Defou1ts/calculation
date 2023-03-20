@@ -2,11 +2,11 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { type RootState } from '@store';
-
-import { type HistoryProps, type MapStateToProps } from './interfaces';
+import type { RootState } from '@store';
 
 import { HistoryWrapper, MonitorItem, MonitorList, MonitorWrapper, StyledHistoryTitle } from '../styled';
+
+import type { HistoryProps, MapStateToProps } from './interfaces';
 
 export class HistoryClass extends React.Component<HistoryProps> {
 	render(): JSX.Element | null {

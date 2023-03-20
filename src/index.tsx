@@ -7,7 +7,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import { persistor, store } from '@store';
 import { CalculatorProvider, ErrorBoundary } from '@components';
-import { Global } from '@theme';
 
 import { App } from './App';
 
@@ -25,7 +24,6 @@ root.render(
 			<PersistGate loading={null} persistor={persistor}>
 				<ErrorBoundary>
 					<CalculatorProvider>
-						<Global />
 						<App />
 					</CalculatorProvider>
 				</ErrorBoundary>

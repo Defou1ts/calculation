@@ -1,4 +1,4 @@
-import { type BreakPoints, type Theme, type ThemeType } from '@interfaces';
+import type { BreakPoints, Theme, ThemeType } from '@interfaces';
 import {
 	ThemeName,
 	ThemeBackgroundColor,
@@ -18,8 +18,8 @@ export const colors = {
 export const fontSize = [16, 24, 36] as const;
 export const fontWeight = [400] as const;
 export const padding = [7, 14, 16, 20, 22, 24, 25, 26, 27, 30, 37, 150] as const;
-export const height = [35, 70,38] as const;
-export const width = [30, 70, 107, 152, 450, 38,110] as const;
+export const height = [35, 70, 38] as const;
+export const width = [30, 70, 107, 152, 450, 38, 110] as const;
 export const gap = [10, 11, 14, 17, 21, 29] as const;
 export const borderRadius = [10, 20, 50] as const;
 export const lineHeight = [22, 33, 49] as const;

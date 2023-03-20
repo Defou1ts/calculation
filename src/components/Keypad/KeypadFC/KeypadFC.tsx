@@ -4,7 +4,8 @@ import { KeyFC } from '@components';
 import { keypadSchema } from '@constants';
 
 import { KeypadWrapper } from '../styled';
-import { type KeypadProps } from '../interfaces';
+
+import type { KeypadProps } from '../interfaces';
 
 export const KeypadFC = memo(function Keypad({ handleClick }: KeypadProps): JSX.Element {
 	const onKeyClick = (key: string) => () => {

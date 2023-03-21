@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
 
-import { connect, type ConnectedProps } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { type AppDispatch, setHistory, toggleIsOpenedHistory } from '@store';
+import { setHistory, toggleIsOpenedHistory } from '@store';
+import type { AppDispatch } from '@store';
 
 import { StyledButton } from '../styled';
 
+import type { ConnectedProps } from 'react-redux';
 import type { ButtonProps, MapDispatchToProps } from '../interfaces';
 
 export class ButtonClass extends PureComponent<ButtonPropsWithHandlers> {

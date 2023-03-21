@@ -1,12 +1,14 @@
 import React from 'react';
 
-import { connect, type ConnectedProps } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { keypadSchema } from '@constants';
-import { type AppDispatch, setCommand } from '@store';
+import { setCommand } from '@store';
+import type { AppDispatch } from '@store';
 
 import { KeypadWrapper, StyledKeyButton } from '../styled';
 
+import type { ConnectedProps } from 'react-redux';
 import type { MapDispatchToProps } from './interfaces';
 
 export class KeypadClass extends React.PureComponent<KeypadProps> {

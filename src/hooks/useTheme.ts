@@ -1,31 +1,14 @@
 import { darkTheme, lightTheme } from '@theme';
-import { setTheme, useAppDispatch, useAppSelector } from '@store';
+import { useAppSelector } from '@store';
+import type { ThemeType } from '@interfaces';
 import { ThemeName } from '@types';
 
-export const useTheme = (): Record<string, () => void> => {
-	const themeType = useAppSelector((state) => state.theme.theme.themeName);
+export const useTheme = (): { theme: ThemeType } => {
+	const themeName = useAppSelector((state) => state.theme.themeName);
 
-	const dispatch = useAppDispatch();
-
-	const setLightTheme = (): void => {
-		dispatch(setTheme(lightTheme));
-	};
-
-	const setDarkTheme = (): void => {
-		dispatch(setTheme(darkTheme));
-	};
-
-	const toggleTheme = (): void => {
-		if (themeType === ThemeName.DARK) {
-			setLightTheme();
-		} else {
-			setDarkTheme();
-		}
-	};
+	const theme: ThemeType = themeName === ThemeName.LIGHT ? lightTheme : darkTheme;
 
 	return {
-		toggleTheme,
-		setLightTheme,
-		setDarkTheme,
+		theme,
 	};
 };

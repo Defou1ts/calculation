@@ -1,20 +1,21 @@
 import React from 'react';
 
+import { useDispatch } from 'react-redux';
+
 import { ButtonFC, SwitchFC } from '@components';
-import { useTheme } from '@hooks';
-import { useAppSelector } from '@store';
+import { toggleTheme, useAppSelector } from '@store';
 import { ThemeName } from '@types';
 
 import { ControlPanel } from '../styled';
 
 export const SettingsFC = (): JSX.Element => {
-	const { toggleTheme } = useTheme();
+	const dispatch = useDispatch();
 
-	const theme = useAppSelector((state) => state.theme.theme.themeName);
+	const theme = useAppSelector((state) => state.theme.themeName);
 	const isOpenedHistory = useAppSelector((state) => state.global.isOpenedHistory);
 
 	const handleClick = (): void => {
-		toggleTheme();
+		dispatch(toggleTheme());
 	};
 
 	return (

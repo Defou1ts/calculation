@@ -1,22 +1,20 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import type { Theme, RouteElement } from '@interfaces';
+import type { RouteElement } from '@interfaces';
 import { Global, theme } from '@theme';
-import { useAppSelector } from '@store';
 import { routes } from '@utils';
 import { Layout } from '@components';
 import { ROUTES } from '@types';
+import { useTheme } from '@hooks';
 
 export const App = (): JSX.Element => {
-	const themeType = useAppSelector((state) => state.theme.theme);
-
-	const evaluatedTheme: Theme = useMemo(() => ({ ...theme, themeType }), [themeType]);
+	const { theme: themeType } = useTheme();
 
 	return (
-		<ThemeProvider theme={evaluatedTheme}>
+		<ThemeProvider theme={{ ...theme, themeType }}>
 			<Global />
 			<Routes>
 				<Route path={ROUTES.HOME_ROUTE} element={<Layout />}>

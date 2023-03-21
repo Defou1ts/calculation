@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { ButtonCC, SwitchCC } from '@components';
-import { setHistory, toggleIsOpenedHistory, setTheme } from '@store';
+import {  setTheme } from '@store';
 import type { AppDispatch, RootState } from '@store';
 import { ThemeName } from '@types';
 import { darkTheme, lightTheme } from '@theme';
@@ -21,12 +21,6 @@ export class SettingsClass extends React.Component<SettingsProps> {
 		} else {
 			setDarkTheme();
 		}
-	};
-
-	handleToggleIsOpenedHistory = (): void => {
-		const { toggleIsOpenedHistory } = this.props;
-
-		toggleIsOpenedHistory();
 	};
 
 	render(): JSX.Element {
@@ -59,8 +53,6 @@ const mapState = (state: RootState): MapStateProps => ({
 interface MapDispatchProps {
 	setLightTheme: () => void;
 	setDarkTheme: () => void;
-	clearHistory: () => void;
-	toggleIsOpenedHistory: () => void;
 }
 
 const mapDispatch = (dispatch: AppDispatch): MapDispatchProps => ({
@@ -69,12 +61,6 @@ const mapDispatch = (dispatch: AppDispatch): MapDispatchProps => ({
 	},
 	setDarkTheme: (): void => {
 		dispatch(setTheme(darkTheme));
-	},
-	clearHistory: (): void => {
-		dispatch(setHistory([]));
-	},
-	toggleIsOpenedHistory: (): void => {
-		dispatch(toggleIsOpenedHistory());
 	},
 });
 

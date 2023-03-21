@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { useAppDispatch, setResult, setHistory, setDisplayValue, useAppSelector } from '@store';
 import {
@@ -21,7 +21,7 @@ export const useCalculator = (): void => {
 
 	const dispatch = useAppDispatch();
 
-	const handleCommand = useCallback((command: string | null): void => {
+	const handleCommand = (command: string | null): void => {
 		switch (command) {
 			case '+':
 				calculator.executeCommand(addPlus());
@@ -61,7 +61,7 @@ export const useCalculator = (): void => {
 		}
 		dispatch(setResult(calculator.result));
 		dispatch(setDisplayValue(calculator.expression));
-	}, []);
+	};
 
 	useEffect(() => {
 		handleCommand(command);

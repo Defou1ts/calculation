@@ -6,7 +6,7 @@ import {
 	ThemeTextColor,
 	ThemeMonitorColor,
 	ThemeButtonColor,
-} from '@types';
+} from '@constants';
 
 export const colors = {
 	red: '#FF6060',

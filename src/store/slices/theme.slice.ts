@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { ThemeName } from '@types';
+import { ThemeName } from '@constants';
 
 export interface ThemeState {
 	themeName: ThemeName;

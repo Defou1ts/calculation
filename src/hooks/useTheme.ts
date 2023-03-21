@@ -1,7 +1,7 @@
 import { darkTheme, lightTheme } from '@theme';
 import { useAppSelector } from '@store';
 import type { ThemeType } from '@interfaces';
-import { ThemeName } from '@types';
+import { ThemeName } from '@constants';
 
 export const useTheme = (): { theme: ThemeType } => {
 	const themeName = useAppSelector((state) => state.theme.themeName);

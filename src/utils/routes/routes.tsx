@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Navigate } from 'react-router-dom';
 
-import { ROUTES } from '@types';
+import { ROUTES } from '@constants';
 import type { RouteElement } from '@interfaces';
 import { HomeFC, HomeСC, SettingsFC, SettingsCC } from '@pages';
 

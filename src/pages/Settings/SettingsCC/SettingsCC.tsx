@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { ButtonCC, SwitchCC } from '@components';
 import { toggleTheme } from '@store';
 import type { AppDispatch, RootState } from '@store';
-import { ThemeName } from '@types';
+import { ThemeName } from '@constants';
 
 import { ControlPanel } from '../styled';
 

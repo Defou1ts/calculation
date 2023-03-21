@@ -6,7 +6,7 @@ import type {
 	ThemeTextColor,
 	ThemeMonitorColor,
 	ThemeButtonColor,
-} from '@types';
+} from '@constants';
 
 export interface BreakPoints {
 	mobile: number;

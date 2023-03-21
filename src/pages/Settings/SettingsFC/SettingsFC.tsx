@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { ButtonFC, SwitchFC } from '@components';
 import { toggleTheme, useAppSelector } from '@store';
-import { ThemeName } from '@types';
+import { ThemeName } from '@constants';
 
 import { ControlPanel } from '../styled';
 

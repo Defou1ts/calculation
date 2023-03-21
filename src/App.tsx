@@ -7,7 +7,7 @@ import type { RouteElement } from '@interfaces';
 import { Global, theme } from '@theme';
 import { routes } from '@utils';
 import { Layout } from '@components';
-import { ROUTES } from '@types';
+import { ROUTES } from '@constants';
 import { useTheme } from '@hooks';
 
 export const App = (): JSX.Element => {

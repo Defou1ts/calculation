@@ -1,22 +1,12 @@
-import {
-	type fontWeight,
-	type fontSize,
-	type padding,
-	type borderRadius,
-	type gap,
-	type height,
-	type lineHeight,
-	type width,
-	type colors,
-} from '@theme';
-import {
-	type ThemeName,
-	type ThemeBackgroundColor,
-	type ThemeContentColor,
-	type ThemeTextColor,
-	type ThemeMonitorColor,
-	type ThemeButtonColor,
-} from '@types';
+import type { fontWeight, fontSize, padding, borderRadius, gap, height, lineHeight, width, colors } from '@theme';
+import type {
+	ThemeName,
+	ThemeBackgroundColor,
+	ThemeContentColor,
+	ThemeTextColor,
+	ThemeMonitorColor,
+	ThemeButtonColor,
+} from '@constants';
 
 export interface BreakPoints {
 	mobile: number;

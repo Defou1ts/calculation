@@ -1,5 +1,5 @@
-import { type NavigationElement } from '@interfaces';
-import { ROUTES } from '@types';
+import type { NavigationElement } from '@interfaces';
+import { ROUTES } from '@constants';
 
 const { HOME_CC_ROUTE, HOME_FC_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } = ROUTES;
 

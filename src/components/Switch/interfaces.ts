@@ -1,9 +1,7 @@
-import { type HTMLAttributes } from 'react';
-
-export interface SwitchProps extends HTMLAttributes<HTMLButtonElement> {
+export interface SwitchWrapperProps {
 	onClick: () => void;
-	active: boolean;
 }
 
-export type SwitchWrapperProps = Pick<SwitchProps, 'onClick'>;
-export type SwitchRoundProps = Pick<SwitchProps, 'active'>;
+export interface SwitchRoundProps {
+	active: boolean;
+}

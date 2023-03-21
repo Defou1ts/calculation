@@ -1,6 +1,5 @@
 {
 	"name": "calculation",
-	"homepage": "https://Defou1ts.github.io/calculation/",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {

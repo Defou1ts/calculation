@@ -15,7 +15,7 @@ export class KeypadCC extends React.PureComponent<KeypadProps> {
 		return (
 			<KeypadWrapper>
 				{keypadSchema.map((key) => (
-					<StyledKeyButton key={key} onClick={this.onKeyClick(key)}>
+					<StyledKeyButton data-test-id="key" key={key} onClick={this.onKeyClick(key)}>
 						{key}
 					</StyledKeyButton>
 				))}

@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch: AppDispatch): MapDispatchToProps => ({
 	},
 });
 
-const connector = connect(mapDispatchToProps);
+const connector = connect(null, mapDispatchToProps);
 
 type ButtonPropsWithHandlers = ConnectedProps<typeof connector> & ButtonProps;
 

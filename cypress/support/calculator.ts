@@ -1,4 +1,4 @@
-import { ROUTES } from '@types';
+import { ROUTES } from '@constants';
 
 const { SETTINGS_CC_ROUTE, HOME_FC_ROUTE, HOME_CC_ROUTE, SETTINGS_FC_ROUTE } = ROUTES;
 

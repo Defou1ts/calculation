@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { ROUTES } from '@types';
+import { ROUTES } from '@constants';
 
 import {
 	checkCalculate,

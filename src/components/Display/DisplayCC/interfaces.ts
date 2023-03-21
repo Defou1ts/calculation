@@ -1,6 +1,5 @@
-import { type ConnectedProps } from 'react-redux';
-
-import { type displayConnector } from './DisplayCC';
+import type { ConnectedProps } from 'react-redux';
+import type { displayConnector } from './displaycc.component';
 
 export interface MapStateToProps {
 	displayValue: string;

@@ -4,9 +4,11 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
+import { CalculatorProvider } from 'components/CalculatorProvider/calculator.provider';
 
 import { persistor, store } from '@store';
-import { CalculatorProvider, ErrorBoundary } from '@components';
+import { ErrorBoundary } from '@components';
+import { Global } from '@theme';
 
 import { App } from './App';
 
@@ -22,11 +24,12 @@ root.render(
 	<BrowserRouter>
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}>
-				<ErrorBoundary>
-					<CalculatorProvider>
+				<CalculatorProvider>
+					<ErrorBoundary>
+						<Global />
 						<App />
-					</CalculatorProvider>
-				</ErrorBoundary>
+					</ErrorBoundary>
+				</CalculatorProvider>
 			</PersistGate>
 		</Provider>
 	</BrowserRouter>

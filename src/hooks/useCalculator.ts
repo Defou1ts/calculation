@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { useAppDispatch, setResult, setHistory, setDisplayValue, useAppSelector } from '@store';
 import {
@@ -12,17 +12,17 @@ import {
 	addNumber,
 	calculator,
 } from '@utils';
-import { type ICalculatorContext } from '@interfaces';
 
-export const useCalculator = (): ICalculatorContext => {
+export const useCalculator = (): void => {
 	const history = useAppSelector((state) => state.calculator.history);
 	const displayValue = useAppSelector((state) => state.calculator.displayValue);
 	const result = useAppSelector((state) => state.calculator.result);
+	const command = useAppSelector((state) => state.calculator.command);
 
 	const dispatch = useAppDispatch();
 
-	const handleKeyboardClick = useCallback((value: string): void => {
-		switch (value) {
+	const handleCommand = (command: string | null): void => {
+		switch (command) {
 			case '+':
 				calculator.executeCommand(addPlus());
 				break;
@@ -54,22 +54,22 @@ export const useCalculator = (): ICalculatorContext => {
 				calculator.calcResult();
 				dispatch(setHistory(calculator.history));
 				break;
+			case null:
+				break;
 			default:
-				calculator.executeCommand(addNumber(+value));
+				calculator.executeCommand(addNumber(+command));
 		}
 		dispatch(setResult(calculator.result));
 		dispatch(setDisplayValue(calculator.expression));
-	}, []);
+	};
+
+	useEffect(() => {
+		handleCommand(command);
+	}, [command]);
 
 	useEffect(() => {
 		calculator.expression = displayValue;
-	}, [displayValue]);
-
-	useEffect(() => {
 		calculator.result = result;
-	}, [result]);
-	useEffect(() => {
 		calculator.history = history;
-	}, [history]);
-	return { calculator, handleKeyboardClick };
+	}, [displayValue, result, history]);
 };

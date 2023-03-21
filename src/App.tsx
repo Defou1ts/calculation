@@ -1,30 +1,30 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { Route, Routes } from 'react-router-dom';
+import { AppWrapper } from 'styled';
 import { ThemeProvider } from 'styled-components';
-import { Global, theme } from 'theme';
 
-import { type Theme, type RouteElement } from '@interfaces';
-import { useAppSelector } from '@store';
+import type { RouteElement } from '@interfaces';
 import { routes } from '@utils';
 import { Layout } from '@components';
-import { ROUTES } from '@types';
+import { ROUTES } from '@constants';
+import { useTheme } from '@hooks';
+import { theme } from '@theme';
 
 export const App = (): JSX.Element => {
-	const themeType = useAppSelector((state) => state.theme.theme);
-
-	const evaluatedTheme: Theme = useMemo(() => ({ ...theme, themeType }), [themeType]);
+	const { theme: themeType } = useTheme();
 
 	return (
-		<ThemeProvider theme={evaluatedTheme}>
-			<Global />
-			<Routes>
-				<Route path={ROUTES.HOME_ROUTE} element={<Layout />}>
-					{routes.map(({ path, Component }: RouteElement) => (
-						<Route key={path} path={path} element={Component} />
-					))}
-				</Route>
-			</Routes>
+		<ThemeProvider theme={{ ...theme, themeType }}>
+			<AppWrapper data-test-id='app-wrapper'>
+				<Routes>
+					<Route path={ROUTES.HOME_ROUTE} element={<Layout />}>
+						{routes.map(({ path, Component }: RouteElement) => (
+							<Route key={path} path={path} element={Component} />
+						))}
+					</Route>
+				</Routes>
+			</AppWrapper>
 		</ThemeProvider>
 	);
 };

@@ -1,6 +1,5 @@
-import { type ExpressionCommand, type OperatorCommand } from '@interfaces';
-
-import { CalculatorExceptionType } from './exceptions';
+import type { ExpressionCommand, OperatorCommand } from '@interfaces';
+import { CalculatorExceptionType } from '@constants';
 
 export class AddNumber implements ExpressionCommand {
 	constructor(private readonly value: number) {}

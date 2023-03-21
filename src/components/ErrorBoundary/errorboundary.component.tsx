@@ -1,7 +1,9 @@
-import React, { type ReactNode } from 'react';
+import React from 'react';
+import type { ReactNode } from 'react';
 
-import { type ErrorBoundaryProps } from './interfaces';
 import { ErrorWrapper } from './styled';
+
+import type { ErrorBoundaryProps } from './interfaces';
 
 interface ErrorState {
 	error: boolean;

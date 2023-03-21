@@ -1,9 +1,10 @@
-import { type ExpressionCommand, type Calculator } from 'interfaces/calculator';
+import { ExpressionExceptionType } from '@constants';
 
 import { AddNumber, OperatorExpressionCommand } from './commands';
-import { ExpressionExceptionType } from './exceptions';
 import { ExpressionService } from './expression';
 import { HistoryService } from './history';
+
+import type { ExpressionCommand, Calculator } from 'interfaces/calculator';
 
 export class CalculatorService implements Calculator {
 	private readonly _expression: ExpressionService = new ExpressionService('');
@@ -14,8 +15,12 @@ export class CalculatorService implements Calculator {
 		const lastHistoryResult = this._history.getLastHistoryResult();
 
 		try {
-			if (lastHistoryResult === this._expression.calculate() && command instanceof OperatorExpressionCommand) {
+			if (
+				lastHistoryResult === +this._expression.calculate().toFixed(3) &&
+				command instanceof OperatorExpressionCommand
+			) {
 				this._expression.value = String(lastHistoryResult);
+				this.result = '';
 			}
 
 			if (lastHistoryResult === this._expression.calculate() && command instanceof AddNumber) {

@@ -1,4 +1,4 @@
-import { ROUTES } from '@types';
+import { ROUTES } from '@constants';
 
 const { SETTINGS_CC_ROUTE, HOME_FC_ROUTE, HOME_CC_ROUTE, SETTINGS_FC_ROUTE } = ROUTES;
 
@@ -243,11 +243,11 @@ export function checkThemeSwitch(): void {
 	it('Check theme switch', () => {
 		cy.get('[data-test-id=theme-switch]')
 			.click()
-			.get('body')
+			.get('[data-test-id=app-wrapper]')
 			.should('have.css', 'background-color', 'rgb(249, 249, 249)')
 			.get('[data-test-id=theme-switch]')
 			.click()
-			.get('body')
+			.get('[data-test-id=app-wrapper]')
 			.should('have.css', 'background-color', 'rgb(46, 45, 45)');
 	});
 }

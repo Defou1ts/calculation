@@ -57,5 +57,5 @@ export const theme: Theme = {
 	lineHeight,
 	colors,
 	breakPoints,
-	themeType: lightTheme,
+	themeType: darkTheme,
 };

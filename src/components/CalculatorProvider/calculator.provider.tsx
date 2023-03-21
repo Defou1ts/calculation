@@ -1,14 +1,11 @@
 import React from 'react';
 
-import { CalculatorContext } from '@interfaces';
 import { useCalculator } from '@hooks';
 
-import type { CalculatorProviderProps } from './interfaces';
+import { type CaulculatorProviderProps } from './interfaces';
 
-export const CalculatorProvider = ({ children }: CalculatorProviderProps): JSX.Element => {
-	const { calculator, handleKeyboardClick } = useCalculator();
+export const CalculatorProvider = ({ children }: CaulculatorProviderProps): JSX.Element => {
+	useCalculator();
 
-	return (
-		<CalculatorContext.Provider value={{ calculator, handleKeyboardClick }}>{children}</CalculatorContext.Provider>
-	);
+	return <>{children}</>;
 };

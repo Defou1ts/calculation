@@ -1,14 +1,17 @@
 import React, { memo } from 'react';
 
+import { useDispatch } from 'react-redux';
+
 import { keypadSchema } from '@constants';
+import { setCommand } from '@store';
 
 import { KeypadWrapper, StyledKeyButton } from '../styled';
 
-import type { KeypadProps } from '../interfaces';
+export const KeypadFC = memo(function Keypad(): JSX.Element {
+	const dispatch = useDispatch();
 
-export const KeypadFC = memo(function Keypad({ handleClick }: KeypadProps): JSX.Element {
 	const onKeyClick = (key: string) => () => {
-		handleClick(key);
+		dispatch(setCommand(key));
 	};
 
 	return (

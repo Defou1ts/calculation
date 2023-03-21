@@ -1,14 +1,17 @@
 import React from 'react';
 
+import { connect, type ConnectedProps } from 'react-redux';
+
 import { keypadSchema } from '@constants';
+import { type AppDispatch, setCommand } from '@store';
 
 import { KeypadWrapper, StyledKeyButton } from '../styled';
 
-import type { KeypadProps } from '../interfaces';
+import type { MapDispatchToProps } from './interfaces';
 
-export class KeypadCC extends React.PureComponent<KeypadProps> {
+export class KeypadClass extends React.PureComponent<KeypadProps> {
 	onKeyClick = (key: string) => () => {
-		this.props.handleClick(key);
+		this.props.onKeyClick(key);
 	};
 
 	render(): JSX.Element {
@@ -23,3 +26,15 @@ export class KeypadCC extends React.PureComponent<KeypadProps> {
 		);
 	}
 }
+
+export const mapDispatchToProps = (dispatch: AppDispatch): MapDispatchToProps => ({
+	onKeyClick: (key: string) => {
+		dispatch(setCommand(key));
+	},
+});
+
+export const keypadConnector = connect(null, mapDispatchToProps);
+
+export const KeypadCC = keypadConnector(KeypadClass);
+
+type KeypadProps = ConnectedProps<typeof keypadConnector>;

@@ -10,8 +10,8 @@ import { KeypadWrapper, StyledKeyButton } from '../styled';
 export const KeypadFC = memo(function Keypad(): JSX.Element {
 	const dispatch = useDispatch();
 
-	const onKeyClick = (key: string) => () => {
-		dispatch(setCommand(key));
+	const onKeyClick = (value: string) => () => {
+		dispatch(setCommand({ value }));
 	};
 
 	return (

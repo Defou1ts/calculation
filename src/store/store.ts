@@ -4,14 +4,14 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 import themeReducer from './slices/theme.slice';
 import calculatorReducer from './slices/calculator.slice';
-import globalReducer from './slices/global.slice';
+import historyReducer from './slices/history.slice';
 
 import type { ThunkAction, Action } from '@reduxjs/toolkit';
 
 const rootReducer = combineReducers({
 	theme: themeReducer,
 	calculator: calculatorReducer,
-	global: globalReducer,
+	history: historyReducer,
 });
 
 const persistConfig = {

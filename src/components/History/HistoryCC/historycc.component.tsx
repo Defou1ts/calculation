@@ -34,7 +34,7 @@ export class HistoryClass extends React.Component<HistoryProps> {
 }
 
 const mapState = (state: RootState): MapStateToProps => ({
-	isOpenedHistory: state.global.isOpenedHistory,
+	isOpenedHistory: state.history.isOpenedHistory,
 	history: state.calculator.history,
 });
 

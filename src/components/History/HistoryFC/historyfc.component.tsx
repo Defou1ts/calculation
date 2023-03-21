@@ -5,7 +5,7 @@ import { useAppSelector } from '@store';
 import { HistoryWrapper, MonitorItem, MonitorList, MonitorWrapper, StyledHistoryTitle } from '../styled';
 
 export const HistoryFC = (): JSX.Element | null => {
-	const isOpenedHistory = useAppSelector((state) => state.global.isOpenedHistory);
+	const isOpenedHistory = useAppSelector((state) => state.history.isOpenedHistory);
 	const history = useAppSelector((state) => state.calculator.history);
 
 	if (!isOpenedHistory) {

@@ -2,16 +2,16 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-interface GlobalState {
+interface HistoryState {
 	isOpenedHistory: boolean;
 }
 
-const initialState: GlobalState = {
+const initialState: HistoryState = {
 	isOpenedHistory: true,
 };
 
-export const globalSlice = createSlice({
-	name: 'global',
+export const historySlice = createSlice({
+	name: 'history',
 	initialState,
 	reducers: {
 		toggleIsOpenedHistory: (state, action: PayloadAction<void>) => {
@@ -20,6 +20,6 @@ export const globalSlice = createSlice({
 	},
 });
 
-export const { toggleIsOpenedHistory } = globalSlice.actions;
+export const { toggleIsOpenedHistory } = historySlice.actions;
 
-export default globalSlice.reducer;
+export default historySlice.reducer;

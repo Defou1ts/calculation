@@ -32,7 +32,7 @@ interface MapStateProps {
 
 const mapState = (state: RootState): MapStateProps => ({
 	theme: state.theme.themeName,
-	isOpenedHistory: state.global.isOpenedHistory,
+	isOpenedHistory: state.history.isOpenedHistory,
 });
 
 interface MapDispatchProps {

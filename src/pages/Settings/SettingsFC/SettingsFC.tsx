@@ -12,7 +12,7 @@ export const SettingsFC = (): JSX.Element => {
 	const dispatch = useDispatch();
 
 	const theme = useAppSelector((state) => state.theme.themeName);
-	const isOpenedHistory = useAppSelector((state) => state.global.isOpenedHistory);
+	const isOpenedHistory = useAppSelector((state) => state.history.isOpenedHistory);
 
 	const handleClick = (): void => {
 		dispatch(toggleTheme());

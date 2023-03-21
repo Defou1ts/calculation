@@ -16,7 +16,7 @@ export const App = (): JSX.Element => {
 
 	return (
 		<ThemeProvider theme={{ ...theme, themeType }}>
-			<AppWrapper>
+			<AppWrapper data-test-id='app-wrapper'>
 				<Routes>
 					<Route path={ROUTES.HOME_ROUTE} element={<Layout />}>
 						{routes.map(({ path, Component }: RouteElement) => (

@@ -4,9 +4,9 @@ import { Round, SwitchWrapper } from '../styled';
 
 import type { SwitchProps } from '../interfaces';
 
-export const SwitchFC = ({ onClick, active, ...props }: SwitchProps): JSX.Element => {
+export const SwitchFC = ({ active, ...props }: SwitchProps): JSX.Element => {
 	return (
-		<SwitchWrapper {...props} onClick={onClick}>
+		<SwitchWrapper {...props}>
 			<Round active={active} />
 		</SwitchWrapper>
 	);

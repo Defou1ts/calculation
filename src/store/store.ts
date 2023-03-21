@@ -1,6 +1,7 @@
 import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { getPersistConfig } from 'redux-deep-persist';
 
 import themeReducer from './slices/theme.slice';
 import calculatorReducer from './slices/calculator.slice';
@@ -14,10 +15,12 @@ const rootReducer = combineReducers({
 	history: historyReducer,
 });
 
-const persistConfig = {
+const persistConfig = getPersistConfig({
 	key: 'root',
 	storage,
-};
+	blacklist: ['calculator.result', 'calculator.displayValue'],
+	rootReducer,
+});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

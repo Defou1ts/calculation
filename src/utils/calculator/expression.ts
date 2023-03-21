@@ -1,6 +1,3 @@
-/* eslint-disable no-unmodified-loop-condition */
-/* eslint-disable no-useless-escape */
-
 import type { Expression, OperatorCommand } from '@interfaces';
 
 import { ExpressionExceptionType } from './exceptions';

@@ -13,6 +13,8 @@
 	"plugins": ["react", "@typescript-eslint", "simple-import-sort"],
 	"rules": {
 		"simple-import-sort/exports": "error",
+		"no-unmodified-loop-condition": "off",
+		"@typescript-eslint/triple-slash-reference": "off",
 		"import/order": [
 			"error",
 			{

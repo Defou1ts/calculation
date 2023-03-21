@@ -12,8 +12,6 @@ export const Global = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 		font-family: var(--font-family);
-		background: ${({ theme }) => theme.themeType.themeBackgroundColor};
-		color: ${({ theme }) => theme.themeType.themeTextColor};
 	}
 
 	a {

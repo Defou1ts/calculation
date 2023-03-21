@@ -3,21 +3,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { ButtonCC, SwitchCC } from '@components';
-import { toggleTheme } from '@store';
-import type { AppDispatch, RootState } from '@store';
-import { ThemeName } from '@constants';
+import type { RootState } from '@store';
 
 import { ControlPanel } from '../styled';
 
+import type { MapStateProps } from './interfaces';
 import type { ConnectedProps } from 'react-redux';
 
 export class SettingsClass extends React.Component<SettingsProps> {
 	render(): JSX.Element {
-		const { theme, isOpenedHistory, toggleTheme } = this.props;
+		const { isOpenedHistory } = this.props;
 
 		return (
 			<ControlPanel>
-				<SwitchCC data-test-id="theme-switch" onClick={toggleTheme} active={theme === ThemeName.DARK} />
+				<SwitchCC />
 				<ButtonCC type="clear history" />
 				<ButtonCC type={isOpenedHistory ? 'close history' : 'open history'} />
 			</ControlPanel>
@@ -25,27 +24,11 @@ export class SettingsClass extends React.Component<SettingsProps> {
 	}
 }
 
-interface MapStateProps {
-	theme: ThemeName;
-	isOpenedHistory: boolean;
-}
-
 const mapState = (state: RootState): MapStateProps => ({
-	theme: state.theme.themeName,
 	isOpenedHistory: state.history.isOpenedHistory,
 });
 
-interface MapDispatchProps {
-	toggleTheme: () => void;
-}
-
-const mapDispatch = (dispatch: AppDispatch): MapDispatchProps => ({
-	toggleTheme: (): void => {
-		dispatch(toggleTheme());
-	},
-});
-
-const connector = connect(mapState, mapDispatch);
+const connector = connect(mapState);
 
 type SettingsProps = ConnectedProps<typeof connector>;
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import type { SwitchWrapperProps, SwitchRoundProps } from './types';
+import type { SwitchWrapperProps, SwitchRoundProps } from './interfaces';
 
 export const SwitchWrapper = styled.button<SwitchWrapperProps>`
 	cursor: pointer;

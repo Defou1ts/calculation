@@ -1,13 +1,24 @@
 import React from 'react';
 
+import { useDispatch } from 'react-redux';
+
+import { ThemeName } from '@constants';
+import { useAppSelector, toggleTheme } from '@store';
+
 import { Round, SwitchWrapper } from '../styled';
 
-import type { SwitchProps } from '../interfaces';
+export const SwitchFC = (): JSX.Element => {
+	const dispatch = useDispatch();
 
-export const SwitchFC = ({ active, ...props }: SwitchProps): JSX.Element => {
+	const theme = useAppSelector((state) => state.theme.themeName);
+
+	const handleClick = (): void => {
+		dispatch(toggleTheme());
+	};
+
 	return (
-		<SwitchWrapper {...props}>
-			<Round active={active} />
+		<SwitchWrapper data-test-id="theme-switch" onClick={handleClick}>
+			<Round active={theme === ThemeName.DARK} />
 		</SwitchWrapper>
 	);
 };

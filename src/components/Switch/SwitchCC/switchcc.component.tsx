@@ -1,17 +1,40 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+
+import { ThemeName } from '@constants';
+import { toggleTheme } from '@store';
+import type { RootState, AppDispatch } from '@store';
+
 import { Round, SwitchWrapper } from '../styled';
 
-import type { SwitchProps } from '../interfaces';
+import type { ConnectedProps } from 'react-redux';
+import type { MapDispatchProps, MapStateProps } from './interfaces';
 
-export class SwitchCC extends React.PureComponent<SwitchProps> {
+export class SwitchClass extends React.PureComponent<SwitchProps> {
 	render(): JSX.Element {
-		const { onClick, active, ...props } = this.props;
+		const { toggleTheme, theme } = this.props;
 
 		return (
-			<SwitchWrapper {...props} onClick={onClick}>
-				<Round active={active} />
+			<SwitchWrapper data-test-id="theme-switch" onClick={toggleTheme}>
+				<Round active={theme === ThemeName.DARK} />
 			</SwitchWrapper>
 		);
 	}
 }
+
+const mapState = (state: RootState): MapStateProps => ({
+	theme: state.theme.themeName,
+});
+
+const mapDispatch = (dispatch: AppDispatch): MapDispatchProps => ({
+	toggleTheme: (): void => {
+		dispatch(toggleTheme());
+	},
+});
+
+const switchConnector = connect(mapState, mapDispatch);
+
+type SwitchProps = ConnectedProps<typeof switchConnector>;
+
+export const SwitchCC = switchConnector(SwitchClass);

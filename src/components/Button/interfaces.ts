@@ -1,5 +1,8 @@
-import type { HTMLAttributes, ReactNode } from 'react';
+export interface ButtonProps {
+	type: 'open history' | 'clear history' | 'close history';
+}
 
-export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-	children: ReactNode;
+export interface MapDispatchToProps {
+	handleClearHistory: () => void;
+	handleToggleIsOpenedHistory: () => void;
 }

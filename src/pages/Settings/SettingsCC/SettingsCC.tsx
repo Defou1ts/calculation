@@ -30,7 +30,7 @@ export class SettingsClass extends React.Component<SettingsProps> {
 	};
 
 	render(): JSX.Element {
-		const { theme, clearHistory, isOpenedHistory } = this.props;
+		const { theme, isOpenedHistory } = this.props;
 
 		return (
 			<ControlPanel>
@@ -39,12 +39,8 @@ export class SettingsClass extends React.Component<SettingsProps> {
 					onClick={this.handleToggleTheme}
 					active={theme === ThemeName.DARK}
 				/>
-				<ButtonCC data-test-id="clear-history" onClick={clearHistory}>
-					Clear all history
-				</ButtonCC>
-				<ButtonCC onClick={this.handleToggleIsOpenedHistory}>
-					{isOpenedHistory ? 'Close history' : 'Open history'}
-				</ButtonCC>
+				<ButtonCC type="clear history" />
+				<ButtonCC type={isOpenedHistory ? 'close history' : 'open history'} />
 			</ControlPanel>
 		);
 	}

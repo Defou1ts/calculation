@@ -1,6 +1,6 @@
 import type { Expression, OperatorCommand } from '@interfaces';
+import { ExpressionExceptionType } from '@constants';
 
-import { ExpressionExceptionType } from './exceptions';
 import { SumCommand, SubCommand, MultiplyCommand, DivideCommand } from './commands';
 
 export type Operator = '+' | '-' | '*' | '/' | '(' | ')';

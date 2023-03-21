@@ -1,5 +1,6 @@
+import { ExpressionExceptionType } from '@constants';
+
 import { AddNumber, OperatorExpressionCommand } from './commands';
-import { ExpressionExceptionType } from './exceptions';
 import { ExpressionService } from './expression';
 import { HistoryService } from './history';
 

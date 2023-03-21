@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { useAppDispatch, setResult, setHistory, setDisplayValue, useAppSelector } from '@store';
+import { useAppDispatch, setResult, setHistory, setDisplayValue, useAppSelector, type CommandValue } from '@store';
 import {
 	addPlus,
 	addMinus,
@@ -21,8 +21,8 @@ export const useCalculator = (): void => {
 
 	const dispatch = useAppDispatch();
 
-	const handleCommand = (command: string | null): void => {
-		switch (command) {
+	const handleCommand = (command: CommandValue | null): void => {
+		switch (command?.value) {
 			case '+':
 				calculator.executeCommand(addPlus());
 				break;
@@ -54,10 +54,10 @@ export const useCalculator = (): void => {
 				calculator.calcResult();
 				dispatch(setHistory(calculator.history));
 				break;
-			case null:
-				break;
 			default:
-				calculator.executeCommand(addNumber(+command));
+				if (command !== null) {
+					calculator.executeCommand(addNumber(+command.value));
+				}
 		}
 		dispatch(setResult(calculator.result));
 		dispatch(setDisplayValue(calculator.expression));

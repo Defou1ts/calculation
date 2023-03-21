@@ -12,8 +12,8 @@ import type { ConnectedProps } from 'react-redux';
 import type { MapDispatchToProps } from './interfaces';
 
 export class KeypadClass extends React.PureComponent<KeypadProps> {
-	onKeyClick = (key: string) => () => {
-		this.props.onKeyClick(key);
+	onKeyClick = (value: string) => () => {
+		this.props.onKeyClick(value);
 	};
 
 	render(): JSX.Element {
@@ -30,8 +30,8 @@ export class KeypadClass extends React.PureComponent<KeypadProps> {
 }
 
 export const mapDispatchToProps = (dispatch: AppDispatch): MapDispatchToProps => ({
-	onKeyClick: (key: string) => {
-		dispatch(setCommand(key));
+	onKeyClick: (value: string) => {
+		dispatch(setCommand({ value }));
 	},
 });
 

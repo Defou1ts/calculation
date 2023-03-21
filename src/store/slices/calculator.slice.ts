@@ -6,7 +6,11 @@ interface CalculatorState {
 	displayValue: string;
 	result: string;
 	history: string[];
-	command: string | null;
+	command: CommandValue | null;
+}
+
+export interface CommandValue {
+	value: string;
 }
 
 const initialState: CalculatorState = {
@@ -29,7 +33,7 @@ export const calculatorSlice = createSlice({
 		setResult: (state, action: PayloadAction<string>) => {
 			state.result = action.payload;
 		},
-		setCommand: (state, action: PayloadAction<string>) => {
+		setCommand: (state, action: PayloadAction<CommandValue>) => {
 			state.command = action.payload;
 		},
 	},

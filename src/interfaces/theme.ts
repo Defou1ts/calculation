@@ -1,24 +1,16 @@
 import type { fontWeight, fontSize, padding, borderRadius, gap, height, lineHeight, width, colors } from '@theme';
-import type {
-	ThemeName,
-	ThemeBackgroundColor,
-	ThemeContentColor,
-	ThemeTextColor,
-	ThemeMonitorColor,
-	ThemeButtonColor,
-} from '@constants';
 
 export interface BreakPoints {
 	mobile: number;
 }
 
 export interface ThemeType {
-	themeName: ThemeName;
-	themeBackgroundColor: ThemeBackgroundColor;
-	themeContentColor: ThemeContentColor;
-	themeTextColor: ThemeTextColor;
-	themeMonitorColor: ThemeMonitorColor;
-	themeButtonColor: ThemeButtonColor;
+	themeName: 'light' | 'dark';
+	themeBackgroundColor: '#F1F1F1' | '#2C2C2C';
+	themeContentColor: '#2C2C2C' | '#F1F1F1';
+	themeTextColor: '#F9F9F9' | '#2C2C2C';
+	themeMonitorColor: '#393939' | '#E6E6E6';
+	themeButtonColor: '#FFD568' | '#FEB700';
 }
 
 export interface Theme {

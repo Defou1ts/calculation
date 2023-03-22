@@ -1,7 +1,5 @@
-import type { ThemeName } from '@constants';
-
 export interface MapStateProps {
-	theme: ThemeName;
+	theme: 'light' | 'dark';
 }
 
 export interface MapDispatchProps {

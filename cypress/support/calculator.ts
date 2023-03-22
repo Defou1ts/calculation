@@ -495,11 +495,11 @@ export function checkThemeSwitch(): void {
 		cy.get('[data-test-id=theme-switch]')
 			.click()
 			.get('[data-test-id=layout-wrapper]')
-			.should('have.css', 'background-color', 'rgb(249, 249, 249)')
+			.should('have.css', 'background-color', 'rgb(44, 44, 44)')
 			.get('[data-test-id=theme-switch]')
 			.click()
 			.get('[data-test-id=layout-wrapper]')
-			.should('have.css', 'background-color', 'rgb(46, 45, 45)');
+			.should('have.css', 'background-color', 'rgb(241, 241, 241)');
 	});
 }
 

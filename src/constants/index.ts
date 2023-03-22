@@ -5,4 +5,3 @@ export * from './keypad';
 export * from './navigationElements';
 export * from './routes';
 export * from './routes';
-export * from './theme';

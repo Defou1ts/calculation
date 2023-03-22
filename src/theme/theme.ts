@@ -1,18 +1,18 @@
 import type { BreakPoints, Theme, ThemeType } from '@interfaces';
-import {
-	ThemeName,
-	ThemeBackgroundColor,
-	ThemeContentColor,
-	ThemeTextColor,
-	ThemeMonitorColor,
-	ThemeButtonColor,
-} from '@constants';
 
 export const colors = {
 	red: '#FF6060',
 	lightRed: '#FF7070',
 	white: '#F9F9F9',
 	black: '#00000',
+	dark: '#2C2C2C',
+	light: '#F1F1F1',
+	dullYellow: '#FFD568',
+	lightYellow: '#FEB700',
+	darkGray: '#393939',
+	lightGray: '#E6E6E6',
+	dullWhite: '#BDBDBD',
+	dullBlack: '#989898',
 } as const;
 
 export const fontSize = [16, 24, 36] as const;
@@ -29,21 +29,21 @@ export const breakPoints: BreakPoints = {
 };
 
 export const lightTheme: ThemeType = {
-	themeName: ThemeName.LIGHT,
-	themeBackgroundColor: ThemeBackgroundColor.LIGHT,
-	themeContentColor: ThemeContentColor.LIGHT,
-	themeTextColor: ThemeTextColor.LIGHT,
-	themeMonitorColor: ThemeMonitorColor.LIGHT,
-	themeButtonColor: ThemeButtonColor.LIGHT,
+	themeName: 'light',
+	themeBackgroundColor: colors.light,
+	themeContentColor: colors.dark,
+	themeTextColor: colors.white,
+	themeMonitorColor: colors.darkGray,
+	themeButtonColor: colors.dullYellow,
 };
 
 export const darkTheme: ThemeType = {
-	themeName: ThemeName.DARK,
-	themeBackgroundColor: ThemeBackgroundColor.DARK,
-	themeContentColor: ThemeContentColor.DARK,
-	themeTextColor: ThemeTextColor.DARK,
-	themeMonitorColor: ThemeMonitorColor.DARK,
-	themeButtonColor: ThemeButtonColor.DARK,
+	themeName: 'dark',
+	themeBackgroundColor: colors.dark,
+	themeContentColor: colors.light,
+	themeTextColor: colors.dark,
+	themeMonitorColor: colors.lightGray,
+	themeButtonColor: colors.lightYellow,
 };
 
 export const theme: Theme = {

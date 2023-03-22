@@ -2,7 +2,6 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { ThemeName } from '@constants';
 import { toggleTheme } from '@store';
 import type { RootState, AppDispatch } from '@store';
 
@@ -17,7 +16,7 @@ export class SwitchClass extends React.PureComponent<SwitchProps> {
 
 		return (
 			<SwitchWrapper data-test-id="theme-switch" onClick={toggleTheme}>
-				<Round active={theme === ThemeName.DARK} />
+				<Round active={theme === 'dark'} />
 			</SwitchWrapper>
 		);
 	}

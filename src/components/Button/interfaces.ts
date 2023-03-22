@@ -1,8 +1,9 @@
+import type { ButtonType } from '@interfaces';
+
 export interface ButtonProps {
-	type: 'open history' | 'clear history' | 'close history';
+	type: ButtonType;
 }
 
 export interface MapDispatchToProps {
-	handleClearHistory: () => void;
-	handleToggleIsOpenedHistory: () => void;
+	handleClick: (buttonType: ButtonType) => () => void;
 }

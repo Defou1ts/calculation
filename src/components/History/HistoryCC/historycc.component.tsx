@@ -17,7 +17,7 @@ export class HistoryClass extends React.Component<HistoryProps> {
 		}
 
 		return (
-			<HistoryWrapper>
+			<HistoryWrapper data-test-id="history-wrapper">
 				<StyledHistoryTitle>History</StyledHistoryTitle>
 				<MonitorWrapper>
 					<MonitorList>

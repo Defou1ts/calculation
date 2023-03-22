@@ -8,7 +8,7 @@ import { LayoutWrapper } from './styled';
 
 export const Layout = (): JSX.Element => {
 	return (
-		<LayoutWrapper>
+		<LayoutWrapper data-test-id='layout-wrapper'>
 			<Header />
 			<ErrorBoundary>
 				<Outlet />

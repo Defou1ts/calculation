@@ -2,7 +2,6 @@ import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { ThemeName } from '@constants';
 import { useAppSelector, toggleTheme } from '@store';
 
 import { Round, SwitchWrapper } from '../styled';
@@ -18,7 +17,7 @@ export const SwitchFC = (): JSX.Element => {
 
 	return (
 		<SwitchWrapper data-test-id="theme-switch" onClick={handleClick}>
-			<Round active={theme === ThemeName.DARK} />
+			<Round active={theme === 'dark'} />
 		</SwitchWrapper>
 	);
 };

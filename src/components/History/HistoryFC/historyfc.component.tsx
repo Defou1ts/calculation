@@ -13,7 +13,7 @@ export const HistoryFC = (): JSX.Element | null => {
 	}
 
 	return (
-		<HistoryWrapper>
+		<HistoryWrapper data-test-id='history-wrapper'>
 			<StyledHistoryTitle>History</StyledHistoryTitle>
 			<MonitorWrapper>
 				<MonitorList>

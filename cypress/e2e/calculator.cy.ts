@@ -3,13 +3,20 @@
 import { ROUTES } from '@constants';
 
 import {
+	checkAddNumberAfterResult,
 	checkCalculate,
 	checkClearExpression,
 	checkClearHistory,
 	checkDivision,
+	checkDoubleBracketsError,
+	checkIncorrectNullsError,
 	checkKeypadButtons,
+	checkManySameHistoryItems,
 	checkMultiply,
 	checkNavigationLinks,
+	checkOpenAndCloseHistory,
+	checkOperatorAfterResult,
+	checkRandomValuesInvalidExpression,
 	checkRemoveLastCharacter,
 	checkSubstract,
 	checkSum,
@@ -38,6 +45,12 @@ describe('Home Page Function Components', () => {
 	checkCalculate();
 	checkClearExpression();
 	checkRemoveLastCharacter();
+	checkIncorrectNullsError();
+	checkDoubleBracketsError();
+	checkOperatorAfterResult();
+	checkAddNumberAfterResult();
+	checkRandomValuesInvalidExpression();
+	checkManySameHistoryItems();
 });
 
 describe('Home Page Class Components', () => {
@@ -60,6 +73,12 @@ describe('Home Page Class Components', () => {
 	checkCalculate();
 	checkClearExpression();
 	checkRemoveLastCharacter();
+	checkIncorrectNullsError();
+	checkDoubleBracketsError();
+	checkOperatorAfterResult();
+	checkAddNumberAfterResult();
+	checkRandomValuesInvalidExpression();
+	checkManySameHistoryItems();
 });
 
 describe('Settings Page Function Components', () => {
@@ -94,10 +113,12 @@ describe('Settings Page Class Components', () => {
 
 describe('Clear history function fomponent', () => {
 	checkClearHistory(HOME_FC_ROUTE, SETTINGS_FC_ROUTE);
+	checkOpenAndCloseHistory(HOME_FC_ROUTE, SETTINGS_FC_ROUTE);
 });
 
 describe('Clear history class fomponent', () => {
 	checkClearHistory(HOME_CC_ROUTE, SETTINGS_CC_ROUTE);
+	checkOpenAndCloseHistory(HOME_CC_ROUTE, SETTINGS_CC_ROUTE);
 });
 
 describe('Check navigation', () => {

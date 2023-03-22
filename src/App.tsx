@@ -4,9 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import type { RouteElement } from '@interfaces';
-import { routes } from '@utils';
+import { routes, ROUTES } from '@constants';
 import { Layout } from '@components';
-import { ROUTES } from '@constants';
 import { useTheme } from '@hooks';
 import { theme } from '@theme';
 

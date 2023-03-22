@@ -2,9 +2,17 @@ import React from 'react';
 
 import { Navigate } from 'react-router-dom';
 
-import { ROUTES } from '@constants';
 import type { RouteElement } from '@interfaces';
 import { HomeFC, HomeСC, SettingsFC, SettingsCC } from '@pages';
+
+export enum ROUTES {
+	HOME_ROUTE = '/',
+	HOME_FC_ROUTE = '/fc',
+	HOME_CC_ROUTE = '/cc',
+	SETTINGS_FC_ROUTE = '/settings-fc',
+	SETTINGS_CC_ROUTE = '/settings-cc',
+	ALL = '*',
+}
 
 const { HOME_CC_ROUTE, HOME_FC_ROUTE, HOME_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE, ALL } = ROUTES;
 

@@ -13,7 +13,6 @@ export class CalculatorService implements Calculator {
 
 	executeCommand(command: ExpressionCommand): void {
 		const lastHistoryResult = this._history.getLastHistoryResult();
-
 		try {
 			if (
 				lastHistoryResult === +this._expression.calculate().toFixed(3) &&
@@ -23,7 +22,11 @@ export class CalculatorService implements Calculator {
 				this.result = '';
 			}
 
-			if (lastHistoryResult === this._expression.calculate() && command instanceof AddNumber) {
+			if (
+				lastHistoryResult === this._expression.calculate() &&
+				command instanceof AddNumber &&
+				+this._expression.value !== this._expression.calculate()
+			) {
 				this._expression.value = '';
 			}
 		} catch (error: unknown) {}

@@ -11,27 +11,20 @@ import type { ButtonProps } from '../interfaces';
 export const ButtonFC = ({ type }: ButtonProps): JSX.Element => {
 	const dispatch = useDispatch();
 
-	const handleClearHistory = (): void => {
-		dispatch(setHistory([]));
+	const { type: buttonType } = type;
+
+	const handleClick = (): void => {
+		if (buttonType === 'clear') {
+			dispatch(setHistory([]));
+		}
+		if (buttonType === 'close' || buttonType === 'open') {
+			dispatch(toggleIsOpenedHistory());
+		}
 	};
 
-	const handleToggleIsOpenedHistory = (): void => {
-		dispatch(toggleIsOpenedHistory());
-	};
-
-	switch (type) {
-		case 'open history':
-			return <StyledButton onClick={handleToggleIsOpenedHistory}>Open history</StyledButton>;
-		case 'clear history':
-			return (
-				<StyledButton data-test-id="clear-history" onClick={handleClearHistory}>
-					Clear all history
-				</StyledButton>
-			);
-		case 'close history':
-			return <StyledButton onClick={handleToggleIsOpenedHistory}>Close history</StyledButton>;
-
-		default:
-			return <></>;
-	}
+	return (
+		<StyledButton data-test-id={type.id} onClick={handleClick}>
+			{type.title}
+		</StyledButton>
+	);
 };

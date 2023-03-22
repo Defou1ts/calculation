@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { ButtonCC, SwitchCC } from '@components';
+import { clear, close, open } from '@constants';
 import type { RootState } from '@store';
 
 import { ControlPanel } from '../styled';
@@ -17,8 +18,8 @@ export class SettingsClass extends React.Component<SettingsProps> {
 		return (
 			<ControlPanel>
 				<SwitchCC />
-				<ButtonCC type="clear history" />
-				<ButtonCC type={isOpenedHistory ? 'close history' : 'open history'} />
+				<ButtonCC type={clear} />
+				<ButtonCC type={isOpenedHistory ? close : open} />
 			</ControlPanel>
 		);
 	}

@@ -1,5 +1,6 @@
 import type { NavigationElement } from '@interfaces';
-import { ROUTES } from '@constants';
+
+import { ROUTES } from './routes';
 
 const { HOME_CC_ROUTE, HOME_FC_ROUTE, SETTINGS_CC_ROUTE, SETTINGS_FC_ROUTE } = ROUTES;
 

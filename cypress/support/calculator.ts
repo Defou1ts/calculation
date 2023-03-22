@@ -196,6 +196,257 @@ export function checkCalculate(): void {
 	});
 }
 
+export function checkIncorrectNullsError(): void {
+	it('Check incorrect nulls', () => {
+		cy.get('[data-test-id=key]')
+			.contains('0')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('/')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('0')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=display-result-value]')
+			.contains('Invalid expression')
+			.get('[data-test-id=key]')
+			.contains('C')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('1')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('/')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('0')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=display-result-value]')
+			.contains('Invalid expression')
+			.get('[data-test-id=key]')
+			.contains('C');
+	});
+}
+
+export function checkDoubleBracketsError(): void {
+	it('Check double brackets error', () => {
+		cy.get('[data-test-id=key]')
+			.contains('(')
+			.click()
+			.get('[data-test-id=key]')
+			.contains(')')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('(')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=display-result-value]')
+			.contains('Invalid expression')
+			.get('[data-test-id=key]')
+			.contains('C')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('(')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('(')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('(')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=display-result-value]')
+			.contains('Invalid expression')
+			.get('[data-test-id=key]')
+			.contains('C');
+	});
+}
+
+export function checkOperatorAfterResult(): void {
+	it('Check operator after result', () => {
+		cy.get('[data-test-id=key]')
+			.contains('2')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('/')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('2')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('*')
+			.click()
+			.get('[data-test-id=display-value]')
+			.contains('1*')
+			.get('[data-test-id=key]')
+			.contains('C')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('1')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('5')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('/')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('3')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('*')
+			.click()
+			.get('[data-test-id=display-value]')
+			.contains('5*')
+			.get('[data-test-id=key]')
+			.contains('C')
+			.click();
+	});
+}
+
+export function checkAddNumberAfterResult(): void {
+	it('Check add number after result', () => {
+		cy.get('[data-test-id=key]')
+			.contains('2')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('/')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('2')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('8')
+			.click()
+			.get('[data-test-id=display-value]')
+			.contains('8')
+			.get('[data-test-id=key]')
+			.contains('C')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('2')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('4')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('/')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('2')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('2')
+			.click()
+			.get('[data-test-id=display-value]')
+			.contains('2')
+			.get('[data-test-id=key]')
+			.contains('C')
+			.click();
+	});
+}
+
+export function checkRandomValuesInvalidExpression(): void {
+	it('Check random values invalid expressions', () => {
+		cy.get('[data-test-id=key]')
+			.contains('.')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('/')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('9')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=display-result-value]')
+			.contains('Invalid expression')
+			.get('[data-test-id=key]')
+			.contains('C')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('(')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('.')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('*')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=display-result-value]')
+			.contains('Invalid expression')
+			.get('[data-test-id=key]')
+			.contains('C')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('+')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('*')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=display-result-value]')
+			.contains('Invalid expression');
+	});
+}
+
+export function checkManySameHistoryItems(): void {
+	it('Check many same history items', () => {
+		cy.get('[data-test-id=key]')
+			.contains('2')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('+')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('6')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=key]')
+			.contains('=')
+			.click()
+			.get('[data-test-id=history-monitor]')
+			.contains('2+6=8')
+			.should('have.length', 1);
+	});
+}
+
 export function checkClearExpression(): void {
 	it('Check clear expression', () => {
 		cy.get('[data-test-id=key]')
@@ -243,12 +494,12 @@ export function checkThemeSwitch(): void {
 	it('Check theme switch', () => {
 		cy.get('[data-test-id=theme-switch]')
 			.click()
-			.get('[data-test-id=app-wrapper]')
-			.should('have.css', 'background-color', 'rgb(249, 249, 249)')
+			.get('[data-test-id=layout-wrapper]')
+			.should('have.css', 'background-color', 'rgb(44, 44, 44)')
 			.get('[data-test-id=theme-switch]')
 			.click()
-			.get('[data-test-id=app-wrapper]')
-			.should('have.css', 'background-color', 'rgb(46, 45, 45)');
+			.get('[data-test-id=layout-wrapper]')
+			.should('have.css', 'background-color', 'rgb(241, 241, 241)');
 	});
 }
 
@@ -275,6 +526,24 @@ export function checkClearHistory(homeRoute: string, settingsRoute: string): voi
 			.visit(homeRoute)
 			.get('[data-test-id=history-monitor]')
 			.should('not.exist');
+	});
+}
+
+export function checkOpenAndCloseHistory(homeRoute: string, settingsRoute: string): void {
+	it('Check open and close history', () => {
+		cy.visit(homeRoute)
+			.get('[data-test-id=history-wrapper]')
+			.visit(settingsRoute)
+			.get('[data-test-id=close-history]')
+			.click()
+			.visit(homeRoute)
+			.get('[data-test-id=history-wrapper]')
+			.should('not.exist')
+			.visit(settingsRoute)
+			.get('[data-test-id=open-history]')
+			.click()
+			.visit(homeRoute)
+			.get('[data-test-id=history-wrapper]');
 	});
 }
 

@@ -27,8 +27,6 @@ export class CalculatorService implements Calculator {
 				command instanceof AddNumber &&
 				+this._expression.value !== this._expression.calculate()
 			) {
-				console.log(lastHistoryResult);
-				console.log(this._expression.calculate());
 				this._expression.value = '';
 			}
 		} catch (error: unknown) {}

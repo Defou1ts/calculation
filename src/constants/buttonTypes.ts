@@ -7,12 +7,12 @@ const buttonTypes: Record<string, ButtonType> = {
 		type: 'clear',
 	},
 	close: {
-		id: '',
+		id: 'close-history',
 		title: 'Close history',
 		type: 'close',
 	},
 	open: {
-		id: '',
+		id: 'open-history',
 		title: 'Open History',
 		type: 'open',
 	},

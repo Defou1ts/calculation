@@ -28,22 +28,24 @@ export const breakPoints: BreakPoints = {
 	mobile: 1100,
 };
 
+const { light, dark, white, darkGray, lightGray, lightYellow, dullYellow } = colors;
+
 export const lightTheme: ThemeType = {
 	themeName: 'light',
-	themeBackgroundColor: colors.light,
-	themeContentColor: colors.dark,
-	themeTextColor: colors.white,
-	themeMonitorColor: colors.darkGray,
-	themeButtonColor: colors.dullYellow,
+	themeBackgroundColor: light,
+	themeContentColor: dark,
+	themeTextColor: white,
+	themeMonitorColor: darkGray,
+	themeButtonColor: dullYellow,
 };
 
 export const darkTheme: ThemeType = {
 	themeName: 'dark',
-	themeBackgroundColor: colors.dark,
-	themeContentColor: colors.light,
-	themeTextColor: colors.dark,
-	themeMonitorColor: colors.lightGray,
-	themeButtonColor: colors.lightYellow,
+	themeBackgroundColor: dark,
+	themeContentColor: light,
+	themeTextColor: dark,
+	themeMonitorColor: lightGray,
+	themeButtonColor: lightYellow,
 };
 
 export const theme: Theme = {

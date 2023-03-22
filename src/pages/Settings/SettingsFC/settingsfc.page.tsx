@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ButtonFC, SwitchFC } from '@components';
 import { useAppSelector } from '@store';
+import { clear, close, open } from '@constants';
 
 import { ControlPanel } from '../styled';
 
@@ -11,8 +12,8 @@ export const SettingsFC = (): JSX.Element => {
 	return (
 		<ControlPanel>
 			<SwitchFC />
-			<ButtonFC type="clear history" />
-			<ButtonFC type={isOpenedHistory ? 'close history' : 'open history'} />
+			<ButtonFC type={clear} />
+			<ButtonFC type={isOpenedHistory ? close : open} />
 		</ControlPanel>
 	);
 };

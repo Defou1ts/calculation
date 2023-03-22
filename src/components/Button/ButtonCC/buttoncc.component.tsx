@@ -12,32 +12,25 @@ import type { ButtonProps, MapDispatchToProps } from '../interfaces';
 
 export class ButtonClass extends PureComponent<ButtonPropsWithHandlers> {
 	render(): JSX.Element {
-		const { type, handleToggleIsOpenedHistory, handleClearHistory } = this.props;
+		const { type, handleClick } = this.props;
 
-		switch (type) {
-			case 'open history':
-				return <StyledButton onClick={handleToggleIsOpenedHistory}>Open history</StyledButton>;
-			case 'clear history':
-				return (
-					<StyledButton data-test-id="clear-history" onClick={handleClearHistory}>
-						Clear all history
-					</StyledButton>
-				);
-			case 'close history':
-				return <StyledButton onClick={handleToggleIsOpenedHistory}>Close history</StyledButton>;
-
-			default:
-				return <></>;
-		}
+		return (
+			<StyledButton data-test-id={type.id} onClick={handleClick(type)}>
+				{type.title}
+			</StyledButton>
+		);
 	}
 }
 
 const mapDispatchToProps = (dispatch: AppDispatch): MapDispatchToProps => ({
-	handleClearHistory: (): void => {
-		dispatch(setHistory([]));
-	},
-	handleToggleIsOpenedHistory: () => {
-		dispatch(toggleIsOpenedHistory());
+	handleClick: (buttonType) => () => {
+		const { type } = buttonType;
+		if (type === 'clear') {
+			dispatch(setHistory([]));
+		}
+		if (type === 'close' || type === 'open') {
+			dispatch(toggleIsOpenedHistory());
+		}
 	},
 });
 

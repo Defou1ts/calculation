@@ -1,3 +1,4 @@
+export * from './buttonTypes';
 export * from './environment';
 export * from './exceptions';
 export * from './keypad';

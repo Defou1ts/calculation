@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -9,7 +9,7 @@ import { Layout } from '@components';
 import { useTheme } from '@hooks';
 import { theme } from '@theme';
 
-export const App = (): JSX.Element => {
+export const App = memo(function App(): JSX.Element {
 	const { theme: themeType } = useTheme();
 
 	return (
@@ -23,4 +23,4 @@ export const App = (): JSX.Element => {
 			</Routes>
 		</ThemeProvider>
 	);
-};
+});

@@ -4,11 +4,11 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
-import { CalculatorProvider } from 'components/CalculatorProvider/calculator.provider';
 
 import { persistor, store } from '@store';
 import { ErrorBoundary } from '@components';
 import { Global } from '@theme';
+import { useCalculator } from '@hooks';
 
 import { App } from './App';
 
@@ -20,16 +20,20 @@ if (container === null) {
 
 const root = createRoot(container);
 
+const RootComponent = (): JSX.Element => {
+	useCalculator();
+
+	return <App />;
+};
+
 root.render(
 	<BrowserRouter>
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}>
-				<CalculatorProvider>
-					<ErrorBoundary>
-						<Global />
-						<App />
-					</ErrorBoundary>
-				</CalculatorProvider>
+				<ErrorBoundary>
+					<Global />
+					<RootComponent />
+				</ErrorBoundary>
 			</PersistGate>
 		</Provider>
 	</BrowserRouter>
